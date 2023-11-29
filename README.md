@@ -1,4 +1,3 @@
-![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/c5f77c2f-7e3c-4b51-824e-5c6227e4a264)# read-me
 
 ### 推荐文章 ⭐️⭐️⭐️⭐️⭐️
 
