@@ -136,4 +136,3 @@ IdP 提供给客户端（App1，App2，App3）用户登录方式，比如用户�
 
 SSO 的实现，更多是偏向架构的思考，各位可以通过
 Taina Teravainen 大佬关于[SSO的文章](https://www.techtarget.com/searchsecurity/definition/single-sign-on)了解更多。
-
