@@ -66,6 +66,8 @@
   > [https://web.dev/?hl=zh-cn](https://web.dev/?hl=zh-cn)
 - 一个开发人员交流的社区，ps: 摸鱼是永恒的主题 | *推荐指数*：⭐️⭐️⭐️⭐️⭐️
   > [https://dev.to/](https://dev.to/)
+- 一个开发人员日常推送的好文网站，他们支持多客户端，甚至Chrome Extension | *推荐指数*：⭐️⭐️⭐️⭐️⭐️
+  > [https://daily.dev/](https://daily.dev/)
 
 --------------------------------------------------
 
