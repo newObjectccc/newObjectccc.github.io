@@ -11,6 +11,7 @@
 here we go！🚀
 
 ps：以下是基于 docker-compose 哟，如果你没有 docker 和 docker-compose 的前置知识，请适当了解一下再看，不过相信我，就算你不熟悉，只要你会安装 docker 和 docker-compose 就可以。
+![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/46e2d9d3-e0b2-461a-a124-a6883c4c9720)
 
 ### 正文开始👉
 
