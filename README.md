@@ -68,7 +68,7 @@
 
 |网站描述|网站链接|推荐指数|
 |------------------------|-------------------------|-----------------------|
-| 有着超级多Emoji的宝藏网站 | [https://emojipedia.org/](https://emojipedia.org/) |⭐️⭐️⭐️⭐️⭐️|
+| 有着超级多Emoji的宝藏网站 | [https://emojipedia.org](https://emojipedia.org/) |⭐️⭐️⭐️⭐️⭐️|
 | 有着超级多UI设计的宝藏网站 | [https://mobbin.com/](https://mobbin.com/browse/ios/apps) |⭐️⭐️⭐️⭐️⭐️|
 | 很著名的可以摸鱼或者demo记录的网站 | [https://codepen.io/](https://codepen.io/) |⭐️⭐️⭐️⭐️⭐️|
 | 你应该知道的程序员问题求助社区 | [stackoverflow.com](https://stackoverflow.com/) |⭐️⭐️⭐️⭐️⭐️|
