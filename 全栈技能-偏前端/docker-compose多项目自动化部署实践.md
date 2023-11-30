@@ -178,6 +178,12 @@ docker-compose up -d --remove-orphans
 
 💡*ps：请注意，以上 `git` 部分要生效需要你提前在你的工作目录中（`cd ~/gitee_go/cq-backend`）创建 `git` 仓库，checkout 2个部署文件就可以了，这样你的 `git` 仓库就只有这俩文件，而不是整个 `monorepo`*
 
+建议你ssh到你的实例上去用 `docker ps` 验证一下，如果输出如下，那便没啥问题了：
+
+![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/32064f66-781b-4ed9-9698-9438f43549db)
+
+💡*ps：这是一个入门示例，请别直接用到生产环境，你还需要做更多的容错和 `backup` 的方案，至少你的 `CI` 需要更多的测试相关 `pipeline` , `CD` 上你需要对每一个服务进行较为完善的监控，做好预警等措施*
+
 ------------------------------------------------
 
 😊okk~ 这就是我的入门实践了，希望能帮助到你，赶紧去部署你的应用吧~
