@@ -4,6 +4,8 @@
 - **Twitter**: @cccxy10086
 - **Bilibili**: Vesper此间之一
 
+*Do not waste your time, just do something and keep learning.*
+
 ![bg](https://pbs.twimg.com/profile_banners/750599636772061184/1700839325/1080x360)
 
 *Fullstack developer ‖ Anime enthusiast ‖ Continuously working, always doing something, and constantly learning，but never being oneself.*
