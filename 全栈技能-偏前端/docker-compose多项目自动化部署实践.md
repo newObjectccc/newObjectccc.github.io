@@ -149,6 +149,12 @@ http {
 
 okk~ 剩下的工作，你只需要配置好你的 `gitee` 流水线就可以了，这里给出一个简单的示例：
 
+总体来说就是等待 `cqbackend` 和 `apigateway` 镜像打包完成之后再进行主机部署
+
+![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/57603283-cedd-4cba-9328-3f030eb6f02a)
+
+💡*ps：如果你想用于生产环境，建议你用 `pipeline` 测试你的程序，通过之后再进行主机部署*
+
 这是在流水线中 `主机部署` 里需要的 `bash`
 
 ```bash
@@ -174,4 +180,4 @@ docker-compose up -d --remove-orphans
 
 ------------------------------------------------
 
-😊okk~ 这就是我的入门实践了，希望能帮助到您，赶紧去部署您的应用吧~
+😊okk~ 这就是我的入门实践了，希望能帮助到你，赶紧去部署你的应用吧~
