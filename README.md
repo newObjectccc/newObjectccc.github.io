@@ -71,7 +71,7 @@
 | 有着超级多Emoji的宝藏网站 | [https://emojipedia.org/](https://emojipedia.org/) |⭐️⭐️⭐️⭐️⭐️|
 | 有着超级多UI设计的宝藏网站 | [https://mobbin.com/](https://mobbin.com/browse/ios/apps) |⭐️⭐️⭐️⭐️⭐️|
 | 很著名的可以摸鱼或者demo记录的网站 | [https://codepen.io/](https://codepen.io/) |⭐️⭐️⭐️⭐️⭐️|
-| 你应该知道的程序员问题求助社区 | [https://stackoverflow.com/](https://stackoverflow.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 你应该知道的程序员问题求助社区 | [stackoverflow.com](https://stackoverflow.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 全Web平台研发的技术社区，中文友好，ps: 你不应该只知道MDN | [https://web.dev/](https://web.dev/?hl=zh-cn) |⭐️⭐️⭐️⭐️⭐️|
 | 开发人员交流的社区，ps: 摸鱼是永恒的主题 | [https://dev.to/](https://dev.to/) |⭐️⭐️⭐️⭐️⭐️|
 | 开发人员社区日常推送的好文、资讯，支持Chrome Extension | [https://daily.dev/](https://daily.dev/) |⭐️⭐️⭐️⭐️⭐️|
