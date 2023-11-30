@@ -4,4 +4,4 @@
 
 作者不是自由职业者，所以时间不会太多，并且有多个兼职。但是我会尽量保持更新的。
 
-- [docker-compose多项目部署实践](./docker-compose多项目部署实践.md)
+- [docker-compose多项目自动化部署实践](./docker-compose多项目自动化部署实践.md)
