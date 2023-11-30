@@ -49,6 +49,7 @@
 | [浅谈浏览器跨域cors](./网络相关-偏前端/浏览器跨域cors一次说明白.md) |⭐️⭐️⭐️⭐️|
 | [validation中的一点点函数式编程](./前端业务实践/实际业务validator中的函数式编程.md) |⭐️⭐️⭐️⭐️|
 | [你的异步请求完全可以脱离useEffect](./前端业务实践/你的异步请求完全可以脱离useEffect.md) |⭐️⭐️⭐️⭐️|
+| [docker-compose多项目部署实践](./前端业务实践/docker-compose多项目部署实践.md) |⭐️⭐️⭐️⭐️|
 
 ### 更多文章请走分类阅读入口 👇
 
@@ -57,6 +58,7 @@
 - 📁[前端业务实践](./前端业务实践)
 - 📁[前端杂谈](./前端杂谈)
 - 📁[网络相关-偏前端](./网络相关-偏前端)
+- 📁[全栈技能-偏前端](./全栈技能-偏前端)
 - 📁[源码浅读](./源码浅读)
 
 ### 推荐一些网站 🌐
@@ -64,8 +66,8 @@
 |网站描述|网站链接|推荐指数|
 |------------------------|-------------------------|-----------------------|
 | 有着超级多Emoji的宝藏网站 | [https://emojipedia.org/](https://emojipedia.org/) |⭐️⭐️⭐️⭐️⭐️|
-| 有着超级多UI设计的宝藏网站 | [https://mobbin.com/browse/ios/apps](https://mobbin.com/browse/ios/apps) |⭐️⭐️⭐️⭐️⭐️| 
-| 很著名的可以摸鱼或者demo记录的网站 | [https://codepen.io/](https://codepen.io/) |⭐️⭐️⭐️⭐️⭐️| 
+| 有着超级多UI设计的宝藏网站 | [https://mobbin.com/browse/ios/apps](https://mobbin.com/browse/ios/apps) |⭐️⭐️⭐️⭐️⭐️|
+| 很著名的可以摸鱼或者demo记录的网站 | [https://codepen.io/](https://codepen.io/) |⭐️⭐️⭐️⭐️⭐️|
 | 你应该知道的程序员问题求助社区 | [https://stackoverflow.com/](https://stackoverflow.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 全Web平台研发的技术社区，中文友好，ps: 你不应该只知道MDN | [https://web.dev/?hl=zh-cn](https://web.dev/?hl=zh-cn) |⭐️⭐️⭐️⭐️⭐️|
 | 开发人员交流的社区，ps: 摸鱼是永恒的主题 | [https://dev.to/](https://dev.to/) |⭐️⭐️⭐️⭐️⭐️|
