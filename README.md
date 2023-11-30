@@ -72,7 +72,7 @@
 | 你应该知道的程序员问题求助社区 | [https://stackoverflow.com/](https://stackoverflow.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 全Web平台研发的技术社区，中文友好，ps: 你不应该只知道MDN | [https://web.dev/?hl=zh-cn](https://web.dev/?hl=zh-cn) |⭐️⭐️⭐️⭐️⭐️|
 | 开发人员交流的社区，ps: 摸鱼是永恒的主题 | [https://dev.to/](https://dev.to/) |⭐️⭐️⭐️⭐️⭐️|
-| 开发人员社区日常推送的好文、资讯，支持多客户端，甚至Chrome Extension | [https://daily.dev/](https://daily.dev/) |⭐️⭐️⭐️⭐️⭐️|
+| 开发人员社区日常推送的好文、资讯，支持Chrome Extension | [https://daily.dev/](https://daily.dev/) |⭐️⭐️⭐️⭐️⭐️|
 
 --------------------------------------------------
 
