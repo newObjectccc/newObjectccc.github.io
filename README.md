@@ -89,6 +89,7 @@
 | 高性能且开源状态管理，路由管理，数据可视化，无头UI，表单，列表，等等 | [https://tanstack.com/](https://tanstack.com/) |⭐️⭐️⭐️⭐️⭐️|
 | Js随机数库，简单好用，功能齐全 | [https://chancejs.com/](https://chancejs.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 全功能的日历组件，不仅仅是日历 | [https://fullcalendar.io/](https://fullcalendar.io/) |⭐️⭐️⭐️⭐️⭐️|
+| 一个非常nice的设计模式学习网站 | [https://www.patterns.dev/](https://www.patterns.dev/) |⭐️⭐️⭐️⭐️⭐️|
 
 --------------------------------------------------
 
