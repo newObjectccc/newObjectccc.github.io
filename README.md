@@ -78,7 +78,7 @@
 | 你应该知道的程序员问题求助社区 | [stackoverflow.com](https://stackoverflow.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 全Web平台研发的技术社区，中文友好，ps: 你不应该只知道MDN | [https://web.dev/](https://web.dev/?hl=zh-cn) |⭐️⭐️⭐️⭐️⭐️|
 | 开发人员交流的社区，ps: 摸鱼是永恒的主题 | [https://dev.to/](https://dev.to/) |⭐️⭐️⭐️⭐️⭐️|
-| 开发人员社区日常推送的好文、资讯，支持Chrome Extension | [https://daily.dev/](https://daily.dev/) |⭐️⭐️⭐️⭐️⭐️|
+| 前端也要兼职设计哟，可画让你如虎添翼 | [https://www.canva.com/zh_cn/](https://www.canva.com/zh_cn/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些技术网站 🧰
 
