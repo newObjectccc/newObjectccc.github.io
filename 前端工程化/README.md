@@ -5,4 +5,5 @@
 作者不是自由职业者，所以时间不会太多，并且有多个兼职。但是我会尽量保持更新的。
 
 - [前端工程化package.json配置总结](./前端工程化package.json配置总结.md)(Entry-Level)
-- [docker-compose多项目自动化部署实践](./全栈技能-偏前端/docker-compose多项目自动化部署实践.md)(Entry-Level)
+- [CICD多项目自动化部署实践](./全栈技能-偏前端/docker-compose多项目自动化部署实践.md)(Entry-Level)
+- [为你的团队尝试比Babel快20-70倍的SWC吧](./为你的团队尝试比Babel快20-70倍的SWC吧.md)(Mid-Level)
