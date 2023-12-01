@@ -138,3 +138,5 @@ const sholdLessThan2000 = pipeline(findMax, isSmallerOrEqual(2000), rejectByErro
 
 工具库请移步 👉 [Underscore.js](https://github.com/jashkenas/underscore)
 优秀实践请移步 👉 [RxJS](https://github.com/ReactiveX/rxjs)
+ 
+> 2023/12/01 patch：今天我发现了一个JavaScript的feature，但是还在TC39的第2阶段，也就是草案阶段，但真的让人兴奋！
