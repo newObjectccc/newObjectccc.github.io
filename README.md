@@ -50,6 +50,7 @@
 | [可视化浏览器事件循环](./前端基础/前端基础-可视化事件循环.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [为你的团队尝试比Babel快20-70倍的SWC吧](./前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [你应该知道如何用VSCode进行Debugger](./前端业务实践/你应该知道如何用VSCode进行Debugger.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [前端应该知道的curl请求](./网络相关-偏前端/前端应该知道的curl请求.md) | Entry-Level |⭐️⭐️⭐️⭐️|
 | [validation中的一点点函数式编程](./前端业务实践/实际业务validator中的函数式编程.md) | Entry-Level |⭐️⭐️⭐️⭐️|
 | [docker-compose多项目自动化部署实践入门](./全栈技能-偏前端/docker-compose多项目自动化部署实践.md) | Entry-Level |⭐️⭐️⭐️⭐️|
 | [前端基础与面试杂谈](./前端杂谈/前端杂谈-前端基础与面试.md) | Mid-Level |⭐️⭐️⭐️⭐️|
