@@ -31,6 +31,7 @@ ps：以下是基于 `github` 哟，如果你没有 `github`，那么再见~
 - 找到 setting
 - 找到 Page 即 Github Page
 
+![080a1965278ff7ab461faf15b528c4e](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/915573fa-dbc8-4e04-ba60-39112953a672)
 
 ------------------------------------------------
 
