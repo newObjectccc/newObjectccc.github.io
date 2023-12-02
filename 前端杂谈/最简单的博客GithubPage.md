@@ -19,6 +19,7 @@ ps：以下是基于 `github` 哟，如果你没有 `github`，那么再见~
 #### 1. 首先打开 Github📌
 
 - 创建一个新仓库，比如 newobjectccc.github.io 就是我的仓库名
+![192c2e5e8bb00b5fffc8c98bcd7c869](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/98b25d20-ade2-485c-8e6f-5a6e65bf0bee)
 
 
 ![307f1ca20549675b8dc3990a17146ed](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/0356bac9-232d-4aa0-91b8-66095b628232)
