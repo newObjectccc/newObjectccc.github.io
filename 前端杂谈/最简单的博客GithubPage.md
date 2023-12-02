@@ -30,8 +30,9 @@ ps：以下是基于 `github` 哟，如果你没有 `github`，那么再见~
 
 然后进入仓库主页按如下步骤操作即可
 
-- 找到 setting
-- 找到 Page 即 Github Page
+- 找到 settings
+- 找到 Pages 即 Github Page
+- 找到 branch
 - 选择一个用于发布的分支比如 main
 
 ![080a1965278ff7ab461faf15b528c4e](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/915573fa-dbc8-4e04-ba60-39112953a672)
