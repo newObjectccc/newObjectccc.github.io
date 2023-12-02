@@ -18,7 +18,7 @@ ps：以下是基于 `github` 哟，如果你没有 `github`，那么再见~
 
 相信细心的小伙伴已经注意到了，其实我的这个仓库全都是markdown，而且也是基于GitHub Page的部署的。
 
-#### 1. 首先打开 Github📌
+#### 首先打开 Github📌
 
 - 创建一个新仓库，比如 newobjectccc.github.io 就是我的仓库名
 
@@ -38,6 +38,8 @@ ps：以下是基于 `github` 哟，如果你没有 `github`，那么再见~
 ![080a1965278ff7ab461faf15b528c4e](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/915573fa-dbc8-4e04-ba60-39112953a672)
 
 okk，已经可以了，你去修改你设定的发布分支代码试试吧！
+
+一切都已就绪，你只需要写你的markdown即可。🏎️
 
 ------------------------------------------------
 
