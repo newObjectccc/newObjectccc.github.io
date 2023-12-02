@@ -1,26 +1,26 @@
 #
 
-## 🚀你应该知道如何用VSCode进行Debugger
+## 🚀你应该知道如何用Github Page部署你的博客
 
-相信有很多小伙伴有都有使用过 Visual Studio Code ，它的确很不错，我从 Atom，Vim，NeoVim，一路辗转过来，确实还是挺好用的，开始有种想要慢慢脱离 Vim 模式的冲动。
+相信有很多小伙伴都想试着写自己的博客，分享一些自己的故事或者技术或者心情，但是不论是Next.js还是Nuxt.js，
 
-如果你的 `Web App` 能够在 VSCode 中开始调试的话，应该能提高不少写 Bug 的效率吧~
+不论是vercel还是netify，似乎都有点麻烦，我只是单纯想写个markdown咋办？今天我们就来说说咋办🎯
 
 here we go！🚀
 
-ps：以下是基于 `vscode` 哟，如果你没有 `vscode`，那么再见~
+ps：以下是基于 `github` 哟，如果你没有 `github`，那么再见~
 
 ### 正文开始👉
 
 ------------------------------------------------
 
-下面我以我的项目代码为例，给大家粗浅的介绍一些 VSCode 的 Debugger 功能。
+相信细心的小伙伴已经注意到了，其实我的这个仓库全都是markdown，而且也是基于GitHub Page的部署的。
 
-#### 1. 首先打开 VSCode📌
+#### 1. 首先打开 Github📌
 
-- 进入你的项目目录中，并点击这个 `debugger` 图标，或者是 `ctrl + shift + d`，你也可以直接按 `F5`
+- 创建一个新仓库，比如 newobjectccc.github.io 就是我的仓库名
 
-![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/fa926a80-a6d4-4e7b-9fed-41fd1f5693dc)
+
 
 - 然后点击生成 `launch.json` 文件，
 
