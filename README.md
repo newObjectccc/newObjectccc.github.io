@@ -48,6 +48,7 @@
 | [可视化Js作用域/链](./前端基础/前端基础-可视化作用域链.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [可视化Js变量提升](./前端基础/前端基础-可视化变量提升.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [可视化浏览器事件循环](./前端基础/前端基础-可视化事件循环.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [最简单的cicd博客部署GithubPage](./前端杂谈/最简单的博客GithubPage.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 | [为你的团队尝试比Babel快20-70倍的SWC吧](./前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [你应该知道如何用VSCode进行Debugger](./前端业务实践/你应该知道如何用VSCode进行Debugger.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [前端应该知道的curl请求](./网络相关-偏前端/前端应该知道的curl请求.md) | Entry-Level |⭐️⭐️⭐️⭐️|
