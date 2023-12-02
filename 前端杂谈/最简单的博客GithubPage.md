@@ -21,6 +21,7 @@ ps：以下是基于 `github` 哟，如果你没有 `github`，那么再见~
 - 创建一个新仓库，比如 newobjectccc.github.io 就是我的仓库名
 
 
+![307f1ca20549675b8dc3990a17146ed](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/0356bac9-232d-4aa0-91b8-66095b628232)
 
 - 然后点击生成 `launch.json` 文件，
 
