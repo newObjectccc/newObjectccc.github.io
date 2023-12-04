@@ -95,6 +95,7 @@
 | 开发人员交流的社区，ps: 摸鱼是永恒的主题 | [https://dev.to/](https://dev.to/) |⭐️⭐️⭐️⭐️⭐️|
 | 前端也要兼职设计哟，可画让你如虎添翼 | [https://www.canva.com/](https://www.canva.com/zh_cn/) |⭐️⭐️⭐️⭐️⭐️|
 | 非常nice的技术资讯，支持 Chrome Extension | [https://daily.dev/](https://daily.dev/) |⭐️⭐️⭐️⭐️⭐️|
+| 免费开源，跨平台的视频编辑器，PR替代品 | [github.com/mltframework/shotcut](https://github.com/mltframework/shotcut) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些技术网站 🧰
 
@@ -106,6 +107,7 @@
 | Js随机数库，简单好用，功能齐全 | [https://chancejs.com/](https://chancejs.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 全功能的日历组件，不仅仅是日历 | [https://fullcalendar.io/](https://fullcalendar.io/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个非常nice的设计模式学习网站 | [https://www.patterns.dev/](https://www.patterns.dev/) |⭐️⭐️⭐️⭐️⭐️|
+| 基于rust的changelog生成器，支持高度定制化 | [https://git-cliff.org/](https://git-cliff.org/) |⭐️⭐️⭐️⭐️⭐️|
 
 --------------------------------------------------
 
