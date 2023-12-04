@@ -107,6 +107,7 @@
 | Js随机数库，简单好用，功能齐全 | [https://chancejs.com/](https://chancejs.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 全功能的日历组件，不仅仅是日历 | [https://fullcalendar.io/](https://fullcalendar.io/) |⭐️⭐️⭐️⭐️⭐️|
 | 基于rust的changelog生成器，支持高度定制化 | [https://git-cliff.org/](https://git-cliff.org/) |⭐️⭐️⭐️⭐️⭐️|
+| Rspack支持Webpack生态，性能还超快，确定不试试？ | [https://www.rspack.dev](https://www.rspack.dev/zh/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
 
