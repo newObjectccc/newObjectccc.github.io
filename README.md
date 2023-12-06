@@ -117,6 +117,8 @@
 | 免费开源，跨平台的视频编辑器，PR替代品 | [github/mltframework/shotcut](https://github.com/mltframework/shotcut) |⭐️⭐️⭐️⭐️⭐️|
 | 给它url，训练你自己的机器人 | [github.com/BuilderIO/gpt-crawler](https://github.com/BuilderIO/gpt-crawler) |⭐️⭐️⭐️⭐️⭐️|
 | 训练你自己的机器人，像是gpt-crawler的实现 | [https://www.chatsimple.ai/](https://www.chatsimple.ai/) |⭐️⭐️⭐️⭐️⭐️|
+| AI帮你设计生成你的logo | [https://logodiffusion.com/](https://logodiffusion.com/) |⭐️⭐️⭐️⭐️⭐️|
+| AI帮你设计生成你的video | [platform.latte.social](https://platform.latte.social/create) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些 Remote looking for 的网站 💴
 
@@ -127,6 +129,7 @@
 | 一个帮助连接初创公司和工作的网站 | [https://wellfound.com/](https://wellfound.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个帮你发现全球或本地的remote的网站 | [https://www.flexjobs.com/](https://www.flexjobs.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个有超级多公司和职位的remote求职网站 | [https://tryremotely.com/](https://tryremotely.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 一个国外真实面试流程记录的网站 | [https://www.onsites.fyi/](https://www.onsites.fyi/) |⭐️⭐️⭐️⭐️⭐️|
 
 --------------------------------------------------
 
