@@ -115,6 +115,8 @@
 |网站描述|网站链接|推荐指数|
 |------------------------|-------------------------|-----------------------|
 | 免费开源，跨平台的视频编辑器，PR替代品 | [github/mltframework/shotcut](https://github.com/mltframework/shotcut) |⭐️⭐️⭐️⭐️⭐️|
+| 给它url，训练你自己的机器人 | [github.com/BuilderIO/gpt-crawler](https://github.com/BuilderIO/gpt-crawler) |⭐️⭐️⭐️⭐️⭐️|
+| 训练你自己的机器人，像是gpt-crawler的实现 | [https://www.chatsimple.ai/](https://www.chatsimple.ai/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些 Remote looking for 的网站 💴
 
