@@ -116,6 +116,16 @@
 |------------------------|-------------------------|-----------------------|
 | 免费开源，跨平台的视频编辑器，PR替代品 | [github/mltframework/shotcut](https://github.com/mltframework/shotcut) |⭐️⭐️⭐️⭐️⭐️|
 
+### 推荐一些 Remote looking for 的网站 💴
+
+|网站描述|网站链接|推荐指数|
+|------------------------|-------------------------|-----------------------|
+| 一个专注romote的网站，支持多筛选，特别是时区筛选，爱住了 | [https://remoteok.com/](https://remoteok.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 一个主要提供软件开发，设计，金融，产品，项目的职位网站 | [https://www.toptal.com/](https://www.toptal.com/) |⭐️⭐️⭐️⭐️|
+| 一个帮助连接初创公司和工作的网站 | [https://wellfound.com/](https://wellfound.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 一个帮你发现全球或本地的remote的网站 | [https://www.flexjobs.com/](https://www.flexjobs.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 一个有超级多公司和职位的remote求职网站 | [https://tryremotely.com/](https://tryremotely.com/) |⭐️⭐️⭐️⭐️⭐️|
+
 --------------------------------------------------
 
 不论是文章还是推荐我都会持续更新的，欢迎收藏此链接😍
