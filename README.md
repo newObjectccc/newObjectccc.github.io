@@ -103,7 +103,7 @@
 |------------------------|-------------------------|-----------------------|
 | 超级丝滑的Flow渲染，拿去开发你的Flow需求吧 | [https://reactflow.dev/](https://reactflow.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | React技术栈大而全的UI库，别点，否则你会爱上的 | [https://mantine.dev/](https://mantine.dev/) |⭐️⭐️⭐️⭐️⭐️|
-| 高性能且开源状态管理，路由管理，数据可视化，无头UI，表单，列表，等等 | [https://tanstack.com/](https://tanstack.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 高性能开源状态，路由管理，可视化，无头UI，表单，列表，等 | [https://tanstack.com/](https://tanstack.com/) |⭐️⭐️⭐️⭐️⭐️|
 | Js随机数库，简单好用，功能齐全 | [https://chancejs.com/](https://chancejs.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 全功能的日历组件，不仅仅是日历 | [https://fullcalendar.io/](https://fullcalendar.io/) |⭐️⭐️⭐️⭐️⭐️|
 | 基于rust的changelog生成器，支持高度定制化 | [https://git-cliff.org/](https://git-cliff.org/) |⭐️⭐️⭐️⭐️⭐️|
