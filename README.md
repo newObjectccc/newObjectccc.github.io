@@ -91,7 +91,7 @@
 | 有着超级多UI设计的宝藏网站 | [https://mobbin.com/](https://mobbin.com/browse/ios/apps) |⭐️⭐️⭐️⭐️⭐️|
 | 很著名的可以摸鱼或者demo记录的网站 | [https://codepen.io/](https://codepen.io/) |⭐️⭐️⭐️⭐️⭐️|
 | 你应该知道的程序员问题求助社区 | [stackoverflow.com](https://stackoverflow.com/) |⭐️⭐️⭐️⭐️⭐️|
-| 全Web平台研发的技术社区，中文友好，ps: 你不应该只知道MDN | [https://web.dev/](https://web.dev/?hl=zh-cn) |⭐️⭐️⭐️⭐️⭐️|
+| 全Web平台研发的技术社区，中文友好 | [https://web.dev/](https://web.dev/?hl=zh-cn) |⭐️⭐️⭐️⭐️⭐️|
 | 开发人员交流的社区，ps: 摸鱼是永恒的主题 | [https://dev.to/](https://dev.to/) |⭐️⭐️⭐️⭐️⭐️|
 | 前端也要兼职设计哟，可画让你如虎添翼 | [https://www.canva.com/](https://www.canva.com/zh_cn/) |⭐️⭐️⭐️⭐️⭐️|
 | 非常nice的技术资讯，支持 Chrome Extension | [https://daily.dev/](https://daily.dev/) |⭐️⭐️⭐️⭐️⭐️|
