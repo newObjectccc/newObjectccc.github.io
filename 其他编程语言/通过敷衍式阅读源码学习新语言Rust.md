@@ -185,7 +185,7 @@ mod test {
     assert_eq!(source, "return bar(1, 2) /*haha*/;"); // semicolon
     Ok(())
   }
-}rust
+}
 
 ```
 
