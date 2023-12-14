@@ -61,7 +61,8 @@ use source::{Edit, TSParseError};
 4. 形如`pub use <xxx>::<Yyy>`的部分，表示引入`<xxx>`模块内的`<Yyy>`结构体（类似js中对象），成为当前模块的成员。`use`的作用就可以让你在当前模块中直接通过`<Yyy>`访问该成员。
 5. 形如`<xxx>::{<Yyy>, <Zzz>}`的部分，是表示引入`<xxx>`模块的`<Yyy>, <Zzz>`结构体，有点像ES6的解构赋值。
 
-```#[derive(Clone)]
+```rust
+#[derive(Clone)]
 pub struct AstGrep<D: Doc> {
   #[doc(hidden)]
   pub inner: Root<D>,
