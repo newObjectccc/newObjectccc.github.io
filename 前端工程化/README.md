@@ -7,3 +7,4 @@
 - [前端工程化package.json配置总结](./前端工程化package.json配置总结.md)(Entry-Level)
 - [CICD多项目自动化部署实践](./全栈技能-偏前端/docker-compose多项目自动化部署实践.md)(Entry-Level)
 - [你应该了解比Babel快20-70倍的SWC](./你应该了解比Babel快20-70倍的SWC.md)(Entry-Level)
+- [字节新出oxlint都在推但没人讲怎么尝鲜](./字节新出oxlint都在推但没人讲怎么尝鲜.md)(Entry-Level)
