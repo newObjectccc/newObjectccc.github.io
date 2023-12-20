@@ -27,7 +27,11 @@ here we go！
 
 `bup`会自动为你安装`husky, lint-staged`依赖和做基础配置，等待安装配置完成后：
 
+![1](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/739e2e85-d6cf-4d0e-96ec-c8e12040c4fa)
+
 我们只需要找到`.lintstagedrc.*`配置文件，做如下修改即可：
+
+![2](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/0bd0b0d8-9e27-40c9-8bc9-4b724a1c7976)
 
 这样当我们每次提交代码时，会自动执行`oxlint`为我们检测：
 
