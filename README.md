@@ -100,6 +100,7 @@
 | 前端也要兼职设计哟，可画让你如虎添翼 | [https://www.canva.com/](https://www.canva.com/zh_cn/) |⭐️⭐️⭐️⭐️⭐️|
 | 非常nice的技术资讯，支持 Chrome Extension | [https://daily.dev/](https://daily.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个非常nice的设计模式学习网站 | [https://www.patterns.dev/](https://www.patterns.dev/) |⭐️⭐️⭐️⭐️⭐️|
+| 想有工程师的全局观吗？架构在这里只是开始 | [https://blog.bytebytego.com/](https://blog.bytebytego.com/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些前端技术库 🧰
 
