@@ -66,7 +66,6 @@
 | [可视化Js变量提升](./前端基础/前端基础-可视化变量提升.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [可视化浏览器事件循环](./前端基础/前端基础-可视化事件循环.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [最简单的cicd部署GithubPage博客](./前端杂谈/最简单的博客GithubPage.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
-| [为你的团队尝试比Babel快20-70倍的SWC吧](./前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [你应该知道如何用VSCode进行Debugger](./前端业务实践/你应该知道如何用VSCode进行Debugger.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [前端应该知道的curl请求](./网络相关-偏前端/前端应该知道的curl请求.md) | Entry-Level |⭐️⭐️⭐️⭐️|
 | [validation中的一点点函数式编程](./前端业务实践/实际业务validator中的函数式编程.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
@@ -74,9 +73,6 @@
 | [前端基础与面试杂谈](./前端杂谈/前端杂谈-前端基础与面试.md) | Mid-Level |⭐️⭐️⭐️⭐️⭐️|
 | [浅谈浏览器跨域cors](./网络相关-偏前端/浏览器跨域cors一次说明白.md) | Mid-Level |⭐️⭐️⭐️⭐️⭐️|
 | [你的异步请求完全可以脱离useEffect](./前端业务实践/你的异步请求完全可以脱离useEffect.md) | Mid-Level |⭐️⭐️⭐️⭐️|
-| [通过阅读源码敷衍的学习新语言Rust](./其他编程语言/通过敷衍式阅读源码学习新语言Rust.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
-| [用Sass编写你团队的BEM规范](./其他编程语言/用Sass编程编写你团队的BEM规范.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
-| [字节新出oxlint都在推但没人讲怎么尝鲜](./前端工程化/字节新出oxlint都在推但没人讲怎么尝鲜.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
 
 ### 更多文章请走分类阅读入口 👇
 
