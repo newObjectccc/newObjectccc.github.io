@@ -35,9 +35,9 @@
   <img alt="github actions" src="https://img.shields.io/badge/-Github_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white" />
   <img alt="Docker" src="https://img.shields.io/badge/-Docker-46a2f1?style=flat-square&logo=docker&logoColor=white" />
   <img alt="Ubuntu" src="https://img.shields.io/badge/-Ubuntu-DB652A?style=flat-square&logo=ubuntu&logoColor=white" />
- /* <img alt="archlinux" src="https://img.shields.io/badge/-archlinux-1793D1?style=flat-square&logo=ubuntu&logoColor=white" /> */
+  <img alt="archlinux" src="https://img.shields.io/badge/-archlinux-1793D1?style=flat-square&logo=ubuntu&logoColor=white" />
   <img alt="MySQL" src="https://img.shields.io/badge/MySQL-%2300f.svg?logo=mysql&amp;logoColor=white">
- /* <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat-square&logo=mongodb&logoColor=white" /> */
+  <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat-square&logo=mongodb&logoColor=white" />
 </span>
 
 ### 最近更新文章 📓
