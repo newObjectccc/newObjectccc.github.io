@@ -100,6 +100,7 @@
 | 非常nice的技术资讯，支持 Chrome Extension | [https://daily.dev/](https://daily.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个非常nice的设计模式学习网站 | [https://www.patterns.dev/](https://www.patterns.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | 想有工程师的全局观吗？架构在这里只是开始 | [https://blog.bytebytego.com/](https://blog.bytebytego.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 可以给你的Node.js程序提供Rust强大的能力 | [https://neon-bindings.com/](https://neon-bindings.com/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些前端技术库 🧰
 
@@ -113,6 +114,7 @@
 | 基于rust的changelog生成器，支持高度定制化 | [https://git-cliff.org/](https://git-cliff.org/) |⭐️⭐️⭐️⭐️⭐️|
 | Rspack支持Webpack生态，性能还超快，确定不试试？ | [https://www.rspack.dev](https://www.rspack.dev/zh/) |⭐️⭐️⭐️⭐️⭐️|
 | 如果你喜欢前端All in One，那一定得试试Astro | [https://astro.build/](https://astro.build/) |⭐️⭐️⭐️⭐️⭐️|
+| 这是一个可以练习你的Typescript的playground | [https://tsdiagram.com/](https://tsdiagram.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 个人第一个开源项目，帮你配置前端工程化工具，欢迎来一起写bug | [newobjectccc/bup](https://github.com/newObjectccc/bup) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
@@ -123,6 +125,7 @@
 | 给它url，训练你自己的机器人 | [github.com/BuilderIO/gpt-crawler](https://github.com/BuilderIO/gpt-crawler) |⭐️⭐️⭐️⭐️⭐️|
 | 训练你自己的机器人，像是gpt-crawler的实现 | [https://www.chatsimple.ai/](https://www.chatsimple.ai/) |⭐️⭐️⭐️⭐️⭐️|
 | AI帮你设计生成你的logo | [https://logodiffusion.com/](https://logodiffusion.com/) |⭐️⭐️⭐️⭐️⭐️|
+| AI免费帮你设计生成你的logo | [https://www.freelogo.dev/](https://www.freelogo.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | AI帮你设计生成你的video | [platform.latte.social](https://platform.latte.social/create) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些 Remote looking for 的网站 💴
