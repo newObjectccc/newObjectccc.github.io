@@ -138,6 +138,7 @@
 | 一个帮你发现全球或本地的remote的网站 | [https://www.flexjobs.com/](https://www.flexjobs.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个有超级多公司和职位的remote求职网站 | [https://tryremotely.com/](https://tryremotely.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个国外真实面试流程记录的网站 | [https://www.onsites.fyi/](https://www.onsites.fyi/) |⭐️⭐️⭐️⭐️⭐️|
+| Indie Hacker们的交流分享论坛，出海必看 | [https://www.indiehackers.com/](https://www.indiehackers.com/) |⭐️⭐️⭐️⭐️⭐️|
 
 --------------------------------------------------
 
