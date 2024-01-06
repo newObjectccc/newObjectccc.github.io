@@ -116,6 +116,7 @@
 | 如果你喜欢前端All in One，那一定得试试Astro | [https://astro.build/](https://astro.build/) |⭐️⭐️⭐️⭐️⭐️|
 | 如果你是UI颜狗，又是React，请试试nextui | [https://nextui.org/](https://nextui.org/) |⭐️⭐️⭐️⭐️⭐️|
 | 这是一个可以练习你的Typescript的playground | [https://tsdiagram.com/](https://tsdiagram.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 一个检查你项目的typescript覆盖率的插件，可集成的 | [type-coverage](https://github.com/plantain-00/type-coverage) |⭐️⭐️⭐️⭐️⭐️|
 | 个人第一个开源项目，帮你配置前端工程化工具，欢迎来一起写bug | [newobjectccc/bup](https://github.com/newObjectccc/bup) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
