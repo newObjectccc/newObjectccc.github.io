@@ -150,6 +150,7 @@
 |------------------------|------------------------|------------------------|
 | 一个免费且超多精美墙纸的网站 | [https://wallhaven.cc/](https://wallhaven.cc/) |⭐️⭐️⭐️⭐️⭐️|
 | 免费的精美的听歌App，也是一个学习flutter的好仓库 | [https://github.com/KRTirtho/spotube](https://github.com/KRTirtho/spotube) |⭐️⭐️⭐️⭐️⭐️|
+| 做毕设的小伙伴的新目标，它首页有github链接 | [https://movie-web.app/](https://movie-web.app/) |⭐️⭐️⭐️⭐️⭐️|
 
 --------------------------------------------------
 
