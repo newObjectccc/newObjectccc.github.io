@@ -131,6 +131,7 @@
 | AI帮你设计生成你的logo | [https://logodiffusion.com/](https://logodiffusion.com/) |⭐️⭐️⭐️⭐️⭐️|
 | AI免费帮你设计生成你的logo | [https://www.freelogo.dev/](https://www.freelogo.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | AI帮你设计生成你的video | [platform.latte.social](https://platform.latte.social/create) |⭐️⭐️⭐️⭐️⭐️|
+| 一个创建动画的网站 | [https://animotion.dev/](https://animotion.dev/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些 Remote looking for 的网站 💴
 
