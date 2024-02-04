@@ -38,7 +38,7 @@ ________________________
 
 |URL|结果|原因|
 |------|------|------|
-|```http://http://store.company.com/dir2/other.html```|同源|只有路径不同|
+|```http://store.company.com/dir2/other.html```|同源|只有路径不同|
 |```http://store.company.com/dir/inner/another.html```|同源|只有路径不同|
 |```https://store.company.com/secure.html```|不同源|协议不同|
 |```http://store.company.com:81/dir/etc.html```|不同源|端口不同（http默认80端口）|
