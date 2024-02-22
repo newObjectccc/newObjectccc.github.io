@@ -6,3 +6,4 @@
 
 - [前端杂谈-前端基础与面试](./前端杂谈-前端基础与面试.md)(Mid-Level)
 - [前端杂谈-最简单的博客GithubPage](./最简单的博客GithubPage.md)(Entry-Level)
+- [一次和TL意见不合的思考](./一次和TL意见不合的思考.md)(Entry-Level)
