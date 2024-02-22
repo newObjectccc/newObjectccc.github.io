@@ -3,6 +3,7 @@
 ## 🔥一次与TL的碰撞
 
 一次CR会议上，有团队同学的代码被TL质疑。
+
 - 背景：
   在React中，当state本身是数组时，对于state进行删除操作时，对于怎么合理使用js数组api以达到最优性能问题，即下图所示case：
 ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/95a2f1e0-d790-4f7a-be3e-0b2ddf3b3ace)
@@ -16,20 +17,25 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
 
 ## 内部报告
 
-  - 本benchmark的关注点有以下几点：
+- 本benchmark的关注点有以下几点：
     1. 因为React的setState是默认做的深比较，所以我们会关注在成功改变state并触发视图更新为基准。
     2. 同时我们也期望大家单独认识一下这2个方案，仅在JavaScript常见2个runtime下的执行耗时。
-       
-  ### 开始之前提醒：
+
+### 开始之前提醒
+
   若你对于js中数组原型链上这3个api还不是很了解的话，建议上MDN恶补一下，本文不会介绍过于基础的概念。
   
-  ### 声明
+### 声明
+
   每个benchmark案例，均会测试多次，并不是一次执行的结果，但所有运行平台均为 Windows，并没有在 MacOS 上进行测试，请知悉。
   
-  ### 测试开始：
+### 测试开始
+
   模拟 setState 有效更新：
+
   1. 第一个案例对比，chrome浏览器：
   以下给出执行案例，数值越大，耗时越久，性能越差:
+
   ```javascript
   const arr = new Array(100000).fill('1');
   // splice
@@ -52,11 +58,13 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
   fn1();
   // 5.100000023841858
   ```
+
   ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/ece17d2a-58e1-406d-a14a-b60ca4901d2a)
   
   **当前结论：** *浏览器环境下，要setState，在删除数组数据上，即便是最有利于findIndex + splice组合的方案下，filter性能依旧优于findIndex + splice。（最有利是指实际算法时间复杂度是O(1)，即遍历到第一个元素即停止的情况）*
   2. 第二个案例对比，node环境：
   以下给出执行案例，duration数值越大，耗时越久，性能越差:
+
   ```javascript
   const { performance, PerformanceObserver } = require('perf_hooks');
   
@@ -104,6 +112,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
   //   detail: []
   // }
   ```
+
   ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/f2c89955-2f6f-44a4-bbde-0070a8bb7f09)
   
   **当前结论：** *node环境下，也就是说SSR（Server-Side Rendering）情况下，要setState，在删除数组数据上，findIndex + splice 和 filter 相比，稍稍领先千分之一秒左右，不过同样是以对 splice 方案最有利的情况测试的，经测试10w数组长度，当实际时间复杂度在O(50000)的时候，splice的方案反而比filter多千分之一秒左右耗时，这里我也给出测试案例，见以下代码。*
@@ -158,6 +167,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
   //   detail: []
   // }
   ```
+
   ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/03bcf4a0-485d-446a-b265-e7989754ec65)
   
   **最终只能得出条件性结论：** *综合测试结果来看，不论是CSR还是SSR，只要是需要在删除数组元素并用于React更新视图的场景下，都优先选择filter更好。*
