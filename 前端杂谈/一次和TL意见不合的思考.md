@@ -18,7 +18,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
 ## 内部报告
 
 - 本benchmark的关注点有以下几点：
-    1. 因为React的setState是默认做的深比较，所以我们会关注在成功改变state并触发视图更新为基准。
+    1. 因为React的setState是默认做的浅比较，所以我们会关注在成功改变state并触发视图更新为基准。
     2. 同时我们也期望大家单独认识一下这2个方案，仅在JavaScript常见2个runtime下的执行耗时。
 
 ### 开始之前提醒
@@ -43,7 +43,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
     const b = window.performance.now(); // 开始计时
     const idx = arr.findIndex((i) => i === '1');
     arr.splice(idx, 1);
-    [...arr]; // 如果这里不明白为什么，建议了解一下 React 中 setState 为什么是默认深比较
+    [...arr]; // 如果这里不明白为什么，建议了解一下 React 中 setState 为什么是默认浅比较
     console.log(window.performance.now() - b); // 执行结束计算差值
   }
   // filter
@@ -186,7 +186,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
 
 ### 首先我想简单说说这两个数组原型链上的api（Array.prototype.findIndex就不说了，我的关注点不在这里。）
 
-导致我和我的TL有所分歧的，其实就是```Array.prototype.filter```和```Array.prototype.splice```的背后原理，但我俩似乎对于这个并不矛盾，他大概率只是忽略了，这是一个React，state的场景，同事需要用删除后的数组，去setState更新视图，而这一步，由于React的state在比较时是用的深比较，所以对于生成新数组这一步是省略不掉的，除非你用其他state触发更新。
+导致我和我的TL有所分歧的，其实就是```Array.prototype.filter```和```Array.prototype.splice```的背后原理，但我俩似乎对于这个并不矛盾，他大概率只是忽略了，这是一个React，state的场景，同事需要用删除后的数组，去setState更新视图，而这一步，由于React的state在比较时是用的浅比较，所以对于生成新数组这一步是省略不掉的，除非你用其他state触发更新。
 
 虽然这两个 api 很基础，背后原理也应该是大家都知道的，但是！！！，因为我发现其他同事比较模糊，所以还是想多写一点东西。
 
