@@ -188,7 +188,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
 
 ### 首先我想简单说说这两个数组原型链上的api（Array.prototype.findIndex就不说了，我的关注点不在这里。）
 
-导致我和我的TL有所分歧的，其实就是```Array.prototype.filter```和```Array.prototype.splice```的背后原理，但我俩似乎对于这个并不矛盾，他大概率只是忽略了，这是一个React，state的场景，同事需要用删除后的数组，去setState更新视图，而这一步，由于React的state在比较时是用的浅比较，所以对于生成新数组这一步是省略不掉的，除非你用其他state触发更新。
+导致我和我的TL有所分歧的，其实就是```Array.prototype.filter```和```Array.prototype.splice```的背后原理，但我俩似乎对于这个并不矛盾，他大概率只是忽略了，这是一个React，state的场景，同事需要用删除后的数组，去setState更新视图，而这一步，由于React的state在比较时是用的深比较，所以对于生成新数组这一步是省略不掉的，除非你用其他方式触发更新。
 
 虽然这两个 api 很基础，背后原理也应该是大家都知道的，但是！！！，因为我发现其他同事比较模糊，所以还是想多写一点东西。
 
