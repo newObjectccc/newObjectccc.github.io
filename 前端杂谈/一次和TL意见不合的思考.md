@@ -27,7 +27,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
   
 ### 声明
 
-  每个benchmark案例，均会测试多次，并不是一次执行的结果，但所有运行平台均为 Windows，x86平台，并没有在 MacOS 等arm架构平台上进行测试，请知悉。
+  每个benchmark案例，均会测试多次，并不是一次执行的结果，但所有运行平台均为 x86 平台，并没有在 arm 架构平台上进行测试，请知悉。
   
 ### 测试开始
 
