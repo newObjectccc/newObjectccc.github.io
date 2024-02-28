@@ -18,7 +18,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
 ## 内部报告
 
 - 本benchmark的关注点有以下几点：
-    1. 因为React的setState是默认做的浅比较，所以我们会关注在成功改变state并触发视图更新为基准。
+    1. 因为React的setState是默认做的深比较，所以我们会关注在成功改变state并触发视图更新为基准。
     2. 同时我们也期望大家单独认识一下这2个方案，仅在JavaScript常见2个runtime下的执行耗时。
 
 ### 开始之前提醒
@@ -43,7 +43,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
     const b = window.performance.now(); // 开始计时
     const idx = arr.findIndex((i) => i === '1');
     arr.splice(idx, 1);
-    [...arr]; // 如果这里不明白为什么，建议了解一下 React 中 setState 为什么是默认浅比较
+    [...arr]; // 如果这里不明白为什么，建议了解一下 React 中 setState 为什么是默认深比较
     console.log(window.performance.now() - b); // 执行结束计算差值
   }
   // filter
@@ -174,7 +174,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
   
   > 💡然而几乎没有什么东西是绝对的，特别需要注意一下的是，传入filter的比较函数本身也是有性能消耗的，假如你这个比较函数本身比较耗性能，那么并不建议你用filter。
 
-聪明的小伙伴应该能意识到，splice方案落后的关键点在于 ```[...arr]``` 这行代码，之所以这样做，是因为你需要满足React更新视图的浅比较规则，必须给一个新数组，而splice是直接改变原数组，内存地址根本没有改变，浅比较的时候，React只会认为你没有改变state，也就不会更新视图，而filter是会返回一个新数组的，所以正中React的state浅比较的点，所以这个case，filter险胜。
+聪明的小伙伴应该能意识到，splice方案落后的关键点在于 ```[...arr]``` 这行代码，之所以这样做，是因为你需要满足React更新视图的深比较规则，必须给一个新数组，而splice是直接改变原数组，内存地址根本没有改变，深比较的时候，React只会认为你没有改变state，也就不会更新视图，而filter是会返回一个新数组的，所以正中React的state浅比较的点，所以这个case，filter险胜。
   
 ------------------------------------------------
 
