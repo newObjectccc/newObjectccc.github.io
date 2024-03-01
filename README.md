@@ -105,6 +105,7 @@
 | 可以给你的Node.js程序提供Rust强大的能力 | [https://neon-bindings.com/](https://neon-bindings.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 互动式的编程学习，非常多语言和框架，还有面试技巧 | [https://codedamn.com/](https://codedamn.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 各前端主流框架的功能点横向对比 | [https://component-party.dev/](https://component-party.dev/) |⭐️⭐️⭐️⭐️⭐️|
+| 自动生成代码演示文稿动画的网站 | [https://www.animate-code.com](https://www.animate-code.com) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些前端技术库 🧰
 
