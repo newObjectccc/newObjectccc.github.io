@@ -8,8 +8,8 @@
   在React中，当state本身是数组时，对于state进行删除操作时，对于怎么合理使用js数组api以达到最优性能问题，即下图所示case：
 ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/95a2f1e0-d790-4f7a-be3e-0b2ddf3b3ace)
 
-TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性能更好。
-我：应该保留 Array.prototype.filter，从代码来看，在setState这里性能更好。
+TL: 要求改用 arr.findIndex + arr.splice + setState([...arr])，因为性能更好。
+我：应该保留 setState(arr.filter(i => i !== 1))，从代码来看，在setState这里性能更好。
 
 后来在TL私下找我，要求我写一篇报告，于是我在内部写了这样的一个 benchmark 报告。
 
@@ -176,7 +176,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
 
 聪明的小伙伴应该能意识到，splice方案落后的关键点在于 ```[...arr]``` 这行代码，之所以这样做，是因为你需要满足React更新视图的深比较规则，必须给一个新数组，而splice是直接改变原数组，内存地址根本没有改变，深比较的时候，React只会认为你没有改变state，也就不会更新视图，而filter是会返回一个新数组的，所以正中React的state浅比较的点，所以这个case，filter险胜。
 
-**最终，还并没有完结**
+**最终的最终，还并没有完结**
 
 💡💡💡因为还有一个黑魔法！！！那就是`Array.prototype.concat`这个因为其功能被严重低估的API，这个API很强大，强大到可以强势逆转咱们上面的结论，我们都知道其实单论splice和filter的性能，那一定是splice更好的，但是因为是需要去setState所以需要一个新数组，那么splice就势必要多一个创建新数组的操作，我们之前使用的是大家最常用的`[...arr]`，但是如果你考虑用`concat`，那么一切会变得不一样，看下图。
 
