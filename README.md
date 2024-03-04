@@ -99,6 +99,7 @@
 | 全Web平台研发的技术社区，中文友好 | [https://web.dev/](https://web.dev/?hl=zh-cn) |⭐️⭐️⭐️⭐️⭐️|
 | 开发人员交流的社区，ps: 摸鱼是永恒的主题 | [https://dev.to/](https://dev.to/) |⭐️⭐️⭐️⭐️⭐️|
 | 前端也要兼职设计哟，可画让你如虎添翼 | [https://www.canva.com/](https://www.canva.com/zh_cn/) |⭐️⭐️⭐️⭐️⭐️|
+| 一个设计你的网站的网站，framer-motion就是他们的 | [https://framer.com/](https://framer.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 非常nice的技术资讯，支持 Chrome Extension | [https://daily.dev/](https://daily.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个非常nice的设计模式学习网站 | [https://www.patterns.dev/](https://www.patterns.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | 想有工程师的全局观吗？架构在这里只是开始 | [https://blog.bytebytego.com/](https://blog.bytebytego.com/) |⭐️⭐️⭐️⭐️⭐️|
