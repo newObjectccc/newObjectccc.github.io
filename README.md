@@ -126,6 +126,7 @@
 | 个人第一个开源项目，帮你配置前端工程化工具，欢迎来一起写bug | [newobjectccc/bup](https://github.com/newObjectccc/bup) |⭐️⭐️⭐️⭐️⭐️|
 | 下一代的electron开发构建工具，开箱即用 | [alex8088/electron-vite](https://github.com/alex8088/electron-vite) |⭐️⭐️⭐️⭐️⭐️|
 | 又一个超好看的ui库，关键只需要cv操作即可使用 | [https://ui.shadcn.com/](https://ui.shadcn.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 无敌的开源富文本库，支持扩展Markdown | [](https://platejs.org/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
 
