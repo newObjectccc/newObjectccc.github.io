@@ -1,4 +1,4 @@
-### 个人简介 🧑‍🌾（Vesper@之一 / 此间唯一@Vesper / Vesper此间之一）2024年，冲呀～
+![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/45f5f48d-5ae3-4a57-9733-98a31313c5e6)### 个人简介 🧑‍🌾（Vesper@之一 / 此间唯一@Vesper / Vesper此间之一）2024年，冲呀～
 
 - **Github**: [https://github.com/newObjectccc](https://github.com/newObjectccc)
 - **Twitter**: @cccxy10086
@@ -107,6 +107,7 @@
 | 互动式的编程学习，非常多语言和框架，还有面试技巧 | [https://codedamn.com/](https://codedamn.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 各前端主流框架的功能点横向对比 | [https://component-party.dev/](https://component-party.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | 自动生成代码演示文稿动画的网站 | [https://www.animate-code.com](https://www.animate-code.com) |⭐️⭐️⭐️⭐️⭐️|
+| 打算第几次入门Rust？希望这是你最后一次 | [https://course.rs/about-book.html](https://course.rs/about-book.html) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些前端技术库 🧰
 
