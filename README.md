@@ -1,4 +1,4 @@
-![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/45f5f48d-5ae3-4a57-9733-98a31313c5e6)### 个人简介 🧑‍🌾（Vesper@之一 / 此间唯一@Vesper / Vesper此间之一）2024年，冲呀～
+### 个人简介 🧑‍🌾（Vesper@之一 / 此间唯一@Vesper / Vesper此间之一）2024年，冲呀～
 
 - **Github**: [https://github.com/newObjectccc](https://github.com/newObjectccc)
 - **Twitter**: @cccxy10086
