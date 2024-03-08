@@ -163,6 +163,7 @@ const code = fs.readFileSync('src/input.js', "utf-8")
 // swc给出的AST和babel并不一样，babel是在estree的标准上加上了自己的东西，就好像oxlint定义了自己的AST标准一样。
 // 让我觉得奇怪的是swc并没给出类似babel的traverse方法，应该只能通过rust去扩展swc的能力了。
 // 还是等我N次入门rust之后给大家再继续填坑吧
+// 如果暂时不会rust，那咱们还是用回babel或者acorn,es-walker这些吧
 ```
 
 ⛔ 事实上swc的插件贡献者也需要实现visitor去帮你遍历节点，但是仅支持 rust，果然是性能优先，哈哈哈😁。
