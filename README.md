@@ -130,6 +130,7 @@
 | 无敌的开源富文本库，支持扩展Markdown | [platejs.org](https://platejs.org/) |⭐️⭐️⭐️⭐️⭐️|
 | 丝滑的图片缩放预览，像Medium那样 | [francoischalifour/medium-zoom](https://github.com/francoischalifour/medium-zoom) |⭐️⭐️⭐️⭐️⭐️|
 | 在你的项目中使用CodeSandbox | [codesandbox/sandpack](https://github.com/codesandbox/sandpack) |⭐️⭐️⭐️⭐️⭐️|
+| 真的很漂亮的语法高亮库，而且不止高亮 | [shikijs/shiki](https://github.com/shikijs/shiki) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
 
