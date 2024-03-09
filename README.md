@@ -129,6 +129,7 @@
 | 又一个超好看的ui库，关键只需要cv操作即可使用 | [ui.shadcn.com/](https://ui.shadcn.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 无敌的开源富文本库，支持扩展Markdown | [platejs.org](https://platejs.org/) |⭐️⭐️⭐️⭐️⭐️|
 | 丝滑的图片缩放预览，像Medium那样 | [francoischalifour/medium-zoom](https://github.com/francoischalifour/medium-zoom) |⭐️⭐️⭐️⭐️⭐️|
+| 在你的项目中使用CodeSandbox | [codesandbox/sandpack](https://github.com/codesandbox/sandpack) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
 
