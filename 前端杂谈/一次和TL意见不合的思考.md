@@ -8,8 +8,8 @@
   在React中，当state本身是数组时，对于state进行删除操作时，对于怎么合理使用js数组api以达到最优性能问题，即下图所示case：
 ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/95a2f1e0-d790-4f7a-be3e-0b2ddf3b3ace)
 
-TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性能更好。
-我：应该保留 Array.prototype.filter，从代码来看，在setState这里性能更好。
+TL: 要求改用 arr.findIndex + arr.splice + setState([...arr])，因为性能更好。
+我：应该保留 setState(arr.filter(i => i !== 1))，从代码来看，在setState这里性能更好。
 
 后来在TL私下找我，要求我写一篇报告，于是我在内部写了这样的一个 benchmark 报告。
 
@@ -27,7 +27,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
   
 ### 声明
 
-  每个benchmark案例，均会测试多次，并不是一次执行的结果，但所有运行平台均为 Windows，并没有在 MacOS 上进行测试，请知悉。
+  每个benchmark案例，均会测试多次，并不是一次执行的结果，但所有运行平台均为 x86 平台，并没有在 arm 架构平台上进行测试，请知悉。
   
 ### 测试开始
 
@@ -173,8 +173,26 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
   **最终只能得出条件性结论：** *综合测试结果来看，不论是CSR还是SSR，只要是需要在删除数组元素并用于React更新视图的场景下，都优先选择filter更好。*
   
   > 💡然而几乎没有什么东西是绝对的，特别需要注意一下的是，传入filter的比较函数本身也是有性能消耗的，假如你这个比较函数本身比较耗性能，那么并不建议你用filter。
-  
+
+聪明的小伙伴应该能意识到，splice方案落后的关键点在于 ```[...arr]``` 这行代码，之所以这样做，是因为你需要满足React更新视图的深比较规则，必须给一个新数组，而splice是直接改变原数组，内存地址根本没有改变，深比较的时候，React只会认为你没有改变state，也就不会更新视图，而filter是会返回一个新数组的，所以正中React的state浅比较的点，所以这个case，filter险胜。
+
+**最终的最终，还并没有完结**
+
+💡💡💡因为还有一个黑魔法！！！那就是`Array.prototype.concat`这个因为其功能被严重低估的API，这个API很强大，强大到可以强势逆转咱们上面的结论，我们都知道其实单论splice和filter的性能，那一定是splice更好的，但是因为是需要去setState所以需要一个新数组，那么splice就势必要多一个创建新数组的操作，我们之前使用的是大家最常用的`[...arr]`，但是如果你考虑用`concat`，那么一切会变得不一样，看下图。
+
+![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/a0771fec-639f-4908-8246-3becde6aa4b6)
+
+差距如此之大，同样是返回一个新数组，但是当你有创建一个新数组的需求的时候，第一时间大概率不会想到用`concat`，然而对于返回一个新数组，他的性能是如此的出色，所以我愿意称它为黑魔法~
+
+只不过啊，就算用上`concat`黑魔法，在较为真实的使用场景下，filter 也并不会慢多少~
+
+![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/a81f76f9-80c3-4348-8b5c-6db37c462de8)
+
+但是我请求大家继续往下读，因为虽然性能几乎你找到了极限，但是我却不建议你用`concat`~
+
 ------------------------------------------------
+
+以上总结：不难看出，上面的所有benchmark案例，10万条数据下，性能差距也不大，都是几毫秒的差距，其实在业务代码中，很少有纠结到这个性能级别的，虽然`concat`有足够优秀的性能，但是却大概率会让看你代码的同事一脸懵逼，一点点性能提升的同时，丧失了代码的可读性，而这两者有时候的确是冲突了，需要取舍，在性能差距不大的情况下，我更推荐你选择代码可读性。
 
 ## 但是我有更多思考（没有在内部报告中体现）
 
@@ -186,7 +204,7 @@ TL: 要求改用 Array.prototype.findIndex + Array.prototype.splice，因为性�
 
 ### 首先我想简单说说这两个数组原型链上的api（Array.prototype.findIndex就不说了，我的关注点不在这里。）
 
-导致我和我的TL有所分歧的，其实就是```Array.prototype.filter```和```Array.prototype.splice```的背后原理，但我俩似乎对于这个并不矛盾，他大概率只是忽略了，这是一个React，state的场景，同事需要用删除后的数组，去setState更新视图，而这一步，由于React的state在比较时是用的深比较，所以对于生成新数组这一步是省略不掉的，除非你用其他state触发更新。
+导致我和我的TL有所分歧的，其实就是```Array.prototype.filter```和```Array.prototype.splice```的背后原理，但我俩似乎对于这个并不矛盾，他大概率只是忽略了，这是一个React，state的场景，同事需要用删除后的数组，去setState更新视图，而这一步，由于React的state在比较时是用的深比较，所以对于生成新数组这一步是省略不掉的，除非你用其他方式触发更新。
 
 虽然这两个 api 很基础，背后原理也应该是大家都知道的，但是！！！，因为我发现其他同事比较模糊，所以还是想多写一点东西。
 
