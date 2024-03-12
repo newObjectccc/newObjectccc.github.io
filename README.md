@@ -108,6 +108,7 @@
 | 各前端主流框架的功能点横向对比 | [https://component-party.dev/](https://component-party.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | 自动生成代码演示文稿动画的网站 | [https://www.animate-code.com](https://www.animate-code.com) |⭐️⭐️⭐️⭐️⭐️|
 | 打算第几次入门Rust？希望这是你最后一次 | [https://course.rs/about-book.html](https://course.rs/about-book.html) |⭐️⭐️⭐️⭐️⭐️|
+| 还在用Nginx?试试这个？ | [https://caddyserver.com/](https://caddyserver.com/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些前端技术库 🧰
 
