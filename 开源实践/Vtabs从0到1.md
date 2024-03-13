@@ -25,6 +25,19 @@ edge tabs list github 插图
 
 #### 2. *项目规划和准备阶段*📌
 
+开发Chrome Extension需要的准备其实也很简单：
+
+1. web前端工程师一名，（如果你的插件需要和后端交互）全栈工程师会更好。
+2. Chrome Extension 开发文档。[跳转去收藏](https://developer.chrome.com/?hl=zh-cn)
+3. 初步了解Manifest.json及Chrome Extension App项目。[适合初学者的谷歌插件模板](https://github.com/newObjectccc/chrome-extension-boilerplate)
+4. 知道怎么在Chrome浏览器中进入插件管理页面。
+    - `chrome://extensions/`地址栏输入即可
+5. 知道如何加载你的插件。
+    - 这里是以`chrome-extension-boilerplate`为例，
+
+6. 知道如何打开插件调试工具
+    -
+
 #### 3. *项目的创建和初始化*📌
 
 #### 4. *功能开发和迭代*📌
