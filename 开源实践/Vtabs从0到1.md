@@ -48,11 +48,48 @@
 
    ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/2fe1030b-178e-45a5-b19a-aa187e724f32)
 
-
 #### 3. *项目的创建和初始化*📌
+
+以下我都是以`chrome-extension-boilerplate`为例，因为他足够简单，开箱即用，非常适合入门。
+
+环境要求：
+
+- node >= 20
+- pnpm >= 8
+
+开始使用：
+
+1. git clone <https://github.com/newObjectccc/chrome-extension-boilerplate.git>
+2. pnpm install
+3. pnpm start
 
 #### 4. *功能开发和迭代*📌
 
+一开始我就明确了我的需求，即我的初衷，就是需要一个垂直的tabs进行管理，因为垂直的tabs，就算是开的比较多，也能够看到完整的title信息，剩下的就只需要根据需求寻找技术实现了，然后有坑踩坑，很幸运的是，我这个需求比较简单，所以一路上都没遇到什么坑。
+
+- 垂直Tabs面板：Chrome Developer 文档里面我找到 sidePanel 的开发，就很满足我的需求。（需要在minifest.json中获取权限，最终你发布的时候，chrome是从minifest里面给你授权的）
+- tabs管理：当然就是先看Tabs的所有Api啦，还是Chrome Developer 文档，一搜便有。
+
+##### 迭代想法的萌生
+
+有些想法你可能一开始并没有，但是你开发开发着就会出现了：
+
+- 好看一点的UI：因为我使用的React，所以我用的`NextUI`（官网地址就不贴了，在我github主页分享里面有）
+- 丝滑的动画：`framer-motion`非常强大且好用，谁用谁知道（官网也在我github主页）
+- 拖拽库：`react-beautiful-dnd`不多介绍了，足够出名了（官网也在我主页）
+
 #### 5. *社区参与和反馈*📌
 
+开源的思考是来源于，我想让`Vtabs`仅仅是一个开始，大家完全可以根据自己的需求定制自己的`Vtabs`，比如你可能先带UI分组的功能，或者你想置顶几个小工具网页之类，但我并不是一个`Indie Hacker`（敬佩那些有大魄力和能力超群的大佬去实践独立开发者这一条路，甚至有些大佬完全就是开源贡献，从不收费），没有太多时间维护，只是空有开源社区的爱好，于是我将`Vtabs`开源。
+
+- 于是我声明了`Apache2.0`开源协议。
+- 并在issue区留出来一些功能思考。
+
 #### 6. *总结和展望*📌
+
+开源社区是每一个程序员都应该参与共建的，我也希望我在力所能及的地方，贡献自己一点微薄的力量，同时也能不停的磨砺自己，在开源社区留下自己的代码，也让我感受到一丝声明的意义。
+
+最后贴上我的开源偶像:
+
+[![Sindre Sorhus](https://github.com/sindresorhus.png?size=50)](https://github.com/sindresorhus)
+[Sindre Sorhus](https://github.com/sindresorhus)
