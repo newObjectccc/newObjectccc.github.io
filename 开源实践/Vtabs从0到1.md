@@ -67,8 +67,13 @@
 
 一开始我就明确了我的需求，即我的初衷，就是需要一个垂直的tabs进行管理，因为垂直的tabs，就算是开的比较多，也能够看到完整的title信息，剩下的就只需要根据需求寻找技术实现了，然后有坑踩坑，很幸运的是，我这个需求比较简单，所以一路上都没遇到什么坑。
 
-- 垂直Tabs面板：Chrome Developer 文档里面我找到 sidePanel 的开发，就很满足我的需求。（需要在minifest.json中获取权限，最终你发布的时候，chrome是从minifest里面给你授权的）
-- tabs管理：当然就是先看Tabs的所有Api啦，还是Chrome Developer 文档，一搜便有。
+- 垂直Tabs面板：Chrome Developer 文档里面我找到 sidePanel 的开发，就很满足我的需求，以下是UI部分源码，其实熟悉React开发的同学一眼就能看懂，我用Image，div等标签画了每一个tab的垂直展示，外部用ul和li来包裹。（需要在minifest.json中获取权限，最终你发布的时候，chrome是从minifest里面给你授权的）：
+
+    ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/6c47a1c0-091f-491b-a021-07e85656916d)
+
+- tabs管理：当然就是先看Tabs的所有Api啦，还是Chrome Developer 文档，一搜便有，以下这些便是我项目中用到的chrome.tabs的一些api了，我只是找到了一些Tab的事件api，在对应的创建，更新，删除，移动等事件上做了相应的sidePanel面板的视图更新，一点点React开发基础即可看懂源码。
+
+    ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/79a7a59b-2a6c-487a-9662-d65cadb542af)
 
 ##### 迭代想法的萌生
 
@@ -77,6 +82,10 @@
 - 好看一点的UI：因为我使用的React，所以我用的`NextUI`（官网地址就不贴了，在我github主页分享里面有）
 - 丝滑的动画：`framer-motion`非常强大且好用，谁用谁知道（官网也在我github主页）
 - 拖拽库：`react-beautiful-dnd`不多介绍了，足够出名了（官网也在我主页）
+
+  根据这三点，我又加了一些元素的包裹来实现，熟悉dnd和framer-motion的同学应该很熟悉这些代码：
+
+    ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/3e532d68-879f-4ccd-ade0-08173f31fca8)
 
 #### 5. *社区参与和反馈*📌
 
