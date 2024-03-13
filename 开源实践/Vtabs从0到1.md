@@ -21,7 +21,13 @@
 
 本来我一直依赖用的是Chrome，当我一早在Arc内测时send了email，收到回复后，我发现只支持macOS，然我不得不继续使用Chrome，然后因为发现Edge的layer调试视图比Chrome流畅，我又转投Edge，这之后我发现Edge的vertical tabs很好用，我甚至没有关注在调度和内存占用上哪个更优，就因为这点转投了Edge，但是有一个痛点就是我几乎所有平台账号都依赖Google，而Microsoft的账号注册一直让我头大，所以我想在Chrome中开发一个支持Vertical tabs的插件，其实有了一些其他作者的插件，但我大致浏览了一下，功能强的要收费，免费的又做的太随意，竟然还有win98的复古感，于是我还是决定自己造一个吧，毕竟又花不了多少时间（不过我在做完之后又看到了一些免费且还不错的）。
 
-edge tabs list github 插图
+这是Edge的：
+
+![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/22ad86ee-8b2e-43d1-a334-ea4bc343dec4)
+
+这是Chrome插件商店里的：
+
+![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/1dc1a22e-5b2f-459b-a9b2-3a1ffeef179e)
 
 #### 2. *项目规划和准备阶段*📌
 
@@ -33,10 +39,15 @@ edge tabs list github 插图
 4. 知道怎么在Chrome浏览器中进入插件管理页面。
     - `chrome://extensions/`地址栏输入即可
 5. 知道如何加载你的插件。
-    - 这里是以`chrome-extension-boilerplate`为例，
+    - 这里是以`chrome-extension-boilerplate`为例，点击下图按钮，加载你的资源，比如dist目录：
 
-6. 知道如何打开插件调试工具
-    -
+    ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/f07d6586-efd3-423d-8b01-368ed9349646)
+
+6. 知道如何打开插件调试工具。
+    - 在插件管理页面加载后，打开插件，即可看到，如果你有SeviceWorker则可能会有2个检查视图，如下图：
+
+   ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/2fe1030b-178e-45a5-b19a-aa187e724f32)
+
 
 #### 3. *项目的创建和初始化*📌
 
