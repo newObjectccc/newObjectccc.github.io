@@ -49,6 +49,7 @@
 | [字节新出oxlint都在推但没人讲怎么尝鲜](./前端工程化/字节新出oxlint都在推但没人讲怎么尝鲜.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
 | [最简单的cicd部署GithubPage博客](./前端杂谈/最简单的博客GithubPage.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 | [为你的团队尝试比Babel快20-70倍的SWC吧](./前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [Vtabs从0到1](./开源实践/Vtabs从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 
 ### 最近新打补丁 📌
 
