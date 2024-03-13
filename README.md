@@ -133,6 +133,7 @@
 | 在你的项目中使用CodeSandbox | [codesandbox/sandpack](https://github.com/codesandbox/sandpack) |⭐️⭐️⭐️⭐️⭐️|
 | 真的很漂亮的语法高亮库，而且不止高亮 | [shikijs/shiki](https://github.com/shikijs/shiki) |⭐️⭐️⭐️⭐️⭐️|
 | 下一代Web扩展开发模板 | [wxt-dev/wxt.git](https://github.com/wxt-dev/wxt.git) |⭐️⭐️⭐️⭐️⭐️|
+| React社区最强大的拖拽库 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
 
