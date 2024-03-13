@@ -108,6 +108,7 @@
 | 各前端主流框架的功能点横向对比 | [https://component-party.dev/](https://component-party.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | 自动生成代码演示文稿动画的网站 | [https://www.animate-code.com](https://www.animate-code.com) |⭐️⭐️⭐️⭐️⭐️|
 | 打算第几次入门Rust？希望这是你最后一次 | [https://course.rs/about-book.html](https://course.rs/about-book.html) |⭐️⭐️⭐️⭐️⭐️|
+| 还在用Nginx?试试这个？ | [https://caddyserver.com/](https://caddyserver.com/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些前端技术库 🧰
 
@@ -132,6 +133,7 @@
 | 在你的项目中使用CodeSandbox | [codesandbox/sandpack](https://github.com/codesandbox/sandpack) |⭐️⭐️⭐️⭐️⭐️|
 | 真的很漂亮的语法高亮库，而且不止高亮 | [shikijs/shiki](https://github.com/shikijs/shiki) |⭐️⭐️⭐️⭐️⭐️|
 | 下一代Web扩展开发模板 | [wxt-dev/wxt.git](https://github.com/wxt-dev/wxt.git) |⭐️⭐️⭐️⭐️⭐️|
+| React社区最强大的拖拽库 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
 
