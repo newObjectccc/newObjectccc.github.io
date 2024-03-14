@@ -17,7 +17,7 @@
 
 [a162cd02-155b-4fd7-89dc-4a5843637e58.webm](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/9785a6a8-4c62-4ba3-a789-a33ddb25f09d)
 
-【在VSCode中导出漂亮的代码图！】 https://www.bilibili.com/video/BV16w4m1d7et/?share_source=copy_web&vd_source=0ce418657874272e878c4389ba86cc13
+【在VSCode中导出漂亮的代码图！】 <https://www.bilibili.com/video/BV16w4m1d7et/?share_source=copy_web&vd_source=0ce418657874272e878c4389ba86cc13>
 
 ----------------
 
