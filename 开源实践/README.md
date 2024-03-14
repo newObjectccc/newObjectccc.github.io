@@ -5,3 +5,4 @@
 作者不是自由职业者，所以时间不会太多，并且有多个兼职。但是我会尽量保持更新的。
 
 - [Vtabs从0到1](./Vtabs从0到1.md)(Entry-Level)
+- [BeautyCode从0到1](./BeautyCode从0到1.md)(Entry-Level)
