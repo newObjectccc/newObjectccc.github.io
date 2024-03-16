@@ -1,0 +1,1 @@
+import{_ as e,c as i,o,a4 as c}from"./chunks/framework.nQaBHiNx.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"前端工程化/快速理解前端工程化.md","filePath":"前端工程化/快速理解前端工程化.md"}'),t={name:"前端工程化/快速理解前端工程化.md"},l=c("",38),a=[l];function s(p,d,n,m,r,h){return o(),i("div",null,a)}const k=e(t,[["render",s]]);export{u as __pageData,k as default};
