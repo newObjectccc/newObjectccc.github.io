@@ -3,7 +3,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Vesper's Articles",
+  title: "Vesper's site",
   description: "Vesper vitepress",
   lastUpdated: true,
   themeConfig: {

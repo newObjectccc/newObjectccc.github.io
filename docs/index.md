@@ -3,19 +3,31 @@
 layout: home
 
 hero:
-  name: Vesper's Article️s
+  name: Vesper's site
   text: keep coding...
-  tagline: never give up coding.
+  tagline: 这里有一些我的技能、开源项目和文章.
   # image:
   #   src: https://avatars.githubusercontent.com/u/42132586?v=4
   #   alt: vesper
   actions:
     - theme: brand
-      text: Article Pages
+      text: 文章
       link: /main
+    - theme: brand
+      text: 自建模板库
+      link: /自建模板库
     - theme: alt
-      text: Github Profile
+      text: Github 主页
       link: https://github.com/newObjectccc
+    - theme: alt
+      text: Vtabs
+      link: /vtabs
+    - theme: alt
+      text: BeautyCode
+      link: /beautycode
+    - theme: alt
+      text: Buildp
+      link: /buildp
       
 features:
   - title: React
