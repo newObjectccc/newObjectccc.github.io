@@ -40,10 +40,10 @@ features:
     icon: <img width="36" src="https://api.iconify.design/skill-icons:typescript.svg">
     details: last 2 years...
   - title: Nestjs
-    icon: <img width="36" src="https://api.iconify.design/skill-icons:nestjs-dark.svg">
+    icon: <img width="36" src="https://api.iconify.design/devicon:nestjs.svg">
     details: more than 400 hours...
   - title: Vite
-    icon: <img width="36" src="https://api.iconify.design/skill-icons:vite-dark.svg">
+    icon: <img width="36" src="https://api.iconify.design/devicon:vitejs.svg">
     details: last 1 years...
   - title: Webpack
     icon: <img width="36" src="https://api.iconify.design/devicon:webpack.svg">
@@ -73,16 +73,16 @@ features:
     icon: <img width="36" src="https://api.iconify.design/logos:ubuntu.svg">
     details: more than 200 hours...
   - title: Rollup
-    icon: <img width="36" src="https://api.iconify.design/logos:rollup.svg">
+    icon: <img width="36" src="https://api.iconify.design/devicon:rollup.svg">
     details: more than 200 hours...
   - title: VSCode
     icon: <img width="36" src="https://api.iconify.design/logos:visual-studio-code.svg">
     details: last 1 years...
   - title: Neovim
-    icon: <img width="36" src="https://api.iconify.design/skill-icons:neovim-dark.svg">
+    icon: <img width="36" src="https://api.iconify.design/devicon:neovim.svg">
     details: last 1 years...
   - title: MySQL
-    icon: <img width="36" src="https://api.iconify.design/skill-icons:mysql-dark.svg">
+    icon: <img width="36" src="https://api.iconify.design/devicon:mysql.svg">
     details: more than 100 hours...
   - title: Styled Componet
     icon: <img width="36" src="https://api.iconify.design/skill-icons:styledcomponents.svg">
