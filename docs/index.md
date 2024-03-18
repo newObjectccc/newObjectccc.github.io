@@ -12,13 +12,11 @@ hero:
   actions:
     - theme: brand
       text: Article Pages
-      link: /全栈技能-偏前端/docker-compose多项目自动化部署实践
+      link: /main
     - theme: alt
       text: Github Profile
       link: https://github.com/newObjectccc
       
-lastUpdated: true
-
 features:
   - title: React
     icon: <img width="36" src="https://api.iconify.design/devicon:react.svg" alt="react">
@@ -52,10 +50,10 @@ features:
     details: more than 100 hours...
   - title: Vim
     icon: <img width="36" src="https://api.iconify.design/logos:vim.svg">
-    details: last 3 years...
+    details: last 1 years...
   - title: Rust
     icon: <img width="36" src="https://api.iconify.design/logos:rust.svg">
-    details: last 3 years...
+    details: more than 24 hours...
   - title: Git
     icon: <img width="36" src="https://api.iconify.design/logos:git-icon.svg">
     details: last 6 years...
@@ -68,5 +66,17 @@ features:
   - title: VSCode
     icon: <img width="36" src="https://api.iconify.design/logos:visual-studio-code.svg">
     details: last 1 years...
+  - title: Neovim
+    icon: <img width="36" src="https://api.iconify.design/skill-icons:neovim-dark.svg">
+    details: last 1 years...
+  - title: MySQL
+    icon: <img width="36" src="https://api.iconify.design/skill-icons:mysql-dark.svg">
+    details: more than 100 hours...
+  - title: Styled Componet
+    icon: <img width="36" src="https://api.iconify.design/skill-icons:styledcomponents.svg">
+    details: more than 100 hours...
+  - title: HTML5
+    icon: <img width="36" src="https://api.iconify.design/devicon:html5.svg">
+    details: more than 2 years...
 ---
 
