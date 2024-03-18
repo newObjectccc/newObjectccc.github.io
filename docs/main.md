@@ -85,6 +85,7 @@
 |------------------------|-------------------------|-----------------------|
 | 有着超级多Emoji的宝藏网站 | [https://emojipedia.org](https://emojipedia.org/) |⭐️⭐️⭐️⭐️⭐️|
 | 有着比多还多的Emoji的宝藏网站 | [https://getemoji.com/](https://getemoji.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 有着超级多技能icon的宝藏网站，也有其他icon | [https://icon-sets.iconify.design/](https://icon-sets.iconify.design/) |⭐️⭐️⭐️⭐️⭐️|
 | 有着超级多UI设计的宝藏网站 | [https://mobbin.com/](https://mobbin.com/browse/ios/apps) |⭐️⭐️⭐️⭐️⭐️|
 | 很著名的可以摸鱼或者demo记录的网站 | [https://codepen.io/](https://codepen.io/) |⭐️⭐️⭐️⭐️⭐️|
 | 你应该知道的程序员问题求助社区 | [stackoverflow.com](https://stackoverflow.com/) |⭐️⭐️⭐️⭐️⭐️|

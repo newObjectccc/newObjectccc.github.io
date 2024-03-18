@@ -44,58 +44,60 @@
 
 |文章链接|等级|推荐指数|
 |------------------------------|----------------------------|-----------------------------|
-| [通过阅读源码敷衍的学习新语言Rust](./其他编程语言/通过敷衍式阅读源码学习新语言Rust.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
-| [用Sass编写你团队的BEM规范](./其他编程语言/用Sass编程编写你团队的BEM规范.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
-| [字节新出oxlint都在推但没人讲怎么尝鲜](./前端工程化/字节新出oxlint都在推但没人讲怎么尝鲜.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
-| [最简单的cicd部署GithubPage博客](./前端杂谈/最简单的博客GithubPage.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
-| [为你的团队尝试比Babel快20-70倍的SWC吧](./前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
-| [Vtabs从0到1](./开源实践/Vtabs从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
-| [BeautyCode从0到1](./开源实践/BeautyCode从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
+| [通过阅读源码敷衍的学习新语言Rust](./docs/其他编程语言/通过敷衍式阅读源码学习新语言Rust.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
+| [用Sass编写你团队的BEM规范](./docs/其他编程语言/用Sass编程编写你团队的BEM规范.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
+| [字节新出oxlint都在推但没人讲怎么尝鲜](./docs/前端工程化/字节新出oxlint都在推但没人讲怎么尝鲜.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
+| [最简单的cicd部署GithubPage博客](./docs/前端杂谈/最简单的博客GithubPage.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
+| [为你的团队尝试比Babel快20-70倍的SWC吧](./docs/前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [Vtabs从0到1](./docs/开源实践/Vtabs从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
+| [BeautyCode从0到1](./docs/开源实践/BeautyCode从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 
 ### 最近新打补丁 📌
 
 |文章链接|等级|补丁内容|
 |------------------------------|----------------------------|-----------------------------|
-| [validation中的一点点函数式编程](./前端业务实践/实际业务validator中的函数式编程.md) | Entry-Level |📌即将到来的新语法，目前TC39的stage 2阶段|
-| [为你的团队尝试比Babel快20-70倍的SWC吧](./前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |📌swc与ast-grep或许好用(短短一周已经3.4Kstar)|
+| [validation中的一点点函数式编程](./docs/前端业务实践/实际业务validator中的函数式编程.md) | Entry-Level |📌即将到来的新语法，目前TC39的stage 2阶段|
+| [为你的团队尝试比Babel快20-70倍的SWC吧](./docs/前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |📌swc与ast-grep或许好用(短短一周已经3.4Kstar)|
 
 ### 今日推荐文章 ⛽
 
 |文章链接|等级|推荐指数|
 |------------------------------|----------------------------|-----------------------------|
-| [快速理解前端工程化](./前端工程化/快速理解前端工程化.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
-| [可视化Js引擎基础](./前端基础/前端基础-可视化Js引擎基础.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
-| [可视化Js作用域/链](./前端基础/前端基础-可视化作用域链.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
-| [可视化Js变量提升](./前端基础/前端基础-可视化变量提升.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
-| [可视化浏览器事件循环](./前端基础/前端基础-可视化事件循环.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
-| [最简单的cicd部署GithubPage博客](./前端杂谈/最简单的博客GithubPage.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
-| [你应该知道如何用VSCode进行Debugger](./前端业务实践/你应该知道如何用VSCode进行Debugger.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
-| [前端应该知道的curl请求](./网络相关-偏前端/前端应该知道的curl请求.md) | Entry-Level |⭐️⭐️⭐️⭐️|
-| [validation中的一点点函数式编程](./前端业务实践/实际业务validator中的函数式编程.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
-| [docker-compose多项目自动化部署实践入门](./全栈技能-偏前端/docker-compose多项目自动化部署实践.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
-| [前端基础与面试杂谈](./前端杂谈/前端杂谈-前端基础与面试.md) | Mid-Level |⭐️⭐️⭐️⭐️⭐️|
-| [浅谈浏览器跨域cors](./网络相关-偏前端/浏览器跨域cors一次说明白.md) | Mid-Level |⭐️⭐️⭐️⭐️⭐️|
-| [你的异步请求完全可以脱离useEffect](./前端业务实践/你的异步请求完全可以脱离useEffect.md) | Mid-Level |⭐️⭐️⭐️⭐️|
-| [一次和TL意见不合的思考](./前端杂谈/一次和TL意见不合的思考.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
-| [Vtabs从0到1](./开源实践/Vtabs从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
+| [快速理解前端工程化](./docs/前端工程化/快速理解前端工程化.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [可视化Js引擎基础](./docs/前端基础/前端基础-可视化Js引擎基础.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [可视化Js作用域/链](./docs/前端基础/前端基础-可视化作用域链.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [可视化Js变量提升](./docs/前端基础/前端基础-可视化变量提升.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [可视化浏览器事件循环](./docs/前端基础/前端基础-可视化事件循环.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [最简单的cicd部署GithubPage博客](./docs/前端杂谈/最简单的博客GithubPage.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
+| [你应该知道如何用VSCode进行Debugger](./docs/前端业务实践/你应该知道如何用VSCode进行Debugger.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [前端应该知道的curl请求](./docs/网络相关-偏前端/前端应该知道的curl请求.md) | Entry-Level |⭐️⭐️⭐️⭐️|
+| [validation中的一点点函数式编程](./docs/前端业务实践/实际业务validator中的函数式编程.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [docker-compose多项目自动化部署实践入门](./docs/全栈技能-偏前端/docker-compose多项目自动化部署实践.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [前端基础与面试杂谈](./docs/前端杂谈/前端杂谈-前端基础与面试.md) | Mid-Level |⭐️⭐️⭐️⭐️⭐️|
+| [浅谈浏览器跨域cors](./docs/网络相关-偏前端/浏览器跨域cors一次说明白.md) | Mid-Level |⭐️⭐️⭐️⭐️⭐️|
+| [你的异步请求完全可以脱离useEffect](./docs/前端业务实践/你的异步请求完全可以脱离useEffect.md) | Mid-Level |⭐️⭐️⭐️⭐️|
+| [一次和TL意见不合的思考](./docs/前端杂谈/一次和TL意见不合的思考.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
+| [Vtabs从0到1](./docs/开源实践/Vtabs从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 
 ### 更多文章请走分类阅读入口 👇
 
-- 📁[前端工程化](./前端工程化)
-- 📁[前端基础](./前端基础)
-- 📁[前端业务实践](./前端业务实践)
-- 📁[前端杂谈](./前端杂谈)
-- 📁[网络相关-偏前端](./网络相关-偏前端)
-- 📁[全栈技能-偏前端](./全栈技能-偏前端)
-- 📁[源码浅读](./源码浅读)
-- 📁[其他编程语言](./其他编程语言)
-- 📁[开源实践](./开源实践)
+- 📁[前端工程化](./docs/前端工程化)
+- 📁[前端基础](./docs/前端基础)
+- 📁[前端业务实践](./docs/前端业务实践)
+- 📁[前端杂谈](./docs/前端杂谈)
+- 📁[网络相关-偏前端](./docs/网络相关-偏前端)
+- 📁[全栈技能-偏前端](./docs/全栈技能-偏前端)
+- 📁[源码浅读](./docs/源码浅读)
+- 📁[其他编程语言](./docs/其他编程语言)
+- 📁[开源实践](./docs/开源实践)
+- 📁[自建模板库](./docs/自建模板库)
 
 ### 推荐一些泛领域的网站 🌐
 
 |网站描述|网站链接|推荐指数|
 |------------------------|-------------------------|-----------------------|
 | 有着超级多Emoji的宝藏网站 | [https://emojipedia.org](https://emojipedia.org/) |⭐️⭐️⭐️⭐️⭐️|
+| 有着超级多技能icon的宝藏网站，也有其他icon | [https://icon-sets.iconify.design/](https://icon-sets.iconify.design/) |⭐️⭐️⭐️⭐️⭐️|
 | 有着比多还多的Emoji的宝藏网站 | [https://getemoji.com/](https://getemoji.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 有着超级多UI设计的宝藏网站 | [https://mobbin.com/](https://mobbin.com/browse/ios/apps) |⭐️⭐️⭐️⭐️⭐️|
 | 很著名的可以摸鱼或者demo记录的网站 | [https://codepen.io/](https://codepen.io/) |⭐️⭐️⭐️⭐️⭐️|
