@@ -15,7 +15,7 @@ hero:
       link: /main
     - theme: brand
       text: 自建模板库
-      link: /自建模板库
+      link: /自建模板库/next-generation-web-project
     - theme: alt
       text: Github 主页
       link: https://github.com/newObjectccc
