@@ -5,7 +5,7 @@ layout: home
 hero:
   name: Vesper's site
   text: keep coding...
-  tagline: 这里有一些我的技能、开源项目和文章.
+  tagline: Hi~ 这里是练习时长不到3坤年的我的一些开源项目和文章，和我掌握的技能.
   # image:
   #   src: https://avatars.githubusercontent.com/u/42132586?v=4
   #   alt: vesper
