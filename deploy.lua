@@ -11,4 +11,5 @@ else
 end
 
 os.execute("cd " .. repo_path .. " && npm install && npm run docs:build")
+os.execute("cd " .. repo_path .. " && docker build -t mycaddy .")
 os.execute("cd " .. repo_path .. " && docker-compose up -d")
