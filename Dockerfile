@@ -1,7 +1,7 @@
 FROM caddy:2-builder AS builder
 
 RUN xcaddy build \
-    --with github.com/aksdb/caddy-cgi/v2.2.3
+    --with github.com/aksdb/caddy-cgi/v2
 
 FROM caddy:2.7.6-alpine
 
