@@ -10,6 +10,6 @@ RUN apk add --no-cache git
 RUN apk add --no-cache lua5.3
 RUN apk add --no-cache nodejs
 
-ENV PATH /usr/local/bin:$PATH
+ENV PATH /usr/local/bin:/usr/bin:$PATH
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
