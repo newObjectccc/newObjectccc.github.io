@@ -6,9 +6,6 @@ hero:
   name: Vesper's site
   text: keep coding...
   tagline: 这里有一些我的开源项目和文章，已会的技能展示.
-  # image:
-  #   src: https://avatars.githubusercontent.com/u/42132586?v=4
-  #   alt: vesper
   actions:
     - theme: brand
       text: 文章
