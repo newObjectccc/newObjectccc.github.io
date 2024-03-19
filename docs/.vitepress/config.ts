@@ -1,14 +1,12 @@
 import { glob } from "glob";
 import { defineConfig } from "vitepress";
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Vesper's site",
   description: "Vesper vitepress",
   lastUpdated: true,
   themeConfig: {
     logo: "https://avatars.githubusercontent.com/u/42132586?v=4",
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "主页", link: "/" },
       { text: "文章", link: "/main" },
