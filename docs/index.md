@@ -5,7 +5,7 @@ layout: home
 hero:
   name: Vesper's site
   text: keep coding...
-  tagline: 这里有一些我的开源项目和文章，已会的技能展示.
+  tagline: 这里有一些我的开源项目，文章和已会的技能展示.
   actions:
     - theme: brand
       text: 文章
