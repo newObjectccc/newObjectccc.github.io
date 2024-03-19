@@ -4,4 +4,6 @@ route /deploy {
   cgi ./deploy.lua
 }
 
-file_server
+file_server {
+  root ./docs/.vitepress/dist
+}

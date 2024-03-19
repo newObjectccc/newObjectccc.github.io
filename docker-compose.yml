@@ -8,7 +8,7 @@ services:
       - "443:443/udp"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./docs/.vitepress/dist:/srv
+      - ./:/srv
       - caddy_data:/data
       - caddy_config:/config
 
