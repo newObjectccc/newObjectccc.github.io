@@ -1,4 +1,4 @@
-FROM caddy:2-builder AS builder
+FROM caddy:2-builder
 
 RUN xcaddy build \
     --with github.com/aksdb/caddy-cgi/v2
