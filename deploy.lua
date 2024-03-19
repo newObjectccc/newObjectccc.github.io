@@ -11,5 +11,5 @@ else
 end
 
 os.execute("cd " .. repo_path .. " && npm install && npm run docs:build")
--- os.execute("cd " .. repo_path .. " && docker build -t mycaddy .") // docker 的网络环境总这么让人头疼
+os.execute("cd " .. repo_path .. " && docker build -t mycaddy .") // docker 的网络环境总这么让人头疼
 os.execute("cd " .. repo_path .. " && docker-compose up -d")
