@@ -1,8 +1,8 @@
 localhost
 
-route /deploy {
-  respond "deploying..."
-  exec ./deploy.lua
-}
+# route /deploy {
+#   respond "deploying..."
+#   exec ./deploy.lua
+# }
 
 file_server
