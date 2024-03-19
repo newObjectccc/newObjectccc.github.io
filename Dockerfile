@@ -5,10 +5,10 @@ RUN xcaddy build \
 
 FROM caddy:2
 
-RUN apt-get update
-RUN apt-get install -y git
-RUN apt-get install -y lua5.3
-RUN apt-get install -y nodejs
+RUN apt update
+RUN apt install -y git
+RUN apt install -y lua5.3
+RUN apt install -y nodejs
 
 ENV PATH /usr/local/bin:$PATH
 
