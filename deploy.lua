@@ -1,3 +1,5 @@
+#!/usr/bin/env lua
+
 local os = require("os")
 local repo_path = "~/newObjectccc.github.io"
 local repo_url = "https://github.com/newObjectccc/newObjectccc.github.io.git"
