@@ -120,4 +120,3 @@ features:
 | [前端基础与面试杂谈](/前端杂谈/前端杂谈-前端基础与面试.md) | Mid-Level |⭐️⭐️⭐️⭐️⭐️|
 | [浅谈浏览器跨域cors](/网络相关-偏前端/浏览器跨域cors一次说明白.md) | Mid-Level |⭐️⭐️⭐️⭐️⭐️|
 | [你的异步请求完全可以脱离useEffect](/前端业务实践/你的异步请求完全可以脱离useEffect.md) | Mid-Level |⭐️⭐️⭐️⭐️⭐️|
-| [Vtabs从0到1](/开源实践/Vtabs从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
