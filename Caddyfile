@@ -1,9 +1,3 @@
 vesper.host
 
-route /deploy {
-  cgi ./deploy.lua
-}
-
-file_server {
-  root ./docs/.vitepress/dist
-}
+file_server
