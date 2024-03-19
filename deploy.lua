@@ -1,5 +1,5 @@
 local os = require("os")
-local repo_path = "~/blog"
+local repo_path = "~/newObjectccc.github.io"
 local repo_url = "https://github.com/newObjectccc/newObjectccc.github.io.git"
 
 if os.execute("cd " .. repo_path .. " 2>/dev/null") then
