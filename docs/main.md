@@ -63,7 +63,7 @@
 | 自动生成代码演示文稿动画的网站 | [https://www.animate-code.com](https://www.animate-code.com) |⭐️⭐️⭐️⭐️⭐️|
 | 打算第几次入门Rust？希望这是你最后一次 | [https://course.rs/about-book.html](https://course.rs/about-book.html) |⭐️⭐️⭐️⭐️⭐️|
 | 还在用Nginx?试试这个？ | [https://caddyserver.com/](https://caddyserver.com/) |⭐️⭐️⭐️⭐️⭐️|
-| 全栈快速开发框架，内置了一些必要的组件 | [pergel.oku-ui.com](pergel.oku-ui.com) |⭐️⭐️⭐️⭐️⭐️|
+| 全栈快速开发框架，内置了一些必要的组件 | [https://pergel.oku-ui.com](https://pergel.oku-ui.com) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些前端技术库 🧰
 
