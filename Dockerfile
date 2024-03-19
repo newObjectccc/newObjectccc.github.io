@@ -9,6 +9,8 @@ RUN apk update
 RUN apk add --no-cache git
 RUN apk add --no-cache lua5.3
 RUN apk add --no-cache nodejs
+RUN apk add --no-cache npm
+RUN ln -s /usr/bin/lua5.3 /usr/bin/lua
 
 ENV PATH /usr/local/bin:/usr/bin:$PATH
 
