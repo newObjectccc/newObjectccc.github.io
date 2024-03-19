@@ -1,1 +1,0 @@
-import{_ as e,c,o,a4 as t}from"./chunks/framework.nQaBHiNx.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"前端基础/前端基础-可视化变量提升.md","filePath":"前端基础/前端基础-可视化变量提升.md"}'),a={name:"前端基础/前端基础-可视化变量提升.md"},i=t("",29),s=[i];function d(r,n,p,l,h,g){return o(),c("div",null,s)}const f=e(a,[["render",d]]);export{u as __pageData,f as default};
