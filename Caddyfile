@@ -1,7 +1,6 @@
 vesper.host
 
 # route /deploy {
-#   respond "deploying..."
 #   cgi ./deploy.lua
 # }
 
