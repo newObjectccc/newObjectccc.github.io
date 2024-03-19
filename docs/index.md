@@ -93,11 +93,6 @@ features:
 
 |文章链接|等级|推荐指数|
 |------------------------------|----------------------------|-----------------------------|
-| [通过阅读源码敷衍的学习新语言Rust](./docs/其他编程语言/通过敷衍式阅读源码学习新语言Rust.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
-| [用Sass编写你团队的BEM规范](./docs/其他编程语言/用Sass编程编写你团队的BEM规范.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
-| [字节新出oxlint都在推但没人讲怎么尝鲜](./docs/前端工程化/字节新出oxlint都在推但没人讲怎么尝鲜.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
-| [最简单的cicd部署GithubPage博客](./docs/前端杂谈/最简单的博客GithubPage.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
-| [为你的团队尝试比Babel快20-70倍的SWC吧](./docs/前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
 | [Vtabs从0到1](./docs/开源实践/Vtabs从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 | [BeautyCode从0到1](./docs/开源实践/BeautyCode从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 
