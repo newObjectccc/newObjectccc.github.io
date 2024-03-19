@@ -6,9 +6,9 @@ RUN xcaddy build \
 FROM caddy:2.7.6-alpine
 
 RUN apk update
-RUN apk install -y git
-RUN apk install -y lua5.3
-RUN apk install -y nodejs
+RUN apk add --no-cache git
+RUN apk add --no-cache lua5.3
+RUN apk add --no-cache nodejs
 
 ENV PATH /usr/local/bin:$PATH
 
