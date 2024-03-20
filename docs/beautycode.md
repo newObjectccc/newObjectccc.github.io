@@ -32,3 +32,7 @@ features:
     icon: 🎁
     details: you don't have to copy and open the Carbon site any more.
 ---
+
+##
+
+<img style="border: 1px solid #888" src="/beautycode.png" alt="product">
