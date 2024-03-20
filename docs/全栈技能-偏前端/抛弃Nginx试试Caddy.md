@@ -253,6 +253,7 @@
             req.on('end', () => {
                 const postBody = JSON.parse(body);
                 if (postBody.secretKey === SECRET_KEY) {
+                    // 下面的路径请替换成你自己的
                     exec('lua ~/newObjectccc.github.io/deploy.lua', (error, stdout, stderr) => {
                         if (error) {
                             console.error(`exec error: ${error}`);
@@ -285,6 +286,13 @@
 #### 7. *走你*📌
 
 okk~ 已经可以开始尝试写完文章提交你的文章了~ 这套简易的cicd能够帮你自动部署到你的个人服务器。
+
+
+> [!WARNING]
+> 其实上述流程中，直接node部署就可以，不用lua，但是我之前考虑caddy直接cgi的，后来因为一些问题换node的方案了，lua文件还能用，就直接杂交了。
+
+> [!WARNING]
+> 并且因为这个杂交的缘故，你还不得不先`cd ～`再`git clone`你的项目，之后才能真正的cicd起来。
 
 --------------------------
 
