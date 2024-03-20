@@ -15,7 +15,7 @@
 
 ### 正文开始👉
 
-[a162cd02-155b-4fd7-89dc-4a5843637e58.webm](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/9785a6a8-4c62-4ba3-a789-a33ddb25f09d)
+<video src="https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/9785a6a8-4c62-4ba3-a789-a33ddb25f09d" controls></video>
 
 【在VSCode中导出漂亮的代码图！】 <https://www.bilibili.com/video/BV16w4m1d7et/?share_source=copy_web&vd_source=0ce418657874272e878c4389ba86cc13>
 
@@ -40,9 +40,9 @@
     - `F5`开启debug模式即可，`vscode-extension-boilerplate`的`.vscode`文件中已经配置好了。
 5. 知道如何调试你的插件。
     - 这里是以`vscode-extension-boilerplate`为例：
-   
+
     在F5开始debug模式之后，弹出的vsc窗口中点击帮助菜单
-   
+
     ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/96f65559-9b49-4271-ba46-ce45655b03fb)
 
     在弹出的菜单里选择`Toggle Developer Tools`
@@ -52,7 +52,6 @@
     然后弹出的调试页面想必不用我多介绍了吧，各位应该非常熟悉了（Linux用户应该是直接在窗口右边展示，功能一样的）
 
     ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/0f6331eb-d111-4363-9ccd-e11e6f37f0d8)
-
 
 #### 3. *项目的创建和初始化*📌
 
