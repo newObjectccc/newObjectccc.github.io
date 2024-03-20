@@ -5,10 +5,10 @@ layout: home
 hero:
   name: Vesper's site
   text: keep coding...
-  tagline: 这里有一些我的开源项目，文章和已会的技能展示.
+  tagline: 这里有一些我的开源项目，文章和已会的技能展示，还有一些我强烈推荐的站点和库.
   actions:
     - theme: brand
-      text: 文章
+      text: 文章和推荐
       link: /main
     - theme: brand
       text: 自建模板库
