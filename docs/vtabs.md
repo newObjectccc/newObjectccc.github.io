@@ -29,3 +29,7 @@ features:
     icon: 🫛
     details: By Chrome SidePanel.
 ---
+
+##
+
+<img style="border: 1px solid #888" src="/vtabs.png" alt="product">
