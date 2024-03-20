@@ -22,7 +22,7 @@
 
 我自己是用的腾讯的轻量应用服务器：
 
-图1
+![e3aebacc0f8fe32d69aee576637e3c8](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/46cfc0b1-6472-4e8a-8291-84e24b7ddf6c)
 
 选购时需要注意以下2点：
 
@@ -31,15 +31,15 @@
     - 如果你按照我后续步骤搭建，那么最好使用和我相同的系统环境，有一定服务器折腾基础的同学除外。
 2. 如果你不打算icp备案，那么请一定要购买香港或者国外的服务器，你不用太过担心延迟问题，并不会很离谱。
 
-图2
+![3403bcbd667852412e5dfe2be970132](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/89ec35e3-2fca-4e85-9185-61c2a401989b)
 
 #### 2. *准备服务器环境*
 
 1. 进入服务器控制台，登录进去
 
-图6
+![02c28bb88cee62487c87855b99c0e27](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/d3ba421b-e332-4e7e-8290-8b18baaf9878)
 
-2. 在管理员权限下安装lua和nvm
+3. 在管理员权限下安装lua和nvm
     - 进入管理员权限
 
     ```bash
@@ -87,7 +87,7 @@
 > [!TIP]
 > 如果你在腾讯购买了服务器，请尽量不要到其他平台去购买域名，相对比较麻烦，特别当你想要进行icp备案等操作时。
 
-图3
+![28c22fb2b52d91e02172d5e07e4a975](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/fe83e653-4b43-4805-84f9-a71c88d65152)
 
 #### 4. *然后迁移到 Vitepress*📌
 
@@ -95,14 +95,29 @@
 > 我必须迁移，而你可以直接根据[Vitepress官方文档](https://vitepress.dev/zh/)开始新项目。
 
 1. 先创建package.json
-    `npm init -y`
-2. 安装glob和vitepress
-    `pnpm add -D glob vitepress@latest`
-3. 根据向导初始化vitepress
-    `pnpm vitepress init`
-4. 把所有文章都copy到docs
-5. 把vitepress跑起来
-    `pnpm docs:dev`
+
+    ```bash
+   npm init -y
+    ```
+    
+3. 安装glob和vitepress
+
+    ```bash
+   pnpm add -D glob vitepress@latest
+    ```
+    
+5. 根据向导初始化vitepress
+
+    ```bash
+   pnpm vitepress init
+    ```
+    
+7. 把所有文章都copy到docs
+8. 把vitepress跑起来
+
+    ```bash
+   pnpm docs:dev
+    ```
 
 #### 5. *简单处理一下部署配置文件*📌
 
@@ -189,6 +204,13 @@
 
 3. 去github仓库创建环境变量SECRET_KEY
     - 设置一下`Name（key）`和`Secret（value）`即可
+
+    ![47dd879c7eea49a799b747fd667b51b](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/87b976ce-ca88-454f-ab9b-b995b97aabb8)
+
+    ![d150c7c3a18b126b1c9ade016fecf1d](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/08461459-8efb-42d7-8ea2-ec351d36aa01)
+
+    ![ee63ea96336f6fe345f377a932e4e14](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/0533a050-47aa-4c64-b3cf-f5604fd3c64d)
+
 
 4. 服务器上新建一个node服务器用于cd流程
     - 创建一个项目文件夹
