@@ -50,6 +50,7 @@
 | [字节新出oxlint都在推但没人讲怎么尝鲜](./docs/前端工程化/字节新出oxlint都在推但没人讲怎么尝鲜.md) | Entry-Level |⭐️⭐️⭐️⭐⭐️️|
 | [最简单的cicd部署GithubPage博客](./docs/前端杂谈/最简单的博客GithubPage.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 | [为你的团队尝试比Babel快20-70倍的SWC吧](./docs/前端工程化/你应该了解比Babel快20-70倍的SWC.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️|
+| [抛弃Nginx试试Caddy吧](./docs/全栈技能-偏前端/抛弃Nginx试试Caddy.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 | [Vtabs从0到1](./docs/开源实践/Vtabs从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 | [BeautyCode从0到1](./docs/开源实践/BeautyCode从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 
