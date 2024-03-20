@@ -6,7 +6,7 @@ export default defineConfig({
   description: "Vesper vitepress",
   lastUpdated: true,
   themeConfig: {
-    logo: "https://avatars.githubusercontent.com/u/42132586?v=4",
+    logo: "/favicon.ico",
     nav: [
       { text: "主页", link: "/" },
       { text: "文章", link: "/main" },
