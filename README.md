@@ -117,6 +117,7 @@
 | 打算第几次入门Rust？希望这是你最后一次 | [https://course.rs/about-book.html](https://course.rs/about-book.html) |⭐️⭐️⭐️⭐️⭐️|
 | 还在用Nginx?试试这个？ | [https://caddyserver.com/](https://caddyserver.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 全栈快速开发框架，内置了一些必要的组件 | [pergel.oku-ui.com](https://pergel.oku-ui.com) |⭐️⭐️⭐️⭐️⭐️|
+| 不得不说，Node你真的开窍了| [https://nodejs.org/en](https://nodejs.org/en) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些前端技术库 🧰
 
