@@ -11,4 +11,6 @@ jobs:
 
     steps:
       - name: Send deploy request
-        run: curl -X POST http://www.vesper.host/deploy
+        run: curl -X POST -H "Content-Type application/json" \
+                  -d '{"secretKey":"${{ secrets.SECRET_KEY}}"}' \
+                  http://vesper.host:3000/deploy
