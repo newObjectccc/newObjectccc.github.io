@@ -99,21 +99,21 @@
     ```bash
    npm init -y
     ```
-    
-3. 安装glob和vitepress
+
+2. 安装glob和vitepress
 
     ```bash
    pnpm add -D glob vitepress@latest
     ```
-    
-5. 根据向导初始化vitepress
+
+3. 根据向导初始化vitepress
 
     ```bash
    pnpm vitepress init
     ```
-    
-7. 把所有文章都copy到docs
-8. 把vitepress跑起来
+
+4. 把所有文章都copy到docs
+5. 把vitepress跑起来
 
     ```bash
    pnpm docs:dev
@@ -211,7 +211,6 @@
 
     ![ee63ea96336f6fe345f377a932e4e14](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/0533a050-47aa-4c64-b3cf-f5604fd3c64d)
 
-
 4. 服务器上新建一个node服务器用于cd流程
     - 创建一个项目文件夹
 
@@ -286,7 +285,6 @@
 #### 7. *走你*📌
 
 okk~ 已经可以开始尝试写完文章提交你的文章了~ 这套简易的cicd能够帮你自动部署到你的个人服务器。
-
 
 > [!WARNING]
 > 其实上述流程中，直接node部署就可以，不用lua，但是我之前考虑caddy直接cgi的，后来因为一些问题换node的方案了，lua文件还能用，就直接杂交了。
