@@ -1,4 +1,4 @@
-# Caddy入门实践（written by go）
+# Caddy入门实践
 
 ## 入门Caddy的从0到1
 
@@ -7,7 +7,7 @@
 因为偶然间了解到Caddy，回想起被Nginx配置折磨的夜晚，我决定试试Caddy，试了之后，它真的我哭死！
 
 1. 自动且免费的TLS，基于Let’s Encrypt 或 ZeroSSL（光是这一点，我就太推荐了）
-2. 超级，超级，超级简单的配置（简单到离谱）
+2. 超级，超级，超级简单的配置，默认HTTP2（简单到离谱）
 3. 可扩展的Plugin系统（超级强大的可扩展性，比如：fastcgi）
 
 > [caddy官网](https://caddyserver.com/)
