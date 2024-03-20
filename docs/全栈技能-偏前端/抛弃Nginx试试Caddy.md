@@ -231,8 +231,8 @@
     {
         "name": "newobjectccc.github.io",
         "version": "1.0.0",
-        "main": "index.js", // [!code focus]
-        "type": "module",
+        "main": "index.js",
+        "type": "module", // [!code focus]
     }
     ```
 
