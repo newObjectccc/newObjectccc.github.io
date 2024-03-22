@@ -1,7 +1,8 @@
-FROM caddy:latest
+FROM caddy:2-builder AS builder
 
 RUN xcaddy build \
-    --with github.com/ueffel/caddy-brotli \
-    --output /usr/bin/caddy
+    --with github.com/ueffel/caddy-brotli
 
-COPY /usr/bin/caddy /usr/bin/caddy
+FROM caddy:2.7.6-alpine
+
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy
