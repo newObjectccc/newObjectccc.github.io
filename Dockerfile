@@ -1,4 +1,4 @@
-FROM caddy:2.7.6-alpine
+FROM caddy:latest
 
 RUN xcaddy build \
     --with github.com/ueffel/caddy-brotli
