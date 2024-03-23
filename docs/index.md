@@ -8,13 +8,13 @@ hero:
   tagline: 这里有一些我的开源项目，文章和已会的技能展示，还有一些我强烈推荐的站点和库.
   actions:
     - theme: brand
-      text: 文章和推荐
+      text: 文章和推荐 📚
       link: /main
     - theme: brand
-      text: 自建模板库
+      text: 自建模板库 🧰
       link: /自建模板库/next-generation-web-project
-    - theme: alt
-      text: Github 主页
+    - theme: brand
+      text: Github主页 🧲
       link: https://github.com/newObjectccc
     - theme: alt
       text: Vtabs
