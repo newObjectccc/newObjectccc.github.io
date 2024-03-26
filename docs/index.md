@@ -25,6 +25,9 @@ hero:
     - theme: alt
       text: Buildp
       link: /buildp
+    - theme: alt
+      text: Video2gif
+      link: /videotogif
       
 features:
   - title: React
