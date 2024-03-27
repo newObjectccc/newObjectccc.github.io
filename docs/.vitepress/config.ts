@@ -20,7 +20,7 @@ export default defineConfig({
         scriptAds.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7527956407511986';
         document.head.appendChild(comment);
         document.head.appendChild(scriptAnalyze);
-        docment.head.appendChild(scriptAnalytics);
+        document.head.appendChild(scriptAnalytics);
         document.head.appendChild(scriptAds);
       };
     `,
