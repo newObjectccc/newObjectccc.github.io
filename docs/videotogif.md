@@ -5,12 +5,12 @@ hero:
   text: transform your video to gif customize.
   tagline: It's website tool, easy to use.
   image:
-    src: https://github.com/newObjectccc/video_to_gif/assets/42132586/00f0bff7-782c-40d2-9e8b-5b3395391779
+    src: https://github.com/newObjectccc/video_to_gif/assets/42132586/3d21296e-ac77-4b54-adeb-4ea18baf0d7b
     alt: v2g
   actions:
     - theme: brand
       text: App Page
-      link: https://videotogif.vercel.app
+      link: https://vtog.vesper.host
       blank: true
     - theme: alt
       text: Github Repo
