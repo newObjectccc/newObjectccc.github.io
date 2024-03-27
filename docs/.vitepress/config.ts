@@ -14,7 +14,7 @@ export default defineConfig({
         var scriptAnalyze = document.createElement('script');
         var scriptAds = document.createElement('script');
         var scriptAnalytics = document.createElement('script');
-        script.innerHTML = 'window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "G-T1JKRSN104");';
+        scriptAnalytics.innerHTML = 'window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "G-T1JKRSN104");';
         scriptAnalyze.src = 'https://www.googletagmanager.com/gtag/js?id=G-T1JKRSN104';
         scriptAds.crossorigin = 'anonymous';
         scriptAds.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7527956407511986';
@@ -25,7 +25,6 @@ export default defineConfig({
       };
     `,
     ],
-    
   ],
   title: "Vesper's site",
   description: "Vesper vitepress",
