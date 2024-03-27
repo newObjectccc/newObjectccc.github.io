@@ -3,44 +3,29 @@ import { defineConfig } from "vitepress";
 
 export default defineConfig({
   head: [
-    [
-      "script",
-      {
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7527956407511986",
-        async: "true",
-        crossorigin: "anonymous",
-      },
-    ],
     ["link", { rel: "preconnect", href: "https://api.iconify.design" }],
     ["link", { rel: "preconnect", href: "https://github.com" }],
     [
       "script",
       {},
       `
-      (function() {
+      window.onload = function() {
         var comment = document.createComment(' Google tag (gtag.js) ');
+        var scriptAnalyze = document.createElement('script');
+        var scriptAds = document.createElement('script');
+        var scriptAnalytics = document.createElement('script');
+        script.innerHTML = 'window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag("js", new Date()); gtag("config", "G-T1JKRSN104");';
+        scriptAnalyze.src = 'https://www.googletagmanager.com/gtag/js?id=G-T1JKRSN104';
+        scriptAds.crossorigin = 'anonymous';
+        scriptAds.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7527956407511986';
         document.head.appendChild(comment);
-      })();
+        document.head.appendChild(scriptAnalyze);
+        docment.head.appendChild(scriptAnalytics);
+        document.head.appendChild(scriptAds);
+      };
     `,
     ],
-    [
-      "script",
-      {
-        async: "true",
-        src: "https://www.googletagmanager.com/gtag/js?id=G-T1JKRSN104",
-      },
-    ],
-    [
-      "script",
-      {},
-      `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-T1JKRSN104');
-    `,
-    ],
+    
   ],
   title: "Vesper's site",
   description: "Vesper vitepress",
