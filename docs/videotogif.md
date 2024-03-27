@@ -5,7 +5,7 @@ hero:
   text: transform your video to gif customize.
   tagline: It's website tool, easy to use.
   image:
-    src: https://github.com/newObjectccc/video_to_gif/assets/42132586/3d21296e-ac77-4b54-adeb-4ea18baf0d7b
+    src: https://github.com/newObjectccc/video_to_gif/assets/42132586/88c339ad-7192-4f02-93f8-08f1b763e556
     alt: v2g
   actions:
     - theme: brand
