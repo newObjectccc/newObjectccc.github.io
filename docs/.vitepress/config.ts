@@ -14,6 +14,7 @@ export default defineConfig({
       { text: "Vtabs", link: "/vtabs" },
       { text: "BeautyCode", link: "/beautycode" },
       { text: "Bup", link: "/buildp" },
+      { text: "V2g", link: "/videotogif" },
     ],
     outline: "deep",
     search: {
