@@ -3,23 +3,44 @@ import { defineConfig } from "vitepress";
 
 export default defineConfig({
   head: [
-    ['script', { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7527956407511986', async: "true", crossorigin: 'anonymous' }],
-    ['link', { rel: "preconnect", href: 'https://api.iconify.design' }],
-    ['link', { rel: "preconnect", href: 'https://github.com' }],
-    ['script', {}, `
+    [
+      "script",
+      {
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7527956407511986",
+        async: "true",
+        crossorigin: "anonymous",
+      },
+    ],
+    ["link", { rel: "preconnect", href: "https://api.iconify.design" }],
+    ["link", { rel: "preconnect", href: "https://github.com" }],
+    [
+      "script",
+      {},
+      `
       (function() {
-        var comment = document.createComment('This is a comment');
+        var comment = document.createComment(' Google tag (gtag.js) ');
         document.head.appendChild(comment);
       })();
-    `],
-    ['script', { async: "true", src: 'https://www.googletagmanager.com/gtag/js?id=G-T1JKRSN104' }],
-    ['script', {}, `
+    `,
+    ],
+    [
+      "script",
+      {
+        async: "true",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-T1JKRSN104",
+      },
+    ],
+    [
+      "script",
+      {},
+      `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-T1JKRSN104');
-    `],
+    `,
+    ],
   ],
   title: "Vesper's site",
   description: "Vesper vitepress",
