@@ -51,6 +51,7 @@ ________________________
 正是因为浏览器同源策略的限制，cors才被应用来处理跨域资源共享的问题，他是一种基于HTTP头的机制，当我们涉及到跨域资源的请求时，比如我们发起一个跨域的POST复杂请求：
 
 ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/64b9eb90-1f22-403a-a7b5-c2d9194ba610)
+
 <span style="font-size:14px">可以看到如CORS的机制所说，浏览器先发起了一个OPTIONS请求，当这个OPTIONS请求成功返回了之后才会发起咱们的POST请求。</span>
 
 ##### 这里有几个知识点
