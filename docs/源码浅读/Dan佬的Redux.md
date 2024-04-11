@@ -21,15 +21,15 @@
 
 直接来到 `src/index.ts`，我过滤掉了一些导出的类型模块。
 
-图1
+![code1](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/54bccd02-a80b-45b4-8d2b-165b9e4e161e)
 
 可以从导出的一些模块中，看到`Redux`的一些大概功能，这次我们会主要看`createStore`模块。
 
-图2
+![code2](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/23868052-4bbc-493a-9efd-0846f1bc1a16)
 
 下面代码，我们去到`createStore.ts`，我删掉了一些跟主逻辑无关的代码，比如：`if`判断分支，大部分是为了抛出错误。（和主逻辑无关，并不代表不重要，反而在正常编码中非常依赖这些`if`分支给程序做鲁棒性的建设，只是这里我们不用关注）
 
-图3
+![code3](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/98ffe4d0-ff60-4c8c-8eae-d66efe6e6726)
 
 #### 简单的思维拆解1️⃣
 
