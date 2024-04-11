@@ -53,7 +53,7 @@
 
 `createStore`函数最终导出一个`store`对象：
 
-```ts:line-numbers {1}
+```ts:line-numbers {2,3,4,5}
   const store = {
     dispatch: dispatch as Dispatch<A>,
     subscribe,
@@ -114,7 +114,7 @@ function getState(): S {
    * 但是其实这里有个 if 判断，
    * 提升程序鲁棒性，被我省略了而已
    */
-  return currentState as S
+  return currentState as S  // [!code focus]
 }
 ```
 
@@ -122,9 +122,9 @@ function getState(): S {
 这个`getStatue`相对简单，主要是为了安全返回`currentState`。
 :::
 
-```ts:line-numbers {1}
+```ts:line-numbers
 function observable() {
-  const outerSubscribe = subscribe // [!code highlight]
+  const outerSubscribe = subscribe  // [!code focus]
   return {
     subscribe(observer: unknown) {
       function observeState() {
@@ -135,7 +135,7 @@ function observable() {
       }
 
       observeState()
-      const unsubscribe = outerSubscribe(observeState) // [!code highlight]
+      const unsubscribe = outerSubscribe(observeState)  // [!code focus]
       return { unsubscribe }
     },
 
@@ -150,18 +150,18 @@ function observable() {
 `observable`函数把上下文中的`subscribe`函数在其内部**rename**，然后返回了一个包含一个新的`subscribe`方法的对象，这个方法接受一个观察者`observer`，又在方法内部定义了一个`observerState`的函数并执行，该函数实际上就是为了在你订阅（调用`subscribe`）的时候，主动触发一次观察者（`observer`）的`next`方法，并传入当前上下文中的`currentState`，总结来说也就是订阅的时候就获取一次当前的state，最后利用`outerSubscribe`（上下文中的`subscribe`）真正完成订阅这个操作，最后通过引用传递导出取消订阅的函数，外部用的，其实就是`observable`函数导出的这个对象。
 :::
 
-```ts:line-numbers {1}
+```ts:line-numbers
 function dispatch(action: A) {
   try {
     isDispatching = true
-    currentState = currentReducer(currentState, action)
+    currentState = currentReducer(currentState, action)  // [!code focus]
   } finally {
     isDispatching = false
   }
 
-  const listeners = (currentListeners = nextListeners)
+  const listeners = (currentListeners = nextListeners)  // [!code focus]
   listeners.forEach(listener => {
-    listener()
+    listener()  // [!code focus]
   })
   return action
 }
@@ -171,7 +171,7 @@ function dispatch(action: A) {
 `dispatch`这里首先会尝试调用`currentReducer`（`createStore`传入的第一个参数），并且传入当前的状态和操作类型（`currentState`和调用`dispatch`时传入的`action`），然后把`currentReducer`的返回值赋值给当前的状态（`currentState`），接着定义了`listeners`，把`nextListeners`赋值给`currentListeners`和`listeners`，然后遍历触发`listener`通知状态更新（这里有发布订阅的思想）。
 :::
 
-```ts:line-numbers {1}
+```ts:line-numbers
 function replaceReducer(nextReducer: Reducer<S, A>): void {
   currentReducer = nextReducer as unknown as Reducer<S, A, PreloadedState>
   dispatch({ type: ActionTypes.REPLACE } as A)
