@@ -21,13 +21,13 @@
 
 我们直接进入`applyMiddleware.ts`，除了类型相关代码，逻辑代码仅仅30行不到，还是老规矩，我们先上源码图（由于原本代码就不多，所以我只省略了类型声明的部分）。
 
-图1
+![code1](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/9d744ed9-a672-46d5-86c8-79b1c2fad98e)
 
 #### 简单的思维拆解1️⃣
 
 `applyMiddleware`的代码并不复杂，一张图就基本能概括。
 
-图2
+![code2](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/ffb2b59d-8eed-4eac-87ff-ec5590cce5aa)
 
 #### 深入理解2️⃣
 
