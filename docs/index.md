@@ -96,8 +96,8 @@ features:
 
 |文章链接|等级|推荐指数|
 |------------------------------|----------------------------|-----------------------------|
-| [Dan佬的Redux](/源码浅读/Dan佬的Redux.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
-| [Dan佬的Redux续1](/源码浅读/Dan佬的Redux续1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
+| [Dan佬的Redux](/源码浅读/Dan佬的Redux.md) | Middle-Level |⭐️⭐️⭐️⭐️⭐️️|
+| [Dan佬的Redux续1](/源码浅读/Dan佬的Redux续1.md) | Middle-Level |⭐️⭐️⭐️⭐️⭐️️|
 | [抛弃Nginx试试Caddy吧](/全栈技能-偏前端/抛弃Nginx试试Caddy.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 | [Vtabs从0到1](/开源实践/Vtabs从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
 | [BeautyCode从0到1](/开源实践/BeautyCode从0到1.md) | Entry-Level |⭐️⭐️⭐️⭐️⭐️️|
