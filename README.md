@@ -174,6 +174,7 @@
 | 一个有超级多公司和职位的remote求职网站 | [https://tryremotely.com/](https://tryremotely.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个国外真实面试流程记录的网站 | [https://www.onsites.fyi/](https://www.onsites.fyi/) |⭐️⭐️⭐️⭐️⭐️|
 | Indie Hacker们的交流分享论坛，出海必看 | [https://www.indiehackers.com/](https://www.indiehackers.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 作为Indie Hacker想获取第一波流量？先看看这个 | [https://1000userguides.com/](https://1000userguides.com/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一点其他不知道为啥要推荐的网站 🚀
 
