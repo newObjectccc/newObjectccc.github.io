@@ -40,8 +40,6 @@ layout: doc
 - nextjs
 - framer-motion
 - platejs
-- supabase?
-- caddy?
 
 ## deploy
 
@@ -59,3 +57,5 @@ vercel =>
 - opengraph-images.js in every page
 - loading.js
 - generateMetadata function in every page
+- supabase?
+- caddy?
