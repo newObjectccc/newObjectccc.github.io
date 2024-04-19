@@ -32,7 +32,7 @@
 
 图1
 
-```ts:line-numbers
+```tsx:line-numbers
 const Button = forwardRef((originProps: ButtonProps, ref: React.RefObject<HTMLElement>) => {
   const props = useDefaultProps(originProps, buttonDefaultProps);
   const {
@@ -135,7 +135,7 @@ export default Button;
 
 图2
 
-```ts:line-numbers
+```vue:line-numbers
 <template>  // [!code focus]
   <component  // [!code focus]
     :is="tag"  // [!code focus]
@@ -227,7 +227,7 @@ defineExpose({  // [!code focus]
 
 图3
 
-```ts:line-numbers
+```vue:line-numbers
 <script lang="ts">
 import type { PrimitiveProps } from '@/Primitive'
 import type { Ref } from 'vue'
