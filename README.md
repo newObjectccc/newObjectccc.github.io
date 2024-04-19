@@ -2,8 +2,10 @@
 
 - **Github**: [https://github.com/newObjectccc](https://github.com/newObjectccc)
 - **Vesper's Site**: [https://vesper.host/](https://vesper.host/)
-- **Twitter**: @cccxy10086
-- **Bilibili**: Vesper此间之一
+- **Twitter**: [@cccxy10086](https://twitter.com/cccxy10086)
+- **Bilibili**: [Vesper此间之一](https://space.bilibili.com/270440208)
+
+--------------------------------------------------
 
 *Do not waste your time, just do something and keep learning.*
 
@@ -39,6 +41,7 @@
   <img alt="npm" src="https://img.shields.io/badge/-NPM-CB3837?style=flat-square&logo=npm&logoColor=white" />
   <img alt="vscode" src="https://img.shields.io/badge/Visual%20Studio%20Code-blue?style=flat-square&logo=visual-studio-code&logoColor=ffffff" />
   <img alt="nvim" src="https://img.shields.io/badge/NeoVim-649047?style=flat-square&logo=neovim&logoColor=ffffff" />
+  <img alt="redux" src="https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux&logoColor=white" />
 </span>
 
 ### 最近更新文章 📓
@@ -173,6 +176,7 @@
 | 一个有超级多公司和职位的remote求职网站 | [https://tryremotely.com/](https://tryremotely.com/) |⭐️⭐️⭐️⭐️⭐️|
 | 一个国外真实面试流程记录的网站 | [https://www.onsites.fyi/](https://www.onsites.fyi/) |⭐️⭐️⭐️⭐️⭐️|
 | Indie Hacker们的交流分享论坛，出海必看 | [https://www.indiehackers.com/](https://www.indiehackers.com/) |⭐️⭐️⭐️⭐️⭐️|
+| 作为Indie Hacker想获取第一波流量？先看看这个 | [https://1000userguides.com/](https://1000userguides.com/) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一点其他不知道为啥要推荐的网站 🚀
 
