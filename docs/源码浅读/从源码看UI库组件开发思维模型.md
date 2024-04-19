@@ -30,7 +30,7 @@
 
 组件目录结构如下图：
 
-图1
+![code1](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/a4af5fc5-0138-4d73-8b9e-b16a4d969b43)
 
 ```tsx:line-numbers
 const Button = forwardRef((originProps: ButtonProps, ref: React.RefObject<HTMLElement>) => {
@@ -133,7 +133,7 @@ export default Button;
 
 组件目录如下：
 
-图2
+![code2](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/60200c38-300e-4edd-9047-661d53b159d4)
 
 ```vue:line-numbers
 <template>  // [!code focus]
@@ -225,7 +225,7 @@ defineExpose({  // [!code focus]
 
 组件目录结构如下：
 
-图3
+![code3](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/81a542cf-9bcd-4e6e-bcbd-f226dbe34fe5)
 
 ```vue:line-numbers
 <script lang="ts">
@@ -357,7 +357,7 @@ provideCheckboxRootContext({  // [!code focus]
 
 通过以上3个UI库，我们大致可以总结一个局部的组件思维模型：
 
-图4
+![code4](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/00b7d7a4-6a26-406d-9752-d03d71c0540e)
 
 --------------------
 
