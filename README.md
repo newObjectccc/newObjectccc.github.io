@@ -153,6 +153,7 @@
 | React社区最强大的拖拽库 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) |⭐️⭐️⭐️⭐️⭐️|
 | 个人觉得这个比Mockjs好用 | [https://mswjs.io/](https://mswjs.io/) |⭐️⭐️⭐️⭐️⭐️|
 | pdf,excel,word预览js库 | [vue-office](https://github.com/501351981/vue-office?tab=readme-ov-file) |⭐️⭐️⭐️⭐️⭐️|
+| 还在用nvm?试试基于rust的volta吧! | [volta](https://github.com/volta-cli/volta) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
 
