@@ -114,6 +114,7 @@
 | AI帮你设计生成你的logo | [https://logodiffusion.com/](https://logodiffusion.com/) |⭐️⭐️⭐️⭐️⭐️|
 | AI免费帮你设计生成你的logo | [https://www.freelogo.dev/](https://www.freelogo.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | AI帮你设计生成你的video | [platform.latte.social](https://platform.latte.social/create) |⭐️⭐️⭐️⭐️⭐️|
+| 你提供信息，它帮你设计logo | [https://www.shopify.com/tools/logo-maker](https://www.shopify.com/tools/logo-maker) |⭐️⭐️⭐️⭐️⭐️|
 | 一个创建动画的网站 | [https://animotion.dev/](https://animotion.dev/) |⭐️⭐️⭐️⭐️⭐️|
 | Mdj类似的AI生图，关键免费！ | [https://rendernet.ai/](https://rendernet.ai/) |⭐️⭐️⭐️⭐️⭐️|
 
