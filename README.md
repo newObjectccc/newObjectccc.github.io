@@ -165,6 +165,7 @@
 | 训练你自己的机器人，像是gpt-crawler的实现 | [https://www.chatsimple.ai/](https://www.chatsimple.ai/) |⭐️⭐️⭐️⭐️⭐️|
 | AI帮你设计生成你的logo | [https://logodiffusion.com/](https://logodiffusion.com/) |⭐️⭐️⭐️⭐️⭐️|
 | AI免费帮你设计生成你的logo | [https://www.freelogo.dev/](https://www.freelogo.dev/) |⭐️⭐️⭐️⭐️⭐️|
+| 你提供信息，它帮你设计logo | [https://www.shopify.com/tools/logo-maker](https://www.shopify.com/tools/logo-maker) |⭐️⭐️⭐️⭐️⭐️|
 | AI帮你设计生成你的video | [platform.latte.social](https://platform.latte.social/create) |⭐️⭐️⭐️⭐️⭐️|
 | 一个创建动画的网站 | [https://animotion.dev/](https://animotion.dev/) |⭐️⭐️⭐️⭐️⭐️|
 
