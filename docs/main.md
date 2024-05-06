@@ -103,6 +103,7 @@
 | pdf,excel,word预览js库 | [vue-office](https://github.com/501351981/vue-office?tab=readme-ov-file) |⭐️⭐️⭐️⭐️⭐️|
 | 超好用的react组件库哦 | [react-aria](https://react-spectrum.adobe.com/react-aria/index.html) |⭐️⭐️⭐️⭐️⭐️|
 | 还在用nvm?试试基于rust的volta吧! | [volta](https://github.com/volta-cli/volta) |⭐️⭐️⭐️⭐️⭐️|
+| 一个很全的前端技术栈导航页 | [前端导航](https://hello-nav.github.io) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
 
