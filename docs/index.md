@@ -28,6 +28,9 @@ hero:
     - theme: alt
       text: Video2gif
       link: /videotogif
+    - theme: alt
+      text: Aix Extools
+      link: /aix
       
 features:
   - title: React
