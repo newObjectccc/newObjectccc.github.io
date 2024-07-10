@@ -2,7 +2,7 @@
 layout: home
 hero:
   name: Aix Extools
-  text: 一款基于AI能力的适合国人的翻译软件，但他不止是一个翻译软件，未来是一个工具集！
+  text: 基于AI的适合国人的翻译浏览器扩展，不止是翻译软件，而是一个工具集！
   tagline: 运行在浏览器扩展上，非常易于使用。
   image:
     src: https://github.com/newObjectccc/extool/assets/42132586/14d64ccc-5f04-4f97-9e1d-3eee0ac45df6
@@ -30,7 +30,3 @@ features:
 ##
 
 <img style="border: 1px solid #888" src="/aix.gif" alt="product">
-<img style="border: 1px solid #888" src="https://github.com/newObjectccc/extool/assets/42132586/1e3cb26b-1e9f-4289-812d-202eadc96353" alt="product">
-<img style="border: 1px solid #888" src="https://github.com/newObjectccc/extool/assets/42132586/dbcbef0f-d5fb-4147-be28-474a4b38cb5a" alt="product">
-<img style="border: 1px solid #888" src="https://github.com/newObjectccc/extool/assets/42132586/e9813691-57fa-4001-a987-3eb3b12bdaba" alt="product">
-<img style="border: 1px solid #888" src="https://github.com/newObjectccc/extool/assets/42132586/c4961e83-5ab1-4782-9af5-a1679a4267ef" alt="product">
