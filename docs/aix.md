@@ -5,12 +5,12 @@ hero:
   text: 基于AI的适合国人的翻译浏览器扩展，不止是翻译软件，而是一个工具集！
   tagline: 运行在浏览器扩展上，非常易于使用。
   image:
-    src: https://github.com/newObjectccc/extool/assets/42132586/14d64ccc-5f04-4f97-9e1d-3eee0ac45df6
+    src: /aix.png
     alt: Aix
   actions:
     - theme: alt
-      text: Github Repo
-      link: https://github.com/newObjectccc/extool
+      text: Download Link
+      link: https://chromewebstore.google.com/detail/aix-extools/folndjfdlidgbjgmlainjmoodlfggoog?hl=zh-CN&utm_source=ext_sidebar
       blank: true
 features:
   - title: 完全免费
@@ -27,6 +27,14 @@ features:
     details: 未来基于AI能力不停迭代的工具集
 ---
 
-##
+## 示例动图
 
-<img style="border: 1px solid #888" src="/aix.gif" alt="product">
+<img style="border: 1px solid #888; width: 100%;" src="/aix.gif" alt="product">
+
+---
+
+## 示例视频
+
+<video control>
+  <source src="/aix.webm" type="video/webm" />
+</video>
