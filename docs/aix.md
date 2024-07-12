@@ -2,7 +2,7 @@
 layout: home
 hero:
   name: Aix Extools
-  text: 基于AI的适合国人的翻译浏览器扩展，不止是翻译软件，而是一个工具集！
+  text: 简单优雅的翻译浏览器扩展，不止是翻译软件，而是一个AI工具集！
   tagline: 运行在浏览器扩展上，非常易于使用。
   image:
     src: /aix.png
