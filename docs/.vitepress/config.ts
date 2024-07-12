@@ -39,6 +39,7 @@ export default defineConfig({
       { text: "BeautyCode", link: "/beautycode" },
       { text: "Bup", link: "/buildp" },
       { text: "V2g", link: "/videotogif" },
+      { text: "Aix", link: "/aix" },
     ],
     outline: "deep",
     search: {
