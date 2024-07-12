@@ -35,6 +35,6 @@ features:
 
 ## 示例视频
 
-<video control crossorigin="anonymous">
-  <source src="https://github.com/newObjectccc/newObjectccc.github.io/blob/main/docs/public/aix.webm" type="video/webm" />
+<video controls>
+  <source src="/aix.webm" type="video/webm" />
 </video>
