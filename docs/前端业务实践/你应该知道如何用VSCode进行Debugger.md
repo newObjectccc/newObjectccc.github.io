@@ -71,7 +71,7 @@ ps：以下是基于 `vscode` 哟，如果你没有 `vscode`，那么再见~
 
 📌简单聊一下这俩吧：
 
-- 假设这是你目前 `Debug` 停留的断点处是 `Function Two`
+- 假设这是你目前 `Debug` 停留的断点处是 `Function Two`，下图调用栈`Call stack`的范围应该包括`Function three`
 
 ![image](https://github.com/newObjectccc/newObjectccc.github.io/assets/42132586/911416d8-0f72-406f-aad1-1c80bc451edd)
 
