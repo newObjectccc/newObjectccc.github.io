@@ -158,6 +158,7 @@
 | 还在用nvm?试试基于rust的volta吧! | [volta](https://github.com/volta-cli/volta) |⭐️⭐️⭐️⭐️⭐️|
 | 一个很全的前端技术栈导航页 | [前端导航](https://hello-nav.github.io) |⭐️⭐️⭐️⭐️⭐️|
 | 天啊！它真的像德芙一样丝滑 | [基于Framer-Motion的动效集合](https://github.com/ibelick/motion-primitives) |⭐️⭐️⭐️⭐️⭐️|
+| 讲真，被它介绍里的No build step吸引住了 | [Tailwind-in-JS](https://github.com/tw-in-js/twind) |⭐️⭐️⭐️⭐️⭐️|
 
 ### 推荐一些泛技能的有用、免费的软件 🧲
 
