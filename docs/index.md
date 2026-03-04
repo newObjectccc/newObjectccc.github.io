@@ -31,6 +31,12 @@ hero:
     - theme: alt
       text: Aix Extools
       link: /aix
+    - theme: alt
+      text: 成师
+      link: /chengshi
+    - theme: alt
+      text: 择野少年
+      link: /qyqm
       
 features:
   - title: React

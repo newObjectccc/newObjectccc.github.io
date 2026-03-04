@@ -40,6 +40,8 @@ export default defineConfig({
       { text: "Bup", link: "/buildp" },
       { text: "V2g", link: "/videotogif" },
       { text: "Aix", link: "/aix" },
+      { text: "成师", link: "/chengshi" },
+      { text: "择野少年", link: "/qyqm" },
     ],
     outline: "deep",
     search: {
