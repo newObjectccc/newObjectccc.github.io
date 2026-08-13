@@ -1,3 +1,13 @@
 node_modules
 docs/.vitepress/cache
 docs/.vitepress/dist
+landing/dist
+.playwright-mcp/
+
+# 秘密空间：日记只存本机，不进公开仓库
+docs/secret/
+
+# 环境变量与密钥（真实值只存服务器 /opt/vesper/.env）
+.env
+.env.*
+!.env.example

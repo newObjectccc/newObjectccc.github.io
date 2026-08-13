@@ -1,17 +1,59 @@
 services:
-  caddy:
-    image: mycaddy
+  web:
+    build: .
+    image: vesper-site:latest
+    container_name: vesper-site
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
+      - "127.0.0.1:3405:80"
+    env_file: .env
+    depends_on:
+      - waline
+      - server
+
+  server:
+    build: ./server
+    image: vesper-server:latest
+    container_name: vesper-server
+    restart: unless-stopped
+    env_file: .env
+    extra_hosts:
+      # 访问宿主机上的 FunASR（vesper-refactory-funasr :10095）
+      - "host.docker.internal:host-gateway"
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - ./docs/.vitepress/dist:/srv
-      - caddy_data:/data
-      - caddy_config:/config
+      - server-data:/app/data
+    depends_on:
+      - tts
+
+  tts:
+    # 复用 qyqm-local-tts 已构建好的镜像（模型已打进镜像），仅作为内部服务
+    image: qyqm-local-tts:1.0.0
+    container_name: vesper-tts
+    restart: unless-stopped
+    environment:
+      NUM_THREADS: "4"
+      MAX_TEXT_LENGTH: "500"
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: 4G
+
+  waline:
+    image: lizheming/waline:latest
+    container_name: vesper-waline
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8360:8360"
+    volumes:
+      - ./waline-data:/app/data
+    env_file: .env
+    environment:
+      TZ: Asia/Shanghai
+      SQLITE_PATH: /app/data
+      SITE_NAME: Vesper 秘密空间
+      SITE_URL: https://vesper.qyqmedu.com
+      SECURE_DOMAINS: vesper.qyqmedu.com
 
 volumes:
-  caddy_data:
-  caddy_config:
+  server-data:

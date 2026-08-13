@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/favicon.ico?v=2" />
+<title>门前 · Vesper's site</title>
+<style>
+  :root {
+    --bg: #0b0f0c;
+    --green: #3ddc84;
+    --green-soft: rgba(61, 220, 132, 0.14);
+    --gold: #e8c56b;
+    --text-1: #eaf2e6;
+    --text-2: #b6c7b1;
+    --text-3: #7f917c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background:
+      radial-gradient(ellipse 120% 90% at 50% 115%, #16241b 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 85% -10%, #121c14 0%, transparent 55%),
+      var(--bg);
+    color: var(--text-1);
+    font-family: "Noto Serif SC", "Songti SC", "STSong", "Source Han Serif SC", "SimSun", serif;
+    overflow: hidden;
+  }
+  #garden {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .scene {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .door {
+    width: min(420px, 100%);
+    text-align: center;
+    padding: 48px 36px;
+    border-radius: 18px;
+    background: rgba(16, 23, 16, 0.55);
+    border: 1px solid rgba(92, 232, 160, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 0 60px rgba(61, 220, 132, 0.06), inset 0 0 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .door.shake { animation: shake 0.5s ease; }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+  }
+  .rune {
+    font-size: 13px;
+    letter-spacing: 0.5em;
+    color: var(--text-3);
+    margin-bottom: 28px;
+    text-indent: 0.5em;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.7;
+    color: var(--text-1);
+    text-shadow: 0 0 28px rgba(92, 232, 160, 0.3);
+    margin-bottom: 8px;
+  }
+  .hint {
+    font-size: 13px;
+    color: var(--text-3);
+    margin-bottom: 32px;
+  }
+  .field { position: relative; margin-bottom: 20px; }
+  input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: var(--text-1);
+    font-family: inherit;
+    background: rgba(11, 15, 12, 0.6);
+    border: 1px solid rgba(92, 232, 160, 0.2);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 24px rgba(61, 220, 132, 0.18);
+  }
+  input::placeholder { color: var(--text-3); letter-spacing: normal; }
+  button {
+    width: 100%;
+    padding: 13px 16px;
+    font-size: 15px;
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+    font-family: inherit;
+    color: #0b0f0c;
+    background: linear-gradient(135deg, #5ce8a0 0%, #3ddc84 60%, #2bb86c 100%);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: filter 0.3s, transform 0.15s;
+  }
+  button:hover { filter: brightness(1.1); }
+  button:active { transform: scale(0.98); }
+  button:disabled { filter: grayscale(0.5) brightness(0.7); cursor: wait; }
+  .message {
+    min-height: 20px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .message.show { opacity: 1; }
+</style>
+</head>
+<body>
+<canvas id="garden"></canvas>
+<div class="scene">
+  <form class="door" id="form" autocomplete="off">
+    <div class="rune">门 前</div>
+    <h1>我深爱的人，<br />全拼小写？</h1>
+    <p class="hint">答对的人，门会开。</p>
+    <div class="field">
+      <input id="answer" type="password" placeholder="写下答案" autofocus />
+    </div>
+    <button id="open" type="submit">开 门</button>
+    <p class="message" id="message"></p>
+  </form>
+</div>
+<script>
+(function () {
+  // ---- 生长动画（简化版，与秘密空间同源） ----
+  var canvas = document.getElementById("garden");
+  var ctx = canvas.getContext("2d");
+  var W, H, branches = [], blooms = [];
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.lineCap = "round";
+  }
+  function plant() {
+    for (var i = 0; i < Math.max(3, W / 300); i++) {
+      branches.push({
+        x: rnd(W * 0.06, W * 0.94), y: H + 8,
+        angle: -Math.PI / 2 + rnd(-0.35, 0.35),
+        speed: rnd(0.8, 1.4), width: rnd(1.4, 2.2),
+        life: rnd(320, 560), age: 0, sway: rnd(0.02, 0.06), depth: 0
+      });
+    }
+    for (var j = 0; j < Math.max(2, W / 480); j++) {
+      branches.push({
+        x: rnd(W * 0.1, W * 0.9), y: -8,
+        angle: Math.PI / 2 + rnd(-0.3, 0.3),
+        speed: rnd(0.6, 1.0), width: rnd(1.0, 1.6),
+        life: rnd(240, 420), age: 0, sway: rnd(0.02, 0.05), depth: 0
+      });
+    }
+  }
+  function step(b) {
+    b.age++; b.life--;
+    b.angle += rnd(-b.sway, b.sway);
+    var nx = b.x + Math.cos(b.angle) * b.speed;
+    var ny = b.y + Math.sin(b.angle) * b.speed;
+    var t = Math.min(1, b.age / 480);
+    var hue = 145 - t * 100;
+    ctx.strokeStyle = "hsla(" + hue + ",75%," + Math.max(30, 58 - b.depth * 6) + "%,0.7)";
+    ctx.lineWidth = Math.max(0.4, b.width * Math.min(1, b.life / 200));
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = "hsla(" + hue + ",80%,60%,0.55)";
+    ctx.beginPath(); ctx.moveTo(b.x, b.y); ctx.lineTo(nx, ny); ctx.stroke();
+    b.x = nx; b.y = ny;
+    if (b.depth < 3 && b.life > 120 && Math.random() < 0.018) {
+      branches.push({
+        x: b.x, y: b.y,
+        angle: b.angle + rnd(0.4, 0.9) * (Math.random() < 0.5 ? -1 : 1),
+        speed: b.speed * 0.9, width: b.width * 0.7,
+        life: b.life * rnd(0.4, 0.6), age: b.age, sway: b.sway, depth: b.depth + 1
+      });
+    }
+    if (Math.random() < 0.004) {
+      blooms.push({ x: b.x, y: b.y, r: 0, maxR: rnd(2.5, 5), hue: Math.random() < 0.5 ? 350 : 45, alpha: 0.9 });
+    }
+  }
+  function tick(fade) {
+    if (fade) {
+      ctx.shadowBlur = 0;
+      ctx.fillStyle = "rgba(11,15,12,0.012)";
+      ctx.fillRect(0, 0, W, H);
+    }
+    for (var i = branches.length - 1; i >= 0; i--) {
+      var b = branches[i];
+      step(b);
+      if (b.life <= 0 || b.x < -40 || b.x > W + 40 || b.y < -40 || b.y > H + 40) branches.splice(i, 1);
+    }
+    blooms = blooms.filter(function (bl) {
+      bl.r = Math.min(bl.maxR, bl.r + 0.08);
+      bl.alpha -= 0.004;
+      if (bl.alpha <= 0) return false;
+      ctx.fillStyle = "hsla(" + bl.hue + ",85%,70%," + bl.alpha + ")";
+      ctx.shadowBlur = 12;
+      ctx.shadowColor = "hsla(" + bl.hue + ",85%,70%,0.8)";
+      ctx.beginPath(); ctx.arc(bl.x, bl.y, bl.r, 0, Math.PI * 2); ctx.fill();
+      return true;
+    });
+    if (branches.length < 6) plant();
+  }
+  resize(); plant();
+  for (var k = 0; k < 380; k++) tick(false);
+  window.addEventListener("resize", function () { resize(); branches = []; blooms = []; plant(); for (var k2 = 0; k2 < 380; k2++) tick(false); });
+  (function frame() { tick(true); requestAnimationFrame(frame); })();
+
+  // ---- 开门 ----
+  var form = document.getElementById("form");
+  var input = document.getElementById("answer");
+  var button = document.getElementById("open");
+  var message = document.getElementById("message");
+  var busy = false;
+
+  function say(text) {
+    message.textContent = text;
+    message.classList.add("show");
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (busy) return;
+    var answer = input.value.trim();
+    if (!answer) { say("先写下答案。"); return; }
+    busy = true;
+    button.disabled = true;
+    fetch("/api/gate/login", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ answer: answer })
+    }).then(function (resp) {
+      if (resp.ok) {
+        var next = new URLSearchParams(location.search).get("next") || "/secret/";
+        location.href = next;
+        return;
+      } else {
+        return resp.json().then(function (d) {
+          say(d.errmsg || "答案不对。");
+          form.classList.remove("shake");
+          void form.offsetWidth;
+          form.classList.add("shake");
+          input.select();
+        });
+      }
+    }).catch(function () {
+      say("门轴卡住了，稍后再试。");
+    }).finally(function () {
+      busy = false;
+      button.disabled = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>

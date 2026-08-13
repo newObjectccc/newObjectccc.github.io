@@ -1,0 +1,13 @@
+.git
+node_modules
+landing/node_modules
+docs/.vitepress/cache
+docs/.vitepress/dist
+docs/.vitepress/node_modules
+landing/dist
+waline-data
+.env
+.env.*
+.playwright-mcp
+landing-full.png
+server/node_modules

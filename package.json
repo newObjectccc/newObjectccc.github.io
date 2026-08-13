@@ -15,5 +15,9 @@
   "devDependencies": {
     "glob": "^10.3.10",
     "vitepress": "1.0.1"
+  },
+  "dependencies": {
+    "@waline/client": "^3.3.2",
+    "marked": "^18.0.9"
   }
 }

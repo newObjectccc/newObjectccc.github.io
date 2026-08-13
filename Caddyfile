@@ -1,4 +1,40 @@
-vesper.host
+:80
 
-encode br
-file_server
+root * /srv
+
+# 公开：登录门 API（登录/登出/查询身份）
+handle /api/gate/* {
+	reverse_proxy server:7000
+}
+
+# 门内：Waline 评论后端（剥离 /waline 前缀）
+handle_path /waline/* {
+	forward_auth server:7000 {
+		uri /api/gate/verify
+	}
+	reverse_proxy waline:8360
+}
+
+# 门内：日记等后端 API
+handle /api/* {
+	forward_auth server:7000 {
+		uri /api/gate/verify
+	}
+	reverse_proxy server:7000
+}
+
+# 门内：秘密空间页面与内容 chunk
+@secret path /secret* /assets/secret_*
+handle @secret {
+	forward_auth server:7000 {
+		uri /api/gate/verify
+	}
+	try_files {path} {path}.html {path}/index.html
+	file_server
+}
+
+# 公开：主站与 /gate/ 登录页
+handle {
+	try_files {path} {path}.html {path}/index.html
+	file_server
+}
