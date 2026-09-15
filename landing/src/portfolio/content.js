@@ -1,5 +1,7 @@
 // Public portfolio content, based on the owner's resume and shipped products.
 // Keep unverified implementation details and customer data out of this file.
+// Preview palettes are curated from the public sites. Cross-origin frame styles
+// are not read; sites with embedding restrictions use a cover instead.
 export const projects = [
   {
     id: "wander",
@@ -10,6 +12,10 @@ export const projects = [
     categoryLabel: "个人产品",
     status: "闭源 · 已上线",
     kind: "travel",
+    preview: {
+      mode: "live",
+      theme: { paper: "#edf0e5", ink: "#2e4838", accent: "#64846a" },
+    },
     url: "https://travel.qyqmedu.com/",
     label: "探索 Wander China",
     description:
@@ -42,6 +48,10 @@ export const projects = [
     categoryLabel: "商业交付",
     status: "独立开发 · 已交付",
     kind: "research",
+    preview: {
+      mode: "live",
+      theme: { paper: "#f2ebe0", ink: "#28241f", accent: "#dd862a" },
+    },
     url: "https://nst.qyqmedu.com/",
     label: "访问牛市通",
     description:
@@ -74,6 +84,11 @@ export const projects = [
     categoryLabel: "商业交付",
     status: "独立开发 · 已交付",
     kind: "education",
+    preview: {
+      // The deployed site sends X-Frame-Options: SAMEORIGIN.
+      mode: "cover",
+      theme: { paper: "#f3ede7", ink: "#3b332f", accent: "#d67c53" },
+    },
     url: "https://aibanxue.qyqmedu.com/",
     label: "访问爱伴学",
     description:
@@ -106,6 +121,11 @@ export const projects = [
     categoryLabel: "商业交付",
     status: "独立开发 · 已交付",
     kind: "community",
+    preview: {
+      mode: "live",
+      mobile: true,
+      theme: { paper: "#eeeef0", ink: "#292a30", accent: "#555a66" },
+    },
     url: "https://chengshi.qyqmedu.com/",
     label: "访问成师",
     description:
@@ -138,6 +158,10 @@ export const projects = [
     categoryLabel: "商业交付",
     status: "独立开发 · 已交付",
     kind: "growth",
+    preview: {
+      mode: "live",
+      theme: { paper: "#faf0e6", ink: "#493b31", accent: "#c97740" },
+    },
     url: "https://qyqmedu.com/",
     label: "访问择野少年",
     description:

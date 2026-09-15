@@ -1,5 +1,10 @@
 <template>
-  <div class="portfolio" :data-motion="motionPaused ? 'off' : 'on'">
+  <div
+    class="portfolio"
+    :data-motion="motionPaused ? 'off' : 'on'"
+    :class="{ 'has-project-preview': previewReady }"
+    :style="previewTheme"
+  >
     <a class="skip-link" href="#main">跳到主要内容</a>
     <header class="site-nav" :class="{ 'is-scrolled': scrollProgress > 0.01 }">
       <div class="nav-wrap">
@@ -68,7 +73,7 @@
               ></a
             >
           </div>
-          <KineticRibbon :paused="motionPaused" />
+          <KineticRibbon :paused="motionPaused || !!previewProject" />
         </div>
         <div class="hero-bottom">
           <span>独立开发者，也是走进现场的工程师。</span>
@@ -117,10 +122,13 @@
             :key="project.id"
             class="work-card"
             :class="{ 'work-card--featured': project.id === 'wander' }"
+            @pointerenter="queuePreview(project, $event)"
+            @pointermove="queuePreview(project, $event)"
+            @pointerleave="leaveProject(project, $event)"
           >
             <button
               class="cover-button"
-              @click="activeProject = project"
+              @click="showProjectDetails(project)"
               :aria-label="`查看 ${project.name} 项目详情`"
             >
               <ProjectCover :project="project" /><span class="cover-action"
@@ -131,8 +139,19 @@
             </button>
             <div class="work-info">
               <div>
-                <span class="work-status">{{ project.status }}</span
-                ><button class="work-title" @click="activeProject = project">
+                <div class="work-status-line">
+                  <span class="work-status">{{ project.status }}</span>
+                  <button
+                    class="preview-trigger"
+                    :aria-label="`预览 ${project.name} 网站`"
+                    aria-haspopup="dialog"
+                    :aria-expanded="previewProject?.id === project.id"
+                    @click="openPreview(project, $event)"
+                  >
+                    悬停预览 <span>↗</span>
+                  </button>
+                </div>
+                <button class="work-title" @click="showProjectDetails(project)">
                   {{ project.name }}<span>↗</span>
                 </button>
                 <p>{{ project.subtitle }}</p>
@@ -333,14 +352,28 @@
         </div>
       </footer>
     </main>
-    <Teleport to="body"
-      ><ProjectDetail
+    <Teleport to="body">
+      <ProjectPreview
+        v-if="previewProject"
+        :key="previewProject.id"
+        :project="previewProject"
+        :anchor="previewAnchor"
+        :keyboard="previewKeyboard"
+        :paused="motionPaused"
+        @ready="previewReady = true"
+        @enter="keepPreview"
+        @leave="leavePreview"
+        @close="dismissPreview"
+        @details="showProjectDetails(previewProject)"
+      />
+      <ProjectDetail
         v-if="activeProject"
         :key="activeProject.id"
         :project="activeProject"
         :paused="motionPaused"
         @close="activeProject = null"
-    /></Teleport>
+      />
+    </Teleport>
   </div>
 </template>
 
@@ -350,6 +383,8 @@ import { gsap } from "gsap";
 import KineticRibbon from "./portfolio/KineticRibbon.vue";
 import ProjectCover from "./portfolio/ProjectCover.vue";
 import ProjectDetail from "./portfolio/ProjectDetail.vue";
+import ProjectPreview from "./portfolio/ProjectPreview.vue";
+import { useProjectPreview } from "./portfolio/useProjectPreview.js";
 import {
   projects,
   tools,
@@ -360,6 +395,23 @@ import {
 const activeFilter = ref("all"),
   activeProject = ref(null),
   menuOpen = ref(false);
+const {
+  previewProject,
+  previewAnchor,
+  previewKeyboard,
+  previewReady,
+  previewTheme,
+  queuePreview,
+  openPreview,
+  leaveProject,
+  keepPreview,
+  leavePreview,
+  dismissPreview,
+} = useProjectPreview();
+const showProjectDetails = (project) => {
+  dismissPreview();
+  activeProject.value = project;
+};
 const motionPaused = ref(
   typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches,
