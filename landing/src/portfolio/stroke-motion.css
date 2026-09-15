@@ -44,11 +44,16 @@
   font-variant-numeric: tabular-nums;
   flex-shrink: 0;
 }
+.count-mark > span {
+  line-height: 1;
+}
 .count-mark svg {
   position: absolute;
   inset: -0.3em;
   width: calc(100% + 0.6em);
   height: calc(100% + 0.6em);
+  /* The global SVG max-width otherwise clips the expanded frame on one side. */
+  max-width: none;
   overflow: visible;
   fill: none;
   stroke: var(--accent);
@@ -339,6 +344,66 @@ button.inline-action .stroke-arrow {
   animation: ink-write 1300ms var(--ease) 250ms both;
 }
 
+/* Six vector letters: write, fill, linger, then lift the ink for the next loop. */
+.signature-word {
+  width: 3.1em;
+  height: 1em;
+  max-width: none;
+  overflow: visible;
+  flex-shrink: 0;
+}
+.signature-glyph {
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  animation: signature-write 8s linear var(--letter-delay) infinite both;
+}
+.signature-word[data-running="false"] .signature-glyph {
+  animation-play-state: paused;
+}
+@keyframes signature-write {
+  0%,
+  2% {
+    stroke-dashoffset: 1;
+    stroke-opacity: 0;
+    fill-opacity: 0.1;
+  }
+  5% {
+    stroke-opacity: 1;
+    fill-opacity: 0.1;
+  }
+  23% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+    fill-opacity: 0.1;
+  }
+  33%,
+  79% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 0;
+    fill-opacity: 1;
+  }
+  88% {
+    stroke-dashoffset: 0;
+    stroke-opacity: 1;
+    fill-opacity: 0.1;
+  }
+  99%,
+  100% {
+    stroke-dashoffset: -1;
+    stroke-opacity: 0;
+    fill-opacity: 0.1;
+  }
+}
+[data-motion="off"] .signature-glyph {
+  animation: none !important;
+  stroke-opacity: 0;
+  fill-opacity: 1;
+}
+
 /* A quiet bloom for the signature; eight strokes open in a clockwise rhythm. */
 .curiosity-mark {
   width: 1em;
@@ -442,6 +507,11 @@ button.inline-action .stroke-arrow {
   transition-delay: 0s !important;
 }
 @media (prefers-reduced-motion: reduce) {
+  .signature-glyph {
+    animation: none !important;
+    stroke-opacity: 0;
+    fill-opacity: 1;
+  }
   :is(.mark-ray, .copy-check, .count-mark path, .filter-ink) {
     transition-delay: 0s !important;
   }

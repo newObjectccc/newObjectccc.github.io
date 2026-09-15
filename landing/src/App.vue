@@ -9,7 +9,8 @@
     <header class="site-nav" :class="{ 'is-scrolled': scrollProgress > 0.01 }">
       <div class="nav-wrap">
         <a class="wordmark" href="#top" aria-label="Vesper 首页"
-          >vesper<CuriosityMark class="brand-asterisk"
+          ><SignatureWord :paused="motionPaused" /><CuriosityMark
+            class="brand-asterisk"
         /></a>
         <span class="nav-note"
           >INDEPENDENT MIND.<br />HANDS-ON ENGINEERING.</span
@@ -400,7 +401,8 @@
             <p>项目合作、技术交流，<br />或者，一个值得尝试的想法。</p>
           </div>
           <div class="footer-bottom">
-            <a href="#top" class="wordmark">vesper<CuriosityMark /></a
+            <a href="#top" class="wordmark" aria-label="Vesper，回到顶部"
+              ><SignatureWord :paused="motionPaused" /><CuriosityMark /></a
             ><span>© {{ year }} 陈鑫铄 / VESPER</span>
             <div>
               <a
@@ -463,6 +465,7 @@ import StrokeArrow from "./portfolio/StrokeArrow.vue";
 import TraceRule from "./portfolio/TraceRule.vue";
 import OrbitRing from "./portfolio/OrbitRing.vue";
 import CuriosityMark from "./portfolio/CuriosityMark.vue";
+import SignatureWord from "./portfolio/SignatureWord.vue";
 import CountMark from "./portfolio/CountMark.vue";
 import FilterUnderline from "./portfolio/FilterUnderline.vue";
 import ProjectPreview from "./portfolio/ProjectPreview.vue";
