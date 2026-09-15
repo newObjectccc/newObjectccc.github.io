@@ -22,7 +22,14 @@ function fixture(t) {
     innerWidth: 1440,
     innerHeight: 1000,
     scrollY: 0,
-    matchMedia: () => ({ matches: true }),
+    hover: true,
+    finePointer: true,
+    matchMedia: (query) => ({
+      matches:
+        (!query.includes("hover: hover") || win.hover) &&
+        (!query.includes("pointer: fine") || win.finePointer) &&
+        win.innerWidth >= Number(query.match(/min-width:\s*(\d+)px/)?.[1] ?? 0),
+    }),
     closest: () => null,
   });
   const doc = Object.assign(new EventTarget(), {
@@ -213,6 +220,31 @@ test("a cover that moved away during the delay cannot open a preview", (t) => {
   tick(420);
   assert.equal(api.previewProject.value, null);
   assert.equal(api.previewEntries.value.length, 0);
+});
+
+test("mouse hover works in narrow desktop windows and touch never starts a preview", (t) => {
+  const { api, event, project, tick, win } = fixture(t);
+  for (const width of [872, 640, 390]) {
+    win.innerWidth = width;
+    win.dispatchEvent(new Event("resize"));
+    const item = project(`mouse-${width}`);
+    api.queuePreview(item, event);
+    tick(420);
+    assert.equal(api.previewProject.value?.id, item.id);
+    api.leaveProject(item, event);
+    tick(260);
+  }
+
+  api.queuePreview(project("touch-event"), { ...event, pointerType: "touch" });
+  tick(1000);
+  assert.equal(api.previewProject.value, null);
+
+  win.hover = false;
+  win.finePointer = false;
+  api.queuePreview(project("touch-device"), event);
+  api.openPreview(project("touch-device"), event);
+  tick(1000);
+  assert.equal(api.previewProject.value, null);
 });
 
 test("late cached loads and unrelated clicks cannot restore a dismissed theme", (t) => {

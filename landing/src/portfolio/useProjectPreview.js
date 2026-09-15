@@ -23,10 +23,10 @@ export function useProjectPreview() {
       : {};
   });
 
+  // A narrow desktop window still has a mouse. The panel already fits the
+  // viewport, so enable previews by input capability rather than layout width.
   const canHover = () =>
-    window.matchMedia(
-      "(hover: hover) and (pointer: fine) and (min-width: 900px)",
-    ).matches;
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   const cancelClose = () => clearTimeout(closeTimer);
 

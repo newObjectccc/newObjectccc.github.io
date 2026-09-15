@@ -283,7 +283,7 @@ onBeforeUnmount(() => {
 .preview-trigger:hover {
   color: var(--accent);
 }
-@media (hover: hover) and (pointer: fine) and (min-width: 900px) {
+@media (hover: hover) and (pointer: fine) {
   .preview-trigger {
     display: inline-block;
   }
