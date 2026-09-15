@@ -89,6 +89,58 @@
         </div>
       </div>
     </template>
+    <template v-else-if="project.kind === 'media'">
+      <div class="media-art">
+        <span class="art-eyebrow">爱剪 / CONVERSATION TO CREATION</span>
+        <div class="media-title">An idea.<br /><i>In motion.</i></div>
+        <div class="media-viewfinder">
+          <span class="media-take">AI CUT / TAKE 01</span>
+          <svg viewBox="0 0 240 180" fill="none" class="media-aperture">
+            <circle
+              cx="120"
+              cy="90"
+              r="63"
+              stroke="currentColor"
+              opacity=".22"
+            />
+            <circle
+              cx="120"
+              cy="90"
+              r="46"
+              stroke="currentColor"
+              opacity=".32"
+            />
+            <path
+              d="M104 68 143 90 104 112Z"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              class="media-aperture-ink"
+              d="M120 27a63 63 0 1 1-63 63"
+              stroke="currentColor"
+              stroke-width="2"
+              pathLength="1"
+            />
+            <path
+              d="M18 38V18h20M202 18h20v20M222 142v20h-20M38 162H18v-20"
+              stroke="currentColor"
+              opacity=".5"
+            />
+          </svg>
+          <div class="media-timeline">
+            <span>01</span><i></i><i></i><i></i><span>03</span>
+          </div>
+          <span class="media-take media-take-bottom"
+            >SCRIPT · SCENE · FILM</span
+          >
+        </div>
+        <div class="media-flow">
+          <span>说出想法</span><b>→</b><span>Agent 制作</span><b>→</b
+          ><span>继续创作</span>
+        </div>
+      </div>
+    </template>
     <template v-else-if="project.kind === 'research'">
       <div class="research-art">
         <span class="art-eyebrow">牛市通 / RESEARCH WORKSPACE</span>
@@ -166,3 +218,107 @@ import { useId } from "vue";
 const mapShade = useId();
 defineProps({ project: { type: Object, required: true } });
 </script>
+
+<style scoped>
+.media-art {
+  position: absolute;
+  inset: 0;
+  background: #e9e2d4;
+  color: #352c22;
+  container-type: inline-size;
+}
+.media-title {
+  position: absolute;
+  left: 8%;
+  top: 25%;
+  z-index: 1;
+  font-size: 11cqw;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+.media-art > .art-eyebrow {
+  position: absolute;
+  left: 8%;
+  top: 14%;
+  color: #78634b;
+}
+.media-title i {
+  font-family: var(--serif);
+  font-weight: 400;
+  color: #916334;
+}
+.media-viewfinder {
+  position: absolute;
+  width: 47%;
+  height: 64%;
+  top: 18%;
+  right: 6%;
+  transform: rotate(6deg);
+  border: 1px solid #57412b;
+  border-radius: 8px;
+  background: radial-gradient(ellipse at 65% 40%, #46311e, #17110c 75%);
+  color: #f1bd70;
+  box-shadow: 0 20px 35px #352c2220;
+}
+.media-take {
+  position: absolute;
+  top: 7%;
+  left: 9%;
+  font: 1.3cqw var(--mono);
+  letter-spacing: 0.08em;
+}
+.media-take-bottom {
+  top: auto;
+  bottom: 7%;
+}
+.media-aperture {
+  position: absolute;
+  inset: 14% 8% auto;
+  width: 84%;
+  height: 65%;
+}
+.media-aperture-ink {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0.6;
+  transition: stroke-dashoffset 1s var(--ease);
+}
+.cover-button:is(:hover, :focus-visible) .media-aperture-ink {
+  stroke-dashoffset: 0;
+}
+.media-timeline {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  bottom: 17%;
+  display: flex;
+  align-items: center;
+  gap: 4%;
+}
+.media-timeline span {
+  font: 1.3cqw var(--mono);
+}
+.media-timeline i {
+  height: 3cqw;
+  flex: 1;
+  border: 1px solid #f1bd7040;
+  background: #f1bd7018;
+}
+.media-timeline i:nth-of-type(2) {
+  background: #f1bd7050;
+}
+.media-flow {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 7%;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  font-size: 1.8cqw;
+}
+.media-flow b {
+  font-weight: 400;
+  color: #916334;
+}
+</style>

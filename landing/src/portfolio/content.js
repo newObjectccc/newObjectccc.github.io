@@ -40,8 +40,48 @@ export const projects = [
     images: [],
   },
   {
-    id: "nst",
+    id: "aicut",
     number: "02",
+    name: "爱剪 AI CUT",
+    subtitle: "从一句想法，到一条成片。",
+    category: "personal",
+    categoryLabel: "个人产品",
+    status: "个人开发 · 已上线",
+    kind: "media",
+    preview: {
+      mode: "live",
+      theme: { paper: "#17110c", ink: "#f4e3ba", accent: "#ffb13b" },
+    },
+    url: "https://aj.qyqmedu.com/",
+    label: "探索爱剪",
+    description:
+      "以对话为入口的 AI 视频创作工作台。将需求拆解、分镜规划、素材制作、审核与渲染合成串联起来，让视频和素材成为可以继续修改的创作成果。",
+    role: "个人全栈开发与 Agent 工程",
+    tags: ["Next.js", "AI SDK", "Remotion / HyperFrames", "Agent Harness"],
+    note: "Every idea deserves a moving picture.",
+    points: [
+      [
+        "从对话到制作流程",
+        "基于 AI SDK 组织多步工具调用，接入素材检索、图像与视频生成、配音和内容理解；通过 DAG 与任务进度展示生产过程。",
+      ],
+      [
+        "让 Agent 交付视频",
+        "将 Remotion 与 HyperFrames 封装为渲染能力，由专用 Agent 生成制作方案，结合素材审核、预览确认与后台 Worker 完成渲染。",
+      ],
+      [
+        "保留继续创作的空间",
+        "以素材引用、视频版本和多轨时间线组织产物，支持对分镜、字幕、音频与转场进行局部编辑，并通过对话继续调整。",
+      ],
+      [
+        "长任务的工程支撑",
+        "使用 Prisma / PostgreSQL 持久化任务与产物，Redis 支撑实时通知；渲染队列提供任务认领、失败重试与中断恢复，并记录运行日志和用量。",
+      ],
+    ],
+    images: [],
+  },
+  {
+    id: "nst",
+    number: "03",
     name: "牛市通",
     subtitle: "把信息，组织成研究。",
     category: "delivery",
@@ -77,7 +117,7 @@ export const projects = [
   },
   {
     id: "aibanxue",
-    number: "03",
+    number: "04",
     name: "爱伴学",
     subtitle: "让教学与陪伴，发生连接。",
     category: "delivery",
@@ -114,7 +154,7 @@ export const projects = [
   },
   {
     id: "chengshi",
-    number: "04",
+    number: "05",
     name: "成师 TTT",
     subtitle: "让每一次练习，都有回响。",
     category: "delivery",
@@ -151,7 +191,7 @@ export const projects = [
   },
   {
     id: "qyqm",
-    number: "05",
+    number: "06",
     name: "择野少年",
     subtitle: "为好奇心，留一片旷野。",
     category: "delivery",
