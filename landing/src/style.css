@@ -173,9 +173,6 @@ summary::-webkit-details-marker {
   transition: transform 0.7s var(--ease);
   display: inline-block;
 }
-.wordmark:hover > span {
-  transform: rotate(90deg);
-}
 .nav-note {
   font-family: var(--mono);
   font-size: 8px;

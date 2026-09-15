@@ -9,8 +9,8 @@
     <header class="site-nav" :class="{ 'is-scrolled': scrollProgress > 0.01 }">
       <div class="nav-wrap">
         <a class="wordmark" href="#top" aria-label="Vesper 首页"
-          >vesper<span class="brand-asterisk">✳</span></a
-        >
+          >vesper<CuriosityMark class="brand-asterisk"
+        /></a>
         <span class="nav-note"
           >INDEPENDENT MIND.<br />HANDS-ON ENGINEERING.</span
         >
@@ -355,10 +355,23 @@
                 >newobjectccc@gmail.com</a
               ><button
                 class="copy-email"
+                :data-copied="copied"
                 @click="copyEmail"
                 :aria-label="copied ? '邮箱已复制' : '复制邮箱地址'"
               >
-                {{ copied ? "已复制 ✓" : "复制 ↗" }}</button
+                <span>{{ copied ? "已复制" : "复制" }}</span>
+                <svg
+                  class="copy-mark"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <g class="copy-sheets">
+                    <path d="M9 4h9a2 2 0 0 1 2 2v9" />
+                    <rect x="4" y="8" width="12" height="12" rx="2" />
+                  </g>
+                  <path class="copy-check" d="m5 12 4 4L19 6" pathLength="1" />
+                </svg></button
               ><span class="sr-only" role="status">{{
                 copied ? "邮箱地址已复制到剪贴板" : ""
               }}</span>
@@ -366,7 +379,7 @@
             <p>项目合作、技术交流，<br />或者，一个值得尝试的想法。</p>
           </div>
           <div class="footer-bottom">
-            <a href="#top" class="wordmark">vesper<span>✳</span></a
+            <a href="#top" class="wordmark">vesper<CuriosityMark /></a
             ><span>© {{ year }} 陈鑫铄 / VESPER</span>
             <div>
               <a
@@ -422,6 +435,7 @@ import DisclosureMark from "./portfolio/DisclosureMark.vue";
 import StrokeArrow from "./portfolio/StrokeArrow.vue";
 import TraceRule from "./portfolio/TraceRule.vue";
 import OrbitRing from "./portfolio/OrbitRing.vue";
+import CuriosityMark from "./portfolio/CuriosityMark.vue";
 import ProjectPreview from "./portfolio/ProjectPreview.vue";
 import { useProjectPreview } from "./portfolio/useProjectPreview.js";
 import {
