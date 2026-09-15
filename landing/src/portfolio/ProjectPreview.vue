@@ -1,6 +1,6 @@
 <template>
   <div
-    v-show="active"
+    v-if="active"
     class="preview-atmosphere"
     :class="{ 'is-ready': ready }"
     :style="theme"
@@ -8,7 +8,7 @@
     aria-hidden="true"
   ></div>
   <aside
-    v-show="active"
+    :hidden="!active"
     ref="panel"
     class="project-preview"
     :class="{ 'is-engaged': engaged || keyboard, 'is-ready': ready }"
@@ -65,7 +65,7 @@
           @load="onFrameLoad"
           @error="useCover('unavailable')"
         ></iframe>
-        <div class="preview-frost" aria-hidden="true"></div>
+        <div v-if="active" class="preview-frost" aria-hidden="true"></div>
         <div v-if="!ready" class="preview-loading" role="status">
           <span class="preview-spinner" aria-hidden="true"></span>
           <span
@@ -90,7 +90,7 @@
         >
           切换封面
         </button>
-        <button @click="emit('details')">项目介绍 ↗</button>
+        <button @click="emit('details', project)">项目介绍 ↗</button>
       </div>
     </div>
   </aside>
@@ -181,7 +181,7 @@ function keepFrameDecorative() {
 function markReady() {
   clearTimeout(loadTimeout);
   ready.value = true;
-  emit("ready");
+  emit("ready", props.project.id);
 }
 function onFrameLoad() {
   // A cross-origin load event is not proof that embedding succeeded. Known
@@ -233,8 +233,7 @@ watch(
     engaged.value = false;
     cancelAnimationFrame(focusExitFrame);
     if (active && props.keyboard) {
-      // v-show's updated hook also runs after rendering. Wait until it has
-      // restored display before focusing a previously cached panel.
+      // Focus only after the cached panel has become visible and non-inert.
       nextTick(() => {
         if (props.active && props.keyboard)
           visitLink.value?.focus({ preventScroll: true });
@@ -324,6 +323,14 @@ onBeforeUnmount(() => {
   animation: preview-window-in 400ms var(--ease) both;
   transform-origin: center;
   isolation: isolate;
+}
+.project-preview[hidden] {
+  display: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  animation: none;
+  transition: none;
 }
 .project-preview.is-engaged {
   transform: scale(1.025) rotate(0deg);

@@ -59,15 +59,20 @@ const fragments = () => body.value.querySelectorAll("[data-disclosure-reveal]");
 function naturalHeight() {
   const style = getComputedStyle(disclosure.value);
   return (
-    summary.value.offsetHeight +
-    (expanded.value ? body.value.offsetHeight : 0) +
+    summary.value.getBoundingClientRect().height +
+    (expanded.value ? body.value.getBoundingClientRect().height : 0) +
     parseFloat(style.borderTopWidth) +
     parseFloat(style.borderBottomWidth)
   );
 }
-function finish() {
+async function finish() {
+  const currentRevision = revision;
   heightTween?.kill();
   renderOpen.value = expanded.value;
+  // Commit the native closed state before revealing/resetting its contents.
+  // Otherwise a forced layout can see a fully open details for one frame.
+  await nextTick();
+  if (currentRevision !== revision || !disclosure.value) return;
   animating.value = false;
   gsap.set(disclosure.value, { clearProps: "height" });
   if (!expanded.value || props.paused) {

@@ -394,11 +394,11 @@
         :active="previewProject?.id === entry.project.id"
         :keyboard="previewProject?.id === entry.project.id && previewKeyboard"
         :paused="motionPaused"
-        @ready="markPreviewReady(entry.project.id)"
+        @ready="markPreviewReady"
         @enter="keepPreview"
         @leave="leavePreview"
-        @close="dismissPreview()"
-        @details="showProjectDetails(entry.project)"
+        @close="dismissPreview"
+        @details="showProjectDetails"
       />
       <ProjectDetail
         v-if="activeProject"

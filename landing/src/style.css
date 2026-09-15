@@ -1023,8 +1023,6 @@ summary::-webkit-details-marker {
 .animated-disclosure {
   position: relative;
   overflow-anchor: none;
-}
-.animated-disclosure[data-animating="true"] {
   overflow: clip;
 }
 .animated-disclosure summary:focus-visible {

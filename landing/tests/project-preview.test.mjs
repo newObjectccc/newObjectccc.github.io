@@ -9,6 +9,15 @@ function fixture(t) {
   t.mock.timers.enable({ apis: ["Date", "setTimeout"], now: 1000 });
   const previousWindow = globalThis.window;
   const previousDocument = globalThis.document;
+  const previousObserver = globalThis.IntersectionObserver;
+  let notifyVisibility;
+  globalThis.IntersectionObserver = class {
+    constructor(callback) {
+      notifyVisibility = callback;
+    }
+    observe() {}
+    disconnect() {}
+  };
   const win = Object.assign(new EventTarget(), {
     innerWidth: 1440,
     innerHeight: 1000,
@@ -19,6 +28,7 @@ function fixture(t) {
   const doc = Object.assign(new EventTarget(), {
     hidden: false,
     activeElement: null,
+    getElementById: () => ({}),
   });
   globalThis.window = win;
   globalThis.document = doc;
@@ -41,6 +51,7 @@ function fixture(t) {
     app.unmount();
     globalThis.window = previousWindow;
     globalThis.document = previousDocument;
+    globalThis.IntersectionObserver = previousObserver;
   });
   const cover = {
     isConnected: true,
@@ -66,6 +77,9 @@ function fixture(t) {
     project,
     win,
     doc,
+    cover,
+    sectionVisible: (visible) =>
+      notifyVisibility([{ isIntersecting: visible }]),
     tick: (ms) => t.mock.timers.tick(ms),
   };
 }
@@ -169,4 +183,55 @@ test("viewport changes and backgrounding release frames and pending hover work",
   doc.dispatchEvent(new Event("visibilitychange"));
   assert.equal(api.previewEntries.value.length, 0);
   assert.equal(api.previewProject.value, null);
+});
+
+test("leaving the gallery releases cached documents and cancels delayed previews", (t) => {
+  const { api, event, project, tick, sectionVisible } = fixture(t);
+  api.openPreview(project("a"), event);
+  api.markPreviewReady("a");
+  api.dismissPreview(false, false);
+  api.queuePreview(project("b"), event);
+  sectionVisible(false);
+  tick(1000);
+  assert.equal(api.previewEntries.value.length, 0);
+  assert.equal(api.previewProject.value, null);
+  api.markPreviewReady("a");
+  assert.deepEqual(api.previewTheme.value, {});
+  api.queuePreview(project("b"), event);
+  tick(1000);
+  assert.equal(api.previewProject.value, null);
+  sectionVisible(true);
+  api.queuePreview(project("b"), event);
+  tick(420);
+  assert.equal(api.previewProject.value.id, "b");
+});
+
+test("a cover that moved away during the delay cannot open a preview", (t) => {
+  const { api, event, project, tick, cover } = fixture(t);
+  api.queuePreview(project("a"), event);
+  cover.matches = (selector) => selector !== ":hover";
+  tick(420);
+  assert.equal(api.previewProject.value, null);
+  assert.equal(api.previewEntries.value.length, 0);
+});
+
+test("late cached loads and unrelated clicks cannot restore a dismissed theme", (t) => {
+  const { api, event, project, tick, win } = fixture(t);
+  api.openPreview(project("a"), event);
+  api.dismissPreview(false, false);
+  const theme = api.previewTheme.value;
+  const entries = api.previewEntries.value;
+  tick(60000);
+  api.markPreviewReady("a");
+  for (let i = 0; i < 10; i++) {
+    win.scrollY++;
+    win.dispatchEvent(new Event("scroll"));
+    win.dispatchEvent(new Event("pointerdown"));
+  }
+  assert.equal(api.previewTheme.value, theme);
+  assert.equal(api.previewEntries.value, entries);
+  assert.equal(api.previewProject.value, null);
+  assert.equal(api.previewReady.value, false);
+  tick(60000);
+  assert.equal(api.previewEntries.value.length, 0);
 });

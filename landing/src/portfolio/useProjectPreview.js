@@ -13,7 +13,8 @@ export function useProjectPreview() {
   const previewKeyboard = ref(false);
   const previewReady = ref(false);
   let openTimer, closeTimer, expiryTimer, trigger, dismissedId, pendingId;
-  let openViewport, viewport;
+  let openViewport, viewport, projectObserver;
+  let projectsVisible = true;
 
   const previewTheme = computed(() => {
     const theme = previewReady.value && previewProject.value?.preview.theme;
@@ -124,6 +125,7 @@ export function useProjectPreview() {
     if (
       event.pointerType !== "mouse" ||
       !canHover() ||
+      !projectsVisible ||
       dismissedId === project.id
     )
       return;
@@ -141,7 +143,14 @@ export function useProjectPreview() {
       (entry) => entry.project.id === project.id && entry.ready,
     );
     openTimer = setTimeout(
-      () => show(project, element),
+      () => {
+        // Layout/scroll may move the cover away while the hover delay elapses.
+        if (document.hidden || !projectsVisible || !element.matches(":hover")) {
+          pendingId = null;
+          return;
+        }
+        show(project, element);
+      },
       warm ? CACHED_HOVER_MS : FIRST_HOVER_MS,
     );
   }
@@ -161,6 +170,7 @@ export function useProjectPreview() {
     clearTimeout(openTimer);
     pendingId = null;
     clearTimeout(closeTimer);
+    if (!previewProject.value) return;
     if (suppressHover) dismissedId = previewProject.value?.id ?? dismissedId;
     const focusWasInside = document.activeElement?.closest(".project-preview");
     retireActive();
@@ -173,6 +183,8 @@ export function useProjectPreview() {
   }
 
   function clearPreviewCache() {
+    if (!previewEntries.value.length && !previewProject.value && !pendingId)
+      return;
     dismissPreview(false);
     clearTimeout(expiryTimer);
     previewEntries.value = [];
@@ -232,11 +244,25 @@ export function useProjectPreview() {
     window.addEventListener("scroll", onViewportChange, { passive: true });
     window.addEventListener("resize", onViewportChange);
     document.addEventListener("visibilitychange", onVisibility);
+    const projects = document.getElementById("projects");
+    if (projects) {
+      projectObserver = new IntersectionObserver(
+        ([entry]) => {
+          projectsVisible = entry.isIntersecting;
+          // Outside the work gallery, release third-party documents and their
+          // focus/paint work instead of keeping them behind other sections.
+          if (!projectsVisible) clearPreviewCache();
+        },
+        { rootMargin: "240px 0px" },
+      );
+      projectObserver.observe(projects);
+    }
   });
   onBeforeUnmount(() => {
     clearTimeout(openTimer);
     clearTimeout(closeTimer);
     clearTimeout(expiryTimer);
+    projectObserver?.disconnect();
     window.removeEventListener("keydown", onKeydown);
     window.removeEventListener("pointerdown", onOutside);
     window.removeEventListener("scroll", onViewportChange);
