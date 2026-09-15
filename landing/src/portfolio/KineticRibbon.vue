@@ -1,11 +1,5 @@
 <template>
-  <div
-    ref="stage"
-    class="kinetic-stage"
-    @pointermove="follow"
-    @pointerleave="release"
-    aria-hidden="true"
-  >
+  <div ref="stage" class="kinetic-stage" aria-hidden="true">
     <span class="art-cross art-cross--a">+</span
     ><span class="art-cross art-cross--b">+</span>
     <svg class="art-orbit" viewBox="0 0 600 600">
@@ -39,13 +33,23 @@ let visible = true,
 const pointer = { x: 0, y: 0, targetX: 0, targetY: 0 };
 const follow = (event) => {
   if (props.paused || event.pointerType === "touch") return;
-  const rect = stage.value.getBoundingClientRect();
-  pointer.targetX = (event.clientX - rect.left) / rect.width - 0.5;
-  pointer.targetY = (event.clientY - rect.top) / rect.height - 0.5;
+  // The hero owns pointer events, including its copy and links. Normalize to
+  // that shared area so crossing between columns keeps the movement continuous.
+  const rect = event.currentTarget.getBoundingClientRect();
+  if (!rect.width || !rect.height) return;
+  pointer.targetX = Math.max(
+    -0.5,
+    Math.min(0.5, (event.clientX - rect.left) / rect.width - 0.5),
+  );
+  pointer.targetY = Math.max(
+    -0.5,
+    Math.min(0.5, (event.clientY - rect.top) / rect.height - 0.5),
+  );
 };
 const release = () => {
   pointer.targetX = pointer.targetY = 0;
 };
+defineExpose({ follow, release });
 function point(u, v) {
   // A half-twisted ribbon: an actual projected surface, not a video asset.
   const radial = 1.48 + v * Math.cos(u / 2);

@@ -47,7 +47,13 @@
     </header>
 
     <main id="main">
-      <section id="top" class="hero section-shell">
+      <section
+        id="top"
+        class="hero section-shell"
+        @pointermove="ribbon?.follow($event)"
+        @pointerleave="ribbon?.release()"
+        @pointercancel="ribbon?.release()"
+      >
         <div class="hero-meta">
           <span class="eyebrow">CHEN XINSHUO / 陈鑫铄</span
           ><span class="eyebrow">FULL-STACK · AI AGENT · FDE</span>
@@ -81,7 +87,10 @@
               ></a
             >
           </div>
-          <KineticRibbon :paused="motionPaused || !!previewProject" />
+          <KineticRibbon
+            ref="ribbon"
+            :paused="motionPaused || !!previewProject"
+          />
         </div>
         <div class="hero-bottom">
           <span>独立开发者，也是走进现场的工程师。</span>
@@ -491,6 +500,7 @@ const motionPaused = ref(
   typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches,
 );
+const ribbon = ref(null);
 watch(motionPaused, clearPreviewCache);
 const copied = ref(false),
   scrollProgress = ref(0),
