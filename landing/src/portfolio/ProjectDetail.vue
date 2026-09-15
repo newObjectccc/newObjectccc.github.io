@@ -57,9 +57,9 @@
           :href="project.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="round-link"
-          >{{ project.label }} <span>↗</span></a
-        >
+          class="round-link stroke-trigger"
+          >{{ project.label }} <StrokeArrow
+        /></a>
       </div>
     </div>
   </dialog>
@@ -68,6 +68,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import ProjectCover from "./ProjectCover.vue";
+import StrokeArrow from "./StrokeArrow.vue";
 defineProps({
   project: { type: Object, required: true },
   paused: { type: Boolean, default: false },

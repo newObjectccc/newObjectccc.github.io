@@ -24,12 +24,20 @@
           <span>{{ menuOpen ? "−" : "+" }}</span>
         </button>
         <nav id="main-nav" aria-label="主导航" :class="{ 'is-open': menuOpen }">
-          <a href="#projects" @click="menuOpen = false">作品 <sup>01</sup></a>
-          <a href="#experience" @click="menuOpen = false">经历 <sup>02</sup></a>
-          <a href="#about" @click="menuOpen = false">关于 <sup>03</sup></a>
-          <a href="/main.html">文字 <span>↗</span></a>
+          <a href="#projects" class="count-trigger" @click="menuOpen = false"
+            >作品 <CountMark value="01"
+          /></a>
+          <a href="#experience" class="count-trigger" @click="menuOpen = false"
+            >经历 <CountMark value="02"
+          /></a>
+          <a href="#about" class="count-trigger" @click="menuOpen = false"
+            >关于 <CountMark value="03"
+          /></a>
+          <a href="/main.html" class="stroke-trigger">文字 <StrokeArrow /></a>
         </nav>
-        <a class="nav-contact" href="#contact">聊聊想法 <span>↗</span></a>
+        <a class="nav-contact stroke-trigger" href="#contact"
+          >聊聊想法 <StrokeArrow
+        /></a>
       </div>
       <span
         class="reading-progress"
@@ -107,11 +115,13 @@
           <button
             v-for="filter in filters"
             :key="filter.id"
+            class="count-trigger"
             :aria-pressed="activeFilter === filter.id"
             :class="{ active: activeFilter === filter.id }"
             @click="activeFilter = filter.id"
           >
-            {{ filter.label }}<sup>{{ filter.count }}</sup></button
+            {{ filter.label
+            }}<CountMark :value="filter.count" /><FilterUnderline /></button
           ><span class="filter-note"
             >精选项目 /
             {{ String(filteredProjects.length).padStart(2, "0") }}</span
@@ -143,13 +153,13 @@
                 <div class="work-status-line">
                   <span class="work-status">{{ project.status }}</span>
                   <button
-                    class="preview-trigger"
+                    class="preview-trigger stroke-trigger inline-action"
                     :aria-label="`预览 ${project.name} 网站`"
                     aria-haspopup="dialog"
                     :aria-expanded="previewProject?.id === project.id"
                     @click="openPreview(project, $event)"
                   >
-                    网站预览 <span>↗</span>
+                    网站预览 <StrokeArrow />
                   </button>
                 </div>
                 <button
@@ -203,17 +213,19 @@
                 <div class="tool-links" data-disclosure-reveal>
                   <a
                     v-if="tool.live"
+                    class="stroke-trigger inline-action"
                     :href="tool.live"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >查看作品 ↗</a
+                    >查看作品 <StrokeArrow /></a
                   ><a
                     v-if="tool.url"
+                    class="stroke-trigger inline-action"
                     :href="tool.url"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >源代码 ↗</a
-                  >
+                    >源代码 <StrokeArrow
+                  /></a>
                 </div>
               </div>
               <img
@@ -383,16 +395,22 @@
             ><span>© {{ year }} 陈鑫铄 / VESPER</span>
             <div>
               <a
+                class="stroke-trigger inline-action"
                 href="https://github.com/newObjectccc"
                 target="_blank"
                 rel="noopener noreferrer"
-                >GITHUB ↗</a
+                >GITHUB <StrokeArrow /></a
               ><a
+                class="stroke-trigger inline-action"
                 href="https://twitter.com/cccxy10086"
                 target="_blank"
                 rel="noopener noreferrer"
-                >X ↗</a
-              ><a href="/main.html">BLOG ↗</a><a href="#top">回到顶部 ↑</a>
+                >X <StrokeArrow /></a
+              ><a href="/main.html" class="stroke-trigger inline-action"
+                >BLOG <StrokeArrow /></a
+              ><a href="#top" class="stroke-trigger inline-action"
+                >回到顶部 <StrokeArrow up
+              /></a>
             </div>
           </div>
         </div>
@@ -436,6 +454,8 @@ import StrokeArrow from "./portfolio/StrokeArrow.vue";
 import TraceRule from "./portfolio/TraceRule.vue";
 import OrbitRing from "./portfolio/OrbitRing.vue";
 import CuriosityMark from "./portfolio/CuriosityMark.vue";
+import CountMark from "./portfolio/CountMark.vue";
+import FilterUnderline from "./portfolio/FilterUnderline.vue";
 import ProjectPreview from "./portfolio/ProjectPreview.vue";
 import { useProjectPreview } from "./portfolio/useProjectPreview.js";
 import {

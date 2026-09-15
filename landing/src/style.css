@@ -205,6 +205,7 @@ summary::-webkit-details-marker {
   padding: 12px 18px;
   font-size: 11px;
   display: flex;
+  align-items: center;
   gap: 20px;
   border-radius: 100px;
   transition:
@@ -465,15 +466,6 @@ summary::-webkit-details-marker {
 }
 .work-filter button.active {
   color: var(--ink);
-}
-.work-filter button.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 2px;
-  background: var(--ink);
 }
 .work-filter sup {
   font: 8px var(--mono);

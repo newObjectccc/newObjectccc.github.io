@@ -33,6 +33,105 @@
   }
 }
 
+/* Keep numerals readable; two tiny corner strokes mark a hovered destination. */
+.count-mark {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.5em;
+  height: 1.5em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.count-mark svg {
+  position: absolute;
+  inset: -0.3em;
+  width: calc(100% + 0.6em);
+  height: calc(100% + 0.6em);
+  overflow: visible;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.count-mark path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  transition:
+    stroke-dashoffset 350ms var(--ease),
+    opacity 200ms;
+}
+.count-trigger:is(:hover, :focus-visible, [aria-pressed="true"])
+  .count-mark
+  path {
+  stroke-dashoffset: 0;
+  opacity: 0.85;
+  transition-duration: 500ms, 200ms;
+}
+.count-trigger:is(:hover, :focus-visible, [aria-pressed="true"])
+  .count-corner-end {
+  transition-delay: 75ms;
+}
+
+/* A hint on hover; the old selection retracts before the new ink finishes. */
+.filter-underline {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 4px;
+  fill: none;
+  pointer-events: none;
+}
+.filter-underline path {
+  vector-effect: non-scaling-stroke;
+}
+.filter-hint {
+  stroke: var(--accent);
+  stroke-width: 1;
+  stroke-dasharray: 18 100;
+  stroke-dashoffset: 18;
+  opacity: 0;
+  transition:
+    stroke-dashoffset 500ms var(--ease),
+    opacity 220ms;
+}
+.work-filter button:is(:hover, :focus-visible):not(.active) .filter-hint {
+  stroke-dashoffset: -41;
+  opacity: 0.6;
+}
+.filter-ink {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 220ms var(--ease);
+}
+.work-filter button.active .filter-ink {
+  stroke-dashoffset: 0;
+  transition-duration: 520ms;
+  transition-delay: 90ms;
+}
+a.inline-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+button.inline-action .stroke-arrow {
+  display: inline-block;
+  vertical-align: -0.15em;
+  margin-left: 4px;
+}
+.nav-contact .stroke-arrow,
+.round-link .stroke-arrow {
+  width: 14px;
+  height: 14px;
+}
+
 /* Section rules write once on entering the viewport; a short ink segment leads. */
 .trace-rule,
 .disclosure-rule {
@@ -339,12 +438,12 @@
   display: none;
   animation: none !important;
 }
-[data-motion="off"] :is(.mark-ray, .copy-check) {
-  transition-delay: 0s;
+[data-motion="off"] :is(.mark-ray, .copy-check, .count-mark path, .filter-ink) {
+  transition-delay: 0s !important;
 }
 @media (prefers-reduced-motion: reduce) {
-  :is(.mark-ray, .copy-check) {
-    transition-delay: 0s;
+  :is(.mark-ray, .copy-check, .count-mark path, .filter-ink) {
+    transition-delay: 0s !important;
   }
   :is(.stroke-arrow path, .rule-ink, .contact-flourish path) {
     animation: none !important;

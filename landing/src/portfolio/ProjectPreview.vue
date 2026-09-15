@@ -40,7 +40,7 @@
     </div>
     <a
       ref="visitLink"
-      class="preview-visit"
+      class="preview-visit stroke-trigger"
       :href="project.url"
       target="_blank"
       rel="noopener noreferrer"
@@ -73,7 +73,7 @@
           >
         </div>
         <div v-else class="preview-invitation">
-          <span>走近一点</span><b>打开 {{ project.name }} ↗</b>
+          <span>走近一点</span><b>打开 {{ project.name }} <StrokeArrow /></b>
         </div>
       </div>
     </a>
@@ -90,7 +90,12 @@
         >
           切换封面
         </button>
-        <button @click="emit('details', project)">项目介绍 ↗</button>
+        <button
+          class="stroke-trigger inline-action"
+          @click="emit('details', project)"
+        >
+          项目介绍 <StrokeArrow />
+        </button>
       </div>
     </div>
   </aside>
@@ -106,6 +111,7 @@ import {
   watch,
 } from "vue";
 import ProjectCover from "./ProjectCover.vue";
+import StrokeArrow from "./StrokeArrow.vue";
 
 const props = defineProps({
   project: { type: Object, required: true },
@@ -276,9 +282,6 @@ onBeforeUnmount(() => {
   color: var(--muted);
   padding: 8px 0;
   white-space: nowrap;
-}
-.preview-trigger span {
-  margin-left: 5px;
 }
 .preview-trigger:hover {
   color: var(--accent);
@@ -477,6 +480,10 @@ onBeforeUnmount(() => {
 }
 .preview-invitation b {
   grid-area: 1/1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   font-weight: 500;
   opacity: 0;
   transition: opacity 300ms;
