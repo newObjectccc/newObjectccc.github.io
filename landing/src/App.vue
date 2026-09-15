@@ -174,25 +174,31 @@
           <p>有时，一个顺手的小工具，<br />就是对日常最好的回应。</p>
         </div>
         <div class="tool-list">
-          <details
+          <AnimatedDisclosure
             v-for="(tool, index) in tools"
             :key="tool.name"
             class="tool-row"
+            :paused="motionPaused"
           >
-            <summary>
+            <template #summary>
               <span class="tool-index">{{
                 String(index + 1).padStart(2, "0")
               }}</span
               ><span class="tool-name">{{ tool.name }}</span
               ><span class="tool-type">{{ tool.type }}</span
               ><span class="tool-status">{{ tool.status }}</span
-              ><span class="tool-plus">+</span>
-            </summary>
+              ><span
+                class="tool-plus disclosure-icon"
+                aria-hidden="true"
+              ></span>
+            </template>
             <div class="tool-expanded">
               <div>
-                <p>{{ tool.description }}</p>
-                <span class="tool-tags">{{ tool.tags.join(" / ") }}</span>
-                <div class="tool-links">
+                <p data-disclosure-reveal>{{ tool.description }}</p>
+                <span class="tool-tags" data-disclosure-reveal>{{
+                  tool.tags.join(" / ")
+                }}</span>
+                <div class="tool-links" data-disclosure-reveal>
                   <a
                     v-if="tool.live"
                     :href="tool.live"
@@ -213,9 +219,10 @@
                 :src="tool.image"
                 :alt="`${tool.name} 项目界面`"
                 loading="lazy"
+                data-disclosure-reveal
               />
             </div>
-          </details>
+          </AnimatedDisclosure>
         </div>
       </section>
 
@@ -237,29 +244,39 @@
               </div>
             </div>
             <div class="experience-list">
-              <details
+              <AnimatedDisclosure
                 v-for="(job, index) in experience"
                 :key="job.short"
                 class="experience-row"
-                :open="index === 0"
+                :initial-open="index === 0"
+                :paused="motionPaused"
               >
-                <summary>
+                <template #summary>
                   <span class="experience-date">{{ job.date }}</span
                   ><span class="experience-company"
                     >{{ job.short }}<small>{{ job.role }}</small></span
-                  ><span class="experience-plus">+</span>
-                </summary>
+                  ><span
+                    class="experience-plus disclosure-icon"
+                    aria-hidden="true"
+                  ></span>
+                </template>
                 <div class="experience-detail">
-                  <p class="experience-full-name">{{ job.name }}</p>
-                  <h3>{{ job.summary }}</h3>
-                  <p v-for="detail in job.details" :key="detail">
+                  <p class="experience-full-name" data-disclosure-reveal>
+                    {{ job.name }}
+                  </p>
+                  <h3 data-disclosure-reveal>{{ job.summary }}</h3>
+                  <p
+                    v-for="detail in job.details"
+                    :key="detail"
+                    data-disclosure-reveal
+                  >
                     {{ detail }}
                   </p>
-                  <div class="experience-tags">
+                  <div class="experience-tags" data-disclosure-reveal>
                     <span v-for="tag in job.tags" :key="tag">{{ tag }}</span>
                   </div>
                 </div>
-              </details>
+              </AnimatedDisclosure>
             </div>
           </div>
         </div>
@@ -383,6 +400,7 @@ import { gsap } from "gsap";
 import KineticRibbon from "./portfolio/KineticRibbon.vue";
 import ProjectCover from "./portfolio/ProjectCover.vue";
 import ProjectDetail from "./portfolio/ProjectDetail.vue";
+import AnimatedDisclosure from "./portfolio/AnimatedDisclosure.vue";
 import ProjectPreview from "./portfolio/ProjectPreview.vue";
 import { useProjectPreview } from "./portfolio/useProjectPreview.js";
 import {

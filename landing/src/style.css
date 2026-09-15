@@ -1018,6 +1018,77 @@ summary::-webkit-details-marker {
   line-height: 1.9;
   color: var(--muted);
 }
+/* Shared disclosure rhythm: a fine rule, a quiet icon, then the content. */
+.animated-disclosure {
+  position: relative;
+  overflow-anchor: none;
+}
+.animated-disclosure[data-animating="true"] {
+  overflow: clip;
+}
+.animated-disclosure::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 600ms var(--ease);
+  pointer-events: none;
+}
+.animated-disclosure[data-expanded="true"]::before {
+  transform: scaleX(1);
+}
+.animated-disclosure summary:focus-visible {
+  outline-offset: -4px;
+}
+.disclosure-body,
+.disclosure-inner {
+  display: flow-root;
+}
+.disclosure-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  display: block;
+  border-radius: 50%;
+  color: var(--muted);
+  transition:
+    background-color 350ms,
+    color 350ms;
+}
+.disclosure-icon::before,
+.disclosure-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 450ms var(--ease),
+    opacity 300ms;
+}
+.disclosure-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.animated-disclosure[data-expanded="true"] .disclosure-icon {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.animated-disclosure[data-expanded="true"] .disclosure-icon::after {
+  transform: translate(-50%, -50%) rotate(180deg);
+  opacity: 0;
+}
+.animated-disclosure[data-expanded="true"] .tool-name,
+.animated-disclosure[data-expanded="true"] .experience-company {
+  color: var(--accent);
+}
 .tool-row {
   border-top: 1px solid var(--line);
 }
@@ -1030,13 +1101,10 @@ summary::-webkit-details-marker {
   align-items: center;
   gap: 18px;
   padding: 24px 0;
-  transition:
-    padding 0.4s var(--ease),
-    color 0.25s;
+  transition: color 0.25s;
 }
 .tool-row summary:hover {
   color: var(--accent);
-  padding-left: 10px;
 }
 .tool-index {
   font: 9px var(--mono);
@@ -1045,6 +1113,9 @@ summary::-webkit-details-marker {
 .tool-name {
   font-size: 24px;
   letter-spacing: -0.7px;
+  transition:
+    color 350ms,
+    translate 450ms var(--ease);
 }
 .tool-type {
   font: 10px var(--mono);
@@ -1053,13 +1124,6 @@ summary::-webkit-details-marker {
 .tool-status {
   font-size: 10px;
   color: var(--muted);
-}
-.tool-plus {
-  font-size: 21px;
-  transition: transform 0.35s;
-}
-.tool-row[open] .tool-plus {
-  transform: rotate(45deg);
 }
 .tool-expanded {
   display: grid;
@@ -1091,17 +1155,21 @@ summary::-webkit-details-marker {
 }
 .tool-expanded img {
   width: 100%;
+  height: 150px;
   max-height: 150px;
   object-fit: contain;
   object-position: left top;
 }
-/* Experience, dark chapter */
+/* Experience uses the same paper palette, with a slightly deeper surface. */
 .experience-section {
-  background: #292d27;
-  color: #eeeee6;
+  background: color-mix(in srgb, var(--paper) 94%, var(--ink));
+  color: var(--ink);
   padding: 62px 0 82px;
-  --line: #484b41;
-  --muted: #a7aea0;
+  --line: color-mix(in srgb, var(--ink) 15%, var(--paper));
+  --muted: color-mix(in srgb, var(--ink) 70%, var(--paper));
+  transition:
+    background-color 700ms,
+    color 700ms;
 }
 .experience-layout {
   display: grid;
@@ -1121,7 +1189,7 @@ summary::-webkit-details-marker {
   letter-spacing: -0.06em;
 }
 .experience-heading h2 span {
-  color: #b7bfa6;
+  color: var(--accent);
 }
 .experience-heading > p {
   font-size: 12px;
@@ -1137,12 +1205,12 @@ summary::-webkit-details-marker {
 }
 .field-note > span {
   font-size: 32px;
-  color: #b8c4ab;
+  color: var(--accent);
 }
 .field-note p {
   font-size: 10px;
   line-height: 2;
-  color: #aab49d;
+  color: var(--muted);
 }
 .experience-row {
   border-top: 1px solid var(--line);
@@ -1166,6 +1234,9 @@ summary::-webkit-details-marker {
   font-size: 25px;
   font-weight: 500;
   letter-spacing: -0.03em;
+  transition:
+    color 350ms,
+    translate 450ms var(--ease);
 }
 .experience-company small {
   display: block;
@@ -1175,20 +1246,12 @@ summary::-webkit-details-marker {
   margin-top: 10px;
   color: var(--muted);
 }
-.experience-plus {
-  font-size: 21px;
-  color: #b8c4ab;
-  transition: transform 0.3s;
-}
-.experience-row[open] .experience-plus {
-  transform: rotate(45deg);
-}
 .experience-detail {
   padding: 0 0 30px 160px;
 }
 .experience-full-name {
   font-size: 9px !important;
-  color: #aab49d !important;
+  color: var(--muted) !important;
   margin-bottom: 20px !important;
 }
 .experience-detail h3 {
@@ -1211,10 +1274,20 @@ summary::-webkit-details-marker {
 }
 .experience-tags span {
   font-size: 8px;
-  border: 1px solid #505646;
+  border: 1px solid var(--line);
   border-radius: 30px;
   padding: 5px 9px;
-  color: #c0c9b3;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--paper) 45%, transparent);
+}
+@media (hover: hover) {
+  .animated-disclosure summary:hover .tool-name,
+  .animated-disclosure summary:hover .experience-company {
+    translate: 3px 0;
+  }
+  .animated-disclosure summary:hover .disclosure-icon {
+    color: var(--accent);
+  }
 }
 /* About and writing */
 .about-section {
@@ -2089,6 +2162,7 @@ summary::-webkit-details-marker {
     font-size: 12px;
   }
   .tool-expanded img {
+    height: 180px;
     max-height: 180px;
     object-position: left;
     max-width: 260px;
