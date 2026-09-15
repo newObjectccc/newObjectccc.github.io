@@ -1,0 +1,263 @@
+/* A shared ink rhythm. Normalized path lengths keep timing independent of size. */
+.stroke-arrow {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.35;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.stroke-arrow path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.stroke-trigger:is(:hover, :focus-visible) .arrow-shaft {
+  animation: arrow-write 550ms var(--ease) both;
+}
+.stroke-trigger:is(:hover, :focus-visible) .arrow-tip {
+  animation: arrow-write 450ms var(--ease) 100ms both;
+}
+@keyframes arrow-write {
+  from {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* Section rules write once on entering the viewport; a short ink segment leads. */
+.trace-rule,
+.disclosure-rule {
+  position: absolute;
+  inset: -2px 0 auto;
+  width: 100%;
+  height: 4px;
+  fill: none;
+  pointer-events: none;
+}
+.trace-rule path,
+.disclosure-rule path {
+  stroke-width: 1;
+}
+.rule-base {
+  stroke: var(--line);
+}
+.rule-ink,
+.rule-runner,
+.disclosure-rule-path,
+.disclosure-rule-runner {
+  stroke: var(--accent);
+}
+.rule-ink {
+  opacity: 0.22;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.rule-runner,
+.disclosure-rule-runner {
+  opacity: 0;
+  stroke-dasharray: 6 106;
+  stroke-dashoffset: 6;
+  stroke-linecap: round;
+}
+[data-trace].is-visible .rule-ink {
+  animation: ink-write 1250ms var(--ease) both;
+}
+[data-trace].is-visible .rule-runner {
+  animation: ink-travel 1400ms var(--ease);
+}
+@keyframes ink-write {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes ink-travel {
+  0% {
+    stroke-dashoffset: 6;
+    opacity: 0;
+  }
+  12%,
+  72% {
+    opacity: 0.85;
+  }
+  100% {
+    stroke-dashoffset: -100;
+    opacity: 0;
+  }
+}
+
+/* Disclosure: erase the vertical stroke, close the halo, then carry the rule. */
+.disclosure-rule-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  opacity: 0.55;
+  transition: stroke-dashoffset 380ms var(--ease);
+}
+[data-expanded="true"] .disclosure-rule-path {
+  stroke-dashoffset: 0;
+  transition-duration: 620ms;
+}
+[data-expanded="true"] .disclosure-rule-runner {
+  animation: ink-travel 800ms var(--ease);
+}
+.disclosure-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+.disclosure-halo {
+  stroke-width: 0.75;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  opacity: 0.55;
+  transition: stroke-dashoffset 600ms var(--ease);
+}
+.disclosure-vertical {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 320ms var(--ease);
+}
+[data-expanded="true"] .disclosure-halo {
+  stroke-dashoffset: 0;
+}
+[data-expanded="true"] .disclosure-vertical {
+  stroke-dashoffset: 1;
+}
+
+/* Two arcs stretch in opposite directions, settling when the pointer leaves. */
+.link-disc,
+.contact-orbit {
+  position: relative;
+}
+.link-disc {
+  border-color: transparent;
+}
+.contact-orbit {
+  flex-shrink: 0;
+}
+.orbit-ring {
+  position: absolute;
+  inset: -9px;
+  width: calc(100% + 18px);
+  height: calc(100% + 18px);
+  max-width: none;
+  fill: none;
+  stroke: var(--accent);
+  pointer-events: none;
+  transform: rotate(-90deg);
+}
+.orbit-ring circle {
+  stroke-width: 0.75;
+}
+.orbit-base {
+  opacity: 0.18;
+}
+.orbit-arc,
+.orbit-counter {
+  stroke-linecap: round;
+  transition:
+    stroke-dasharray 950ms var(--ease),
+    stroke-dashoffset 1200ms var(--ease);
+}
+.orbit-arc {
+  stroke-dasharray: 14 86;
+  stroke-dashoffset: 10;
+}
+.orbit-counter {
+  stroke-dasharray: 7 93;
+  stroke-dashoffset: -48;
+  opacity: 0.55;
+}
+.ring-trigger:is(:hover, :focus-visible) .orbit-arc {
+  stroke-dasharray: 42 58;
+  stroke-dashoffset: -65;
+}
+.ring-trigger:is(:hover, :focus-visible) .orbit-counter {
+  stroke-dasharray: 26 74;
+  stroke-dashoffset: -9;
+}
+.link-disc .orbit-ring {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.link-disc .orbit-base {
+  stroke: var(--ink);
+  opacity: 0.4;
+}
+.link-disc .orbit-ring circle {
+  stroke-width: 2;
+}
+.contact-orbit b {
+  display: grid;
+  place-items: center;
+}
+.contact-orbit .stroke-arrow {
+  width: 0.9em;
+  height: 0.9em;
+  margin: 0.08em 0;
+}
+.contact-orbit .orbit-counter {
+  stroke: #fbf2e7;
+  opacity: 0.55;
+}
+.contact-phrase {
+  position: relative;
+  display: inline-block;
+}
+.contact-flourish {
+  position: absolute;
+  left: 0;
+  bottom: -0.18em;
+  width: 100%;
+  height: 0.4em;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  opacity: 0.65;
+  pointer-events: none;
+}
+.contact-flourish path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.contact-main.is-visible .contact-flourish path {
+  animation: ink-write 1300ms var(--ease) 250ms both;
+}
+
+/* Pausing always leaves a complete, readable mark rather than a half-drawn one. */
+[data-motion="off"] :is(.stroke-arrow path, .rule-ink, .contact-flourish path) {
+  animation: none !important;
+  stroke-dashoffset: 0 !important;
+}
+[data-motion="off"] .stroke-arrow path {
+  opacity: 1;
+}
+[data-motion="off"] :is(.rule-runner, .disclosure-rule-runner) {
+  display: none;
+  animation: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.stroke-arrow path, .rule-ink, .contact-flourish path) {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  :is(.rule-runner, .disclosure-rule-runner) {
+    display: none;
+  }
+}

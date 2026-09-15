@@ -66,8 +66,8 @@
                 </p>
               </div>
             </div>
-            <a href="#projects" class="hero-link"
-              ><span class="link-disc">↓</span
+            <a href="#projects" class="hero-link stroke-trigger ring-trigger"
+              ><span class="link-disc"><OrbitRing /><StrokeArrow down /></span
               ><span
                 >看看我做的东西 <small>EXPLORE SELECTED WORK</small></span
               ></a
@@ -92,7 +92,8 @@
       </section>
 
       <section id="projects" class="work-section section-shell">
-        <div class="section-topline">
+        <div class="section-topline" data-trace>
+          <TraceRule />
           <span class="eyebrow">01 / SELECTED WORK</span
           ><span class="eyebrow">IDEAS THAT MADE IT OUT INTO THE WORLD</span>
         </div>
@@ -127,12 +128,12 @@
             @pointerleave="leaveProject(project, $event)"
           >
             <button
-              class="cover-button"
+              class="cover-button stroke-trigger"
               @click="showProjectDetails(project)"
               :aria-label="`查看 ${project.name} 项目详情`"
             >
               <ProjectCover :project="project" /><span class="cover-action"
-                >打开项目 <span>↗</span></span
+                >打开项目 <span><StrokeArrow /></span></span
               ><span class="cover-index"
                 >{{ project.number }} / {{ project.categoryLabel }}</span
               >
@@ -151,8 +152,11 @@
                     悬停预览 <span>↗</span>
                   </button>
                 </div>
-                <button class="work-title" @click="showProjectDetails(project)">
-                  {{ project.name }}<span>↗</span>
+                <button
+                  class="work-title stroke-trigger"
+                  @click="showProjectDetails(project)"
+                >
+                  {{ project.name }}<span><StrokeArrow /></span>
                 </button>
                 <p>{{ project.subtitle }}</p>
               </div>
@@ -165,7 +169,8 @@
       </section>
 
       <section class="tool-section section-shell" aria-labelledby="tool-title">
-        <div class="section-topline">
+        <div class="section-topline" data-trace>
+          <TraceRule />
           <span class="eyebrow">THE SMALLER THINGS</span
           ><span class="eyebrow">TOOLS / EXTENSIONS / EXPERIMENTS</span>
         </div>
@@ -187,10 +192,7 @@
               ><span class="tool-name">{{ tool.name }}</span
               ><span class="tool-type">{{ tool.type }}</span
               ><span class="tool-status">{{ tool.status }}</span
-              ><span
-                class="tool-plus disclosure-icon"
-                aria-hidden="true"
-              ></span>
+              ><DisclosureMark class="tool-plus" />
             </template>
             <div class="tool-expanded">
               <div>
@@ -228,7 +230,8 @@
 
       <section id="experience" class="experience-section">
         <div class="section-shell">
-          <div class="section-topline">
+          <div class="section-topline" data-trace>
+            <TraceRule />
             <span class="eyebrow">02 / IN THE REAL WORLD</span
             ><span class="eyebrow">2017 — NOW</span>
           </div>
@@ -255,10 +258,7 @@
                   <span class="experience-date">{{ job.date }}</span
                   ><span class="experience-company"
                     >{{ job.short }}<small>{{ job.role }}</small></span
-                  ><span
-                    class="experience-plus disclosure-icon"
-                    aria-hidden="true"
-                  ></span>
+                  ><DisclosureMark class="experience-plus" />
                 </template>
                 <div class="experience-detail">
                   <p class="experience-full-name" data-disclosure-reveal>
@@ -283,7 +283,8 @@
       </section>
 
       <section id="about" class="about-section section-shell">
-        <div class="section-topline">
+        <div class="section-topline" data-trace>
+          <TraceRule />
           <span class="eyebrow">03 / A LITTLE ABOUT ME</span
           ><span class="eyebrow">ENGINEER BY PRACTICE. CURIOUS BY NATURE.</span>
         </div>
@@ -308,30 +309,45 @@
             <div class="capability-stack">{{ capability.stack }}</div>
           </article>
         </div>
-        <a class="writing-link" href="/main.html" data-reveal
+        <a class="writing-link stroke-trigger" href="/main.html" data-reveal
           ><div>
             <span class="eyebrow">NOT EVERYTHING LIVES IN A REPOSITORY.</span>
             <h3>写下来，让想法继续生长。</h3>
             <p>源码浅读 · 工程实践 · 开源记录 · 一些思考</p>
           </div>
-          <span class="writing-arrow">↗</span></a
-        >
+          <span class="writing-arrow"><StrokeArrow /></span
+        ></a>
       </section>
 
       <footer id="contact" class="contact-section">
         <div class="section-shell">
-          <div class="section-topline">
+          <div class="section-topline" data-trace>
+            <TraceRule />
             <span class="eyebrow">HAVE SOMETHING IN MIND?</span
             ><span class="eyebrow">LET’S MAKE IT HAPPEN.</span>
           </div>
           <div class="contact-main" data-reveal>
-            <h2>下一个想法，<br /><em>一起做出来。</em></h2>
+            <h2>
+              下一个想法，<br /><em class="contact-phrase"
+                >一起做出来。<svg
+                  class="contact-flourish"
+                  viewBox="0 0 440 32"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M5 23C103 2 325 1 415 14c36 6-18 18-85 10"
+                    pathLength="100"
+                  /></svg
+              ></em>
+            </h2>
             <a
-              class="contact-orbit"
+              class="contact-orbit stroke-trigger ring-trigger"
               href="mailto:newobjectccc@gmail.com"
               aria-label="发邮件给 Vesper"
-              ><span>LET’S TALK</span><b>↗</b></a
-            >
+              ><OrbitRing /><span>LET’S TALK</span><b><StrokeArrow /></b
+            ></a>
           </div>
           <div class="contact-meta">
             <div>
@@ -401,6 +417,10 @@ import KineticRibbon from "./portfolio/KineticRibbon.vue";
 import ProjectCover from "./portfolio/ProjectCover.vue";
 import ProjectDetail from "./portfolio/ProjectDetail.vue";
 import AnimatedDisclosure from "./portfolio/AnimatedDisclosure.vue";
+import DisclosureMark from "./portfolio/DisclosureMark.vue";
+import StrokeArrow from "./portfolio/StrokeArrow.vue";
+import TraceRule from "./portfolio/TraceRule.vue";
+import OrbitRing from "./portfolio/OrbitRing.vue";
 import ProjectPreview from "./portfolio/ProjectPreview.vue";
 import { useProjectPreview } from "./portfolio/useProjectPreview.js";
 import {
@@ -522,8 +542,11 @@ onMounted(() => {
     },
     { threshold: 0.1, rootMargin: "0px 0px -30px 0px" },
   );
-  document.querySelectorAll("[data-reveal]").forEach((el) => {
-    if (el.getBoundingClientRect().top > window.innerHeight)
+  document.querySelectorAll("[data-reveal], [data-trace]").forEach((el) => {
+    if (
+      el.hasAttribute("data-reveal") &&
+      el.getBoundingClientRect().top > window.innerHeight
+    )
       el.classList.add("will-reveal");
     revealObserver.observe(el);
   });
