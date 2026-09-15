@@ -1,5 +1,6 @@
 <template>
   <div
+    v-show="active"
     class="preview-atmosphere"
     :class="{ 'is-ready': ready }"
     :style="theme"
@@ -7,17 +8,21 @@
     aria-hidden="true"
   ></div>
   <aside
+    v-show="active"
     ref="panel"
     class="project-preview"
     :class="{ 'is-engaged': engaged || keyboard, 'is-ready': ready }"
     :style="{ ...theme, ...position }"
     :data-motion="paused ? 'off' : 'on'"
+    :data-project-id="project.id"
+    :aria-hidden="!active"
+    :inert="!active"
     role="dialog"
     tabindex="-1"
     :aria-label="`${project.name} 网站预览`"
     @pointerenter="enter"
     @pointerleave="leave"
-    @focusin="emit('enter')"
+    @focusin="active && emit('enter')"
     @focusout="onFocusOut"
   >
     <div class="preview-chrome">
@@ -92,12 +97,20 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import {
+  computed,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  watch,
+} from "vue";
 import ProjectCover from "./ProjectCover.vue";
 
 const props = defineProps({
   project: { type: Object, required: true },
   anchor: { type: Object, required: true },
+  active: Boolean,
   keyboard: Boolean,
   paused: Boolean,
 });
@@ -124,11 +137,11 @@ const stageHeight = Math.min(
   (width - 20) * (props.project.preview.mobile ? 1.38 : 0.63),
   window.innerHeight - 180,
 );
-const position = {
+const position = computed(() => ({
   width: `${width}px`,
   left: `${Math.max(32, Math.min(props.anchor.right - width - 24, window.innerWidth - width - 32))}px`,
   top: `${Math.max(32, Math.min(props.anchor.top + 48, window.innerHeight - stageHeight - 130))}px`,
-};
+}));
 const frameWidth = props.project.preview.mobile ? 390 : 1280;
 const frameScale = (width - 20) / frameWidth;
 const frameStyle = {
@@ -154,9 +167,14 @@ function keepFrameDecorative() {
       frame.value &&
       document.activeElement === frame.value
     ) {
-      (props.keyboard ? visitLink.value : panel.value)?.focus({
-        preventScroll: true,
-      });
+      if (props.active) {
+        (props.keyboard ? visitLink.value : panel.value)?.focus({
+          preventScroll: true,
+        });
+      } else {
+        // A retained, hidden app must not steal the parent document's focus.
+        frame.value.blur();
+      }
     }
   });
 }
@@ -178,10 +196,12 @@ function useCover(reason) {
   markReady();
 }
 function enter() {
+  if (!props.active) return;
   engaged.value = true;
   emit("enter");
 }
 function leave() {
+  if (!props.active) return;
   engaged.value = false;
   emit("leave");
 }
@@ -191,6 +211,7 @@ function onFocusOut() {
   cancelAnimationFrame(focusExitFrame);
   focusExitFrame = requestAnimationFrame(() => {
     if (
+      props.active &&
       props.keyboard &&
       panel.value &&
       !panel.value.contains(document.activeElement)
@@ -206,6 +227,22 @@ onMounted(() => {
     coverTimeout = setTimeout(() => useCover("policy"), 320);
   if (props.keyboard) visitLink.value.focus({ preventScroll: true });
 });
+watch(
+  () => [props.active, props.keyboard],
+  ([active]) => {
+    engaged.value = false;
+    cancelAnimationFrame(focusExitFrame);
+    if (active && props.keyboard) {
+      // v-show's updated hook also runs after rendering. Wait until it has
+      // restored display before focusing a previously cached panel.
+      nextTick(() => {
+        if (props.active && props.keyboard)
+          visitLink.value?.focus({ preventScroll: true });
+      });
+    }
+  },
+  { flush: "post" },
+);
 onBeforeUnmount(() => {
   window.removeEventListener("blur", keepFrameDecorative);
   cancelAnimationFrame(focusFrame);

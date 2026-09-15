@@ -1,14 +1,19 @@
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
-// A single preview owns the frame. Crossing from its card to the floating
-// window gets a short grace period; scrolling always dismisses it.
+const CACHE_LIMIT = 2;
+const CACHE_IDLE_MS = 120_000;
+const FIRST_HOVER_MS = 420;
+const CACHED_HOVER_MS = 140;
+
+// Keep cached frames mounted in place: moving them through KeepAlive or a
+// detached container would navigate their documents again. Only one is visible.
 export function useProjectPreview() {
   const previewProject = ref(null);
-  const previewAnchor = ref(null);
+  const previewEntries = ref([]);
   const previewKeyboard = ref(false);
   const previewReady = ref(false);
-  let openTimer, closeTimer, trigger, dismissedId, pendingId;
-  let openViewport;
+  let openTimer, closeTimer, expiryTimer, trigger, dismissedId, pendingId;
+  let openViewport, viewport;
 
   const previewTheme = computed(() => {
     const theme = previewReady.value && previewProject.value?.preview.theme;
@@ -23,6 +28,43 @@ export function useProjectPreview() {
     ).matches;
 
   const cancelClose = () => clearTimeout(closeTimer);
+
+  function scheduleExpiry() {
+    clearTimeout(expiryTimer);
+    const idle = previewEntries.value.filter(
+      (entry) => entry.idleSince !== null,
+    );
+    if (!idle.length) return;
+    const expiresAt = Math.min(
+      ...idle.map((entry) => entry.idleSince + CACHE_IDLE_MS),
+    );
+    expiryTimer = setTimeout(
+      () => {
+        const now = Date.now();
+        previewEntries.value = previewEntries.value.filter(
+          (entry) =>
+            entry.idleSince === null || now - entry.idleSince < CACHE_IDLE_MS,
+        );
+        scheduleExpiry();
+      },
+      Math.max(0, expiresAt - Date.now()),
+    );
+  }
+
+  function retireActive() {
+    const active = previewEntries.value.find(
+      (entry) => entry.project.id === previewProject.value?.id,
+    );
+    if (active) active.idleSince = Date.now();
+  }
+
+  function markPreviewReady(id) {
+    const entry = previewEntries.value.find((entry) => entry.project.id === id);
+    if (!entry) return;
+    entry.ready = true;
+    if (previewProject.value?.id === id) previewReady.value = true;
+  }
+
   function keepPreview() {
     cancelClose();
     clearTimeout(openTimer);
@@ -39,15 +81,43 @@ export function useProjectPreview() {
     trigger = element.matches("button")
       ? element
       : card.querySelector(".preview-trigger");
-    previewAnchor.value = { left: rect.left, right: rect.right, top: rect.top };
+    retireActive();
+    const anchor = { left: rect.left, right: rect.right, top: rect.top };
+    let entry = previewEntries.value.find(
+      (entry) => entry.project.id === project.id,
+    );
+    if (!entry) {
+      // Evict by last use without reordering retained DOM nodes.
+      if (previewEntries.value.length >= CACHE_LIMIT) {
+        const oldest = previewEntries.value.reduce((a, b) =>
+          a.lastUsed <= b.lastUsed ? a : b,
+        );
+        previewEntries.value = previewEntries.value.filter(
+          (item) => item !== oldest,
+        );
+      }
+      entry = {
+        project,
+        anchor,
+        ready: false,
+        lastUsed: Date.now(),
+        idleSince: null,
+      };
+      previewEntries.value.push(entry);
+    } else {
+      entry.anchor = anchor;
+      entry.lastUsed = Date.now();
+      entry.idleSince = null;
+    }
     openViewport = {
       y: window.scrollY,
       width: window.innerWidth,
       height: window.innerHeight,
     };
     previewKeyboard.value = keyboard;
-    if (previewProject.value?.id !== project.id) previewReady.value = false;
+    previewReady.value = entry.ready;
     previewProject.value = project;
+    scheduleExpiry();
   }
 
   function queuePreview(project, event) {
@@ -67,7 +137,13 @@ export function useProjectPreview() {
     clearTimeout(openTimer);
     pendingId = project.id;
     const element = event.currentTarget;
-    openTimer = setTimeout(() => show(project, element), 420);
+    const warm = previewEntries.value.some(
+      (entry) => entry.project.id === project.id && entry.ready,
+    );
+    openTimer = setTimeout(
+      () => show(project, element),
+      warm ? CACHED_HOVER_MS : FIRST_HOVER_MS,
+    );
   }
 
   function openPreview(project, event) {
@@ -81,22 +157,31 @@ export function useProjectPreview() {
     show(project, event.currentTarget, event.detail === 0);
   }
 
-  function dismissPreview(restoreFocus = true) {
+  function dismissPreview(restoreFocus = true, suppressHover = true) {
     clearTimeout(openTimer);
     pendingId = null;
     clearTimeout(closeTimer);
-    dismissedId = previewProject.value?.id ?? dismissedId;
+    if (suppressHover) dismissedId = previewProject.value?.id ?? dismissedId;
     const focusWasInside = document.activeElement?.closest(".project-preview");
+    retireActive();
     previewProject.value = null;
     previewReady.value = false;
     if (restoreFocus && focusWasInside && trigger?.isConnected)
       trigger.focus({ preventScroll: true });
     previewKeyboard.value = false;
+    scheduleExpiry();
+  }
+
+  function clearPreviewCache() {
+    dismissPreview(false);
+    clearTimeout(expiryTimer);
+    previewEntries.value = [];
   }
 
   function leavePreview() {
+    cancelClose();
     if (!previewKeyboard.value)
-      closeTimer = setTimeout(() => dismissPreview(false), 260);
+      closeTimer = setTimeout(() => dismissPreview(false, false), 260);
   }
 
   function leaveProject(project, event) {
@@ -113,26 +198,35 @@ export function useProjectPreview() {
     }
   };
   const onOutside = (event) => {
-    if (!event.target.closest(".project-preview, .work-card"))
-      dismissPreview(false);
+    if (
+      !event.target.closest(".project-preview, .cover-button, .preview-trigger")
+    ) {
+      dismissedId = null;
+      dismissPreview(false, false);
+    }
   };
   const onViewportChange = (event) => {
-    if (previewProject.value && openViewport) {
-      if (event.type === "scroll" && window.scrollY === openViewport.y) return;
+    if (event.type === "resize") {
       if (
-        event.type === "resize" &&
-        window.innerWidth === openViewport.width &&
-        window.innerHeight === openViewport.height
+        viewport?.width === window.innerWidth &&
+        viewport?.height === window.innerHeight
       )
         return;
+      viewport = { width: window.innerWidth, height: window.innerHeight };
+      clearPreviewCache();
+      return;
+    }
+    if (previewProject.value && openViewport) {
+      if (event.type === "scroll" && window.scrollY === openViewport.y) return;
     }
     dismissPreview(false);
   };
   const onVisibility = () => {
-    if (document.hidden) dismissPreview(false);
+    if (document.hidden) clearPreviewCache();
   };
 
   onMounted(() => {
+    viewport = { width: window.innerWidth, height: window.innerHeight };
     window.addEventListener("keydown", onKeydown);
     window.addEventListener("pointerdown", onOutside);
     window.addEventListener("scroll", onViewportChange, { passive: true });
@@ -142,6 +236,7 @@ export function useProjectPreview() {
   onBeforeUnmount(() => {
     clearTimeout(openTimer);
     clearTimeout(closeTimer);
+    clearTimeout(expiryTimer);
     window.removeEventListener("keydown", onKeydown);
     window.removeEventListener("pointerdown", onOutside);
     window.removeEventListener("scroll", onViewportChange);
@@ -151,10 +246,12 @@ export function useProjectPreview() {
 
   return {
     previewProject,
-    previewAnchor,
+    previewEntries,
     previewKeyboard,
     previewReady,
     previewTheme,
+    markPreviewReady,
+    clearPreviewCache,
     queuePreview,
     openPreview,
     leaveProject,

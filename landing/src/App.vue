@@ -123,12 +123,12 @@
             :key="project.id"
             class="work-card"
             :class="{ 'work-card--featured': project.id === 'wander' }"
-            @pointerenter="queuePreview(project, $event)"
-            @pointermove="queuePreview(project, $event)"
-            @pointerleave="leaveProject(project, $event)"
           >
             <button
               class="cover-button stroke-trigger"
+              @pointerenter="queuePreview(project, $event)"
+              @pointermove="queuePreview(project, $event)"
+              @pointerleave="leaveProject(project, $event)"
               @click="showProjectDetails(project)"
               :aria-label="`查看 ${project.name} 项目详情`"
             >
@@ -149,7 +149,7 @@
                     :aria-expanded="previewProject?.id === project.id"
                     @click="openPreview(project, $event)"
                   >
-                    悬停预览 <span>↗</span>
+                    网站预览 <span>↗</span>
                   </button>
                 </div>
                 <button
@@ -387,17 +387,18 @@
     </main>
     <Teleport to="body">
       <ProjectPreview
-        v-if="previewProject"
-        :key="previewProject.id"
-        :project="previewProject"
-        :anchor="previewAnchor"
-        :keyboard="previewKeyboard"
+        v-for="entry in previewEntries"
+        :key="entry.project.id"
+        :project="entry.project"
+        :anchor="entry.anchor"
+        :active="previewProject?.id === entry.project.id"
+        :keyboard="previewProject?.id === entry.project.id && previewKeyboard"
         :paused="motionPaused"
-        @ready="previewReady = true"
+        @ready="markPreviewReady(entry.project.id)"
         @enter="keepPreview"
         @leave="leavePreview"
-        @close="dismissPreview"
-        @details="showProjectDetails(previewProject)"
+        @close="dismissPreview()"
+        @details="showProjectDetails(entry.project)"
       />
       <ProjectDetail
         v-if="activeProject"
@@ -411,7 +412,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+import { ref, computed, onMounted, onBeforeUnmount, watch } from "vue";
 import { gsap } from "gsap";
 import KineticRibbon from "./portfolio/KineticRibbon.vue";
 import ProjectCover from "./portfolio/ProjectCover.vue";
@@ -435,10 +436,12 @@ const activeFilter = ref("all"),
   menuOpen = ref(false);
 const {
   previewProject,
-  previewAnchor,
+  previewEntries,
   previewKeyboard,
   previewReady,
   previewTheme,
+  markPreviewReady,
+  clearPreviewCache,
   queuePreview,
   openPreview,
   leaveProject,
@@ -454,6 +457,7 @@ const motionPaused = ref(
   typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches,
 );
+watch(motionPaused, clearPreviewCache);
 const copied = ref(false),
   scrollProgress = ref(0),
   year = new Date().getFullYear();
