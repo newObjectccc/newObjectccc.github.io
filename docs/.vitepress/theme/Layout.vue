@@ -5,6 +5,7 @@ import { computed, onUnmounted, watch } from "vue";
 import Comment from "./components/Comment.vue";
 import ConfirmDialog from "./components/ConfirmDialog.vue";
 import GrowthCanvas from "./components/GrowthCanvas.vue";
+import SecretMusic from "./components/SecretMusic.vue";
 
 const { frontmatter } = useData();
 const route = useRoute();
@@ -20,9 +21,12 @@ router.onBeforeRouteChange = (to) => {
 };
 
 const isSecret = computed(() => route.path.startsWith("/secret"));
+// 公开分享页共用秘密花园的皮肤与藤蔓画布，但不给评论、音乐这些门内物件
+const isShare = computed(() => route.path.startsWith("/share"));
+const isGarden = computed(() => isSecret.value || isShare.value);
 
 watch(
-  isSecret,
+  isGarden,
   (on) => {
     if (inBrowser) {
       document.documentElement.classList.toggle("secret-garden", on);
@@ -44,8 +48,9 @@ onUnmounted(() => {
       <Comment v-if="isSecret && frontmatter.comment" />
     </template>
     <template #layout-bottom>
-      <GrowthCanvas v-if="isSecret" />
+      <GrowthCanvas v-if="isGarden" />
       <ConfirmDialog v-if="isSecret" />
+      <SecretMusic v-if="isSecret" />
     </template>
   </DefaultTheme.Layout>
 </template>

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
-import { marked } from "marked";
 import Comment from "./Comment.vue";
 import ReadAloud from "./ReadAloud.vue";
-import { deleteEntry, formatTime, getCommentCount, getEntry, getMe, type Entry } from "../secret/api";
+import { createShare, deleteEntry, formatTime, getCommentCount, getEntry, getMe, resolveVideoUrl, type Entry } from "../secret/api";
 import { askAlert, askConfirm } from "../secret/confirm";
+import { renderEntryMarkdown } from "../secret/render";
+import { resolveShortVideoLines, stripVideoLines } from "../secret/video";
 
 const entry = ref<Entry | null>(null);
+const displayContent = ref("");
 const commentCount = ref<number | null>(null);
 const role = ref("anon");
 const state = ref<"loading" | "ready" | "error">("loading");
@@ -25,8 +27,13 @@ onMounted(async () => {
     const [me, e] = await Promise.all([getMe(), getEntry(id)]);
     role.value = me.role;
     entry.value = e;
+    displayContent.value = e.content;
     document.title = `${e.title} | 秘密空间`;
     state.value = "ready";
+    // b23.tv 短链要服务端展开才知道是不是视频：先按原文渲染，展开后升级成播放器
+    resolveShortVideoLines(e.content, resolveVideoUrl)
+      .then((md) => (displayContent.value = md))
+      .catch(() => {});
     // 评论数展示失败不影响正文
     getCommentCount(`/secret/entry?id=${id}`)
       .then((n) => (commentCount.value = n))
@@ -38,17 +45,15 @@ onMounted(async () => {
 });
 
 // GFM + 单换行转 <br>：手打的日记按 Enter 换行就该换行；
-// 主人敲下的额外空行也保留——每多一个换行，多一条可见的呼吸缝
-const html = computed(() => {
-  if (!entry.value) return "";
-  const withGaps = entry.value.content.replace(/\n{3,}/g, (m) => "\n\n" + "<br>\n\n".repeat(m.length - 2));
-  return marked.parse(withGaps, { breaks: true, gfm: true });
-});
+// 主人敲下的额外空行也保留——每多一个换行，多一条可见的呼吸缝；
+// 独占一行的 bilibili / YouTube 裸 URL 变成内嵌播放器
+// （管线抽在 secret/render.ts，与公开分享页共用）
+const html = computed(() => (displayContent.value ? renderEntryMarkdown(displayContent.value) : ""));
 
 /** 朗读前把 markdown 符号剥掉，只留可读文本 */
 const speakable = computed(() =>
   entry.value
-    ? entry.value.content
+    ? stripVideoLines(entry.value.content)
         .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
         .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
         .replace(/[#>*`\-]/g, "")
@@ -69,6 +74,22 @@ async function onDelete() {
     await askAlert((e as Error).message);
   }
 }
+
+async function onShare() {
+  if (!entry.value) return;
+  try {
+    const { token } = await createShare(entry.value.id);
+    const url = `${location.origin}/share/?t=${token}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      await askAlert("分享链接已复制。拿到链接的人只能看这一篇，进不了列表。");
+    } catch {
+      await askAlert(`复制失败，请手动复制：${url}`);
+    }
+  } catch (e) {
+    await askAlert((e as Error).message);
+  }
+}
 </script>
 
 <template>
@@ -85,6 +106,7 @@ async function onDelete() {
         <span v-if="commentCount !== null" class="comment-count">{{ commentCount }} 条评论</span>
         <ReadAloud :text="speakable" />
         <template v-if="role === 'owner'">
+          <a class="entry-share" href="#" @click.prevent="onShare">分享</a>
           <a class="entry-edit" :href="`/secret/write.html?id=${entry.id}`">编辑</a>
           <a class="entry-delete" href="#" @click.prevent="onDelete">删除</a>
         </template>
@@ -137,6 +159,11 @@ async function onDelete() {
   text-decoration: none;
 }
 
+.entry-share {
+  color: var(--vp-c-brand-2, #3ddc84);
+  text-decoration: none;
+}
+
 .entry-delete {
   color: var(--vp-c-text-3, #7f917c);
   text-decoration: none;
@@ -160,6 +187,22 @@ async function onDelete() {
   background: rgba(61, 220, 132, 0.05);
   border-left: 3px solid var(--vp-c-brand-2, #3ddc84);
   color: var(--vp-c-text-2, #b6c7b1);
+}
+
+.entry-body :deep(.video-embed) {
+  margin: 1.3em 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(92, 232, 160, 0.14);
+}
+
+.entry-body :deep(.video-embed iframe) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .secret-tip {

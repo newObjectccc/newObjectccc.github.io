@@ -21,7 +21,7 @@ export default defineConfig({
     [
       "script",
       {},
-      `if (location.pathname.indexOf("/secret") === 0) { document.documentElement.classList.add("secret-garden"); }`,
+      `if (location.pathname.indexOf("/secret") === 0 || location.pathname.indexOf("/share") === 0) { document.documentElement.classList.add("secret-garden"); }`,
     ],
     ["link", { rel: "preconnect", href: "https://api.iconify.design" }],
     ["link", { rel: "preconnect", href: "https://github.com" }],
@@ -71,10 +71,12 @@ export default defineConfig({
     sidebar: {
       // 秘密空间不显示侧边栏，也不参与主站 prev/next 串联
       "/secret/": [],
+      // 公开分享页同样单篇沉浸阅读，不给侧边栏
+      "/share/": [],
       "/": glob
         .sync("docs/*/*.md")
-        // 秘密空间不进侧边栏：避免日记标题在主站页面暴露，页面间靠入口页导航
-        .filter((tar) => !tar.startsWith("docs/secret/"))
+        // 秘密空间不进侧边栏：避免日记标题在主站页面暴露，页面间靠入口页导航；分享页同理
+        .filter((tar) => !tar.startsWith("docs/secret/") && !tar.startsWith("docs/share/"))
         .reduce((acc: any, tar) => {
           const pathArr = tar.split(/[\\/]/);
           const text = pathArr.pop()?.replace(".md", "");

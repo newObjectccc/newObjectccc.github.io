@@ -2,6 +2,7 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 import { createEntry, getEntry, getMe, illustrate, polish, scribe, switchIdentity, updateEntry, uploadDeck, uploadImage } from "../secret/api";
 import { askConfirm } from "../secret/confirm";
+import { resumeMusic, suspendMusic } from "../secret/music";
 
 interface Photo {
   name: string;
@@ -155,11 +156,13 @@ async function toggleRecord() {
       stream.getTracks().forEach((t) => t.stop());
       recording.value = false;
       stopRecordingFeedback();
+      resumeMusic();
       const blob = new Blob(chunks, { type: recorder?.mimeType || "audio/webm" });
       await runScribe(blob);
     };
     recorder.start();
     recording.value = true;
+    suspendMusic();
     elapsed.value = 0;
     elapsedTimer = window.setInterval(() => elapsed.value++, 1000);
     startMeter(stream);
@@ -459,7 +462,7 @@ onUnmounted(() => {
         ref="bodyInput"
         v-model="content"
         class="body-input"
-        placeholder="随手说、随手写都行——发布前 AI 会帮你把格式理顺，内容一个字不动……"
+        placeholder="随手说、随手写都行——发布前 AI 会帮你把格式理顺，内容一个字不动。bilibili / YouTube 的视频链接单独放一行，日记里就能直接播。"
         rows="16"
         @click="trackCursor"
         @keyup="trackCursor"

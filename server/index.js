@@ -57,6 +57,13 @@ db.exec(`CREATE TABLE IF NOT EXISTS entries(
   updated_at TEXT NOT NULL
 )`);
 
+// 单篇分享：token 不可猜测，一篇至多一条有效分享；日记删掉后 JOIN 落空即失效
+db.exec(`CREATE TABLE IF NOT EXISTS shares(
+  token TEXT PRIMARY KEY,
+  entry_id INTEGER NOT NULL UNIQUE,
+  created_at TEXT NOT NULL
+)`);
+
 // ---------------------------------------------------------------- 工具
 
 const sha256 = (s) => crypto.createHash("sha256").update(s, "utf8").digest("hex");
@@ -249,6 +256,8 @@ async function postAiComment(id, title, content) {
 
 function excerptOf(content) {
   return content
+    // 独占一行的视频 URL（渲染时是播放器）不进摘要
+    .replace(/^\s*https?:\/\/\S*(?:bilibili\.com\/video\/BV|b23\.tv\/|youtu\.be\/|youtube\.com\/(?:watch|shorts|live|embed))\S*\s*$/gm, "")
     .replace(/[#>*`\-[\]()!]/g, "")
     .replace(/\s+/g, " ")
     .trim()
@@ -270,6 +279,24 @@ function handleEntries(req, res, pathname, role) {
     const row = db.prepare("SELECT * FROM entries WHERE id = ?").get(Number(m[1]));
     if (row) json(res, 200, row);
     else json(res, 404, { errno: 404, errmsg: "不存在" });
+    return true;
+  }
+
+  // 创建单篇分享链接（幂等：一篇一条，重复点返回同一条）
+  const sm = pathname.match(/^\/api\/entries\/(\d+)\/share$/);
+  if (sm && req.method === "POST") {
+    if (role !== "owner") return json(res, 403, { errno: 403, errmsg: "只有主人能分享" });
+    const id = Number(sm[1]);
+    if (!db.prepare("SELECT id FROM entries WHERE id = ?").get(id)) {
+      return json(res, 404, { errno: 404, errmsg: "不存在" });
+    }
+    db.prepare("INSERT INTO shares(token, entry_id, created_at) VALUES (?, ?, ?) ON CONFLICT(entry_id) DO NOTHING").run(
+      crypto.randomBytes(18).toString("base64url"),
+      id,
+      new Date().toISOString()
+    );
+    const share = db.prepare("SELECT token FROM shares WHERE entry_id = ?").get(id);
+    json(res, 200, { token: share.token });
     return true;
   }
 
@@ -515,7 +542,7 @@ const POLISH_PROMPT = [
   "4. 小标题：内容有明显的场景或时间切换时，可以用简短的小标题分节；没有就不加；",
   "5. 列表：只有内容天然是清单或步骤时才用；",
   "6. 不要总结腔，不要补开头结尾，不要 emoji 堆砌，不要列表腔；",
-  "7. 原文已有的 markdown 语法（包括图片链接）原样保留，不得改动 URL。",
+  "7. 原文已有的 markdown 语法（包括图片链接）原样保留，不得改动 URL；单独占一行的裸 URL 保持原样裸露、独占一行（前端会把它渲染成视频播放器），不要包成 [文字](URL)。",
   "",
   '严格只输出 JSON，格式：{"markdown":"排版后的完整日记"}',
   "",
@@ -766,11 +793,82 @@ async function handleUploadDeck(req, res, role) {
   }
 }
 
+// ---------------------------------------------------------------- b23 短链展开
+
+// bilibili App 分享出来的都是 b23.tv 短链，前端跨域拿不到跳转目标，由服务端代为展开。
+// 只允许 b23.tv 域名，避免这个接口变成开放式跳转代理；结果只回传最终 URL 字符串。
+const videoResolveCache = new Map();
+
+async function expandB23(raw) {
+  if (videoResolveCache.has(raw)) return videoResolveCache.get(raw);
+  let finalUrl = null;
+  try {
+    const resp = await fetch(new URL(raw), {
+      redirect: "follow",
+      signal: AbortSignal.timeout(6000),
+      headers: {
+        "user-agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
+      },
+    });
+    resp.body?.cancel().catch(() => {});
+    finalUrl = resp.url || null;
+  } catch {
+    finalUrl = null; // 展开失败就保持原样，前端仍显示为普通链接
+  }
+  if (videoResolveCache.size > 500) videoResolveCache.clear();
+  videoResolveCache.set(raw, finalUrl);
+  return finalUrl;
+}
+
+async function handleVideoResolve(req, res, role, reqUrl) {
+  if (!role) return json(res, 401, { errno: 401, errmsg: "未登录" });
+  const raw = String(reqUrl.searchParams.get("url") || "");
+  let target;
+  try {
+    target = new URL(raw);
+  } catch {
+    return json(res, 400, { errno: 400, errmsg: "链接格式不对" });
+  }
+  if (target.protocol !== "https:" || target.hostname !== "b23.tv") {
+    return json(res, 400, { errno: 400, errmsg: "只支持 b23.tv 短链" });
+  }
+  json(res, 200, { url: await expandB23(raw) });
+}
+
+// ---------------------------------------------------------------- 单篇分享（公开读取）
+
+// 凭不可猜测的 token 读一篇日记：只回标题/正文/创建时间，暴露不了列表和其他篇。
+// b23 短链在服务端先展开成视频页 URL，前端渲染管线才能把它变成播放器。
+const SHARE_SHORT_LINK_RE = /^\s*https?:\/\/b23\.tv\/\S+\s*$/;
+
+async function handleShareRead(req, res, token) {
+  const row = db
+    .prepare(
+      `SELECT e.title, e.content, e.created_at
+       FROM shares s JOIN entries e ON e.id = s.entry_id
+       WHERE s.token = ?`
+    )
+    .get(token);
+  if (!row) return json(res, 404, { errno: 404, errmsg: "链接不存在或已失效" });
+
+  const lines = String(row.content).split("\n");
+  let inFence = false;
+  for (let i = 0; i < lines.length; i++) {
+    if (/^\s*```/.test(lines[i])) inFence = !inFence;
+    if (inFence || !SHARE_SHORT_LINK_RE.test(lines[i])) continue;
+    const finalUrl = await expandB23(lines[i].trim());
+    if (finalUrl) lines[i] = finalUrl;
+  }
+  json(res, 200, { title: row.title, content: lines.join("\n"), created_at: row.created_at });
+}
+
 // ---------------------------------------------------------------- 路由
 
 const server = http.createServer(async (req, res) => {
   try {
-    const pathname = new URL(req.url, "http://x").pathname;
+    const reqUrl = new URL(req.url, "http://x");
+    const pathname = reqUrl.pathname;
 
     if (pathname === "/api/health") return json(res, 200, { ok: true });
 
@@ -779,6 +877,10 @@ const server = http.createServer(async (req, res) => {
 
     // 门禁之后：日记/语音/朗读/上传。forward_auth 已在边缘拦一道，这里再校验一层。
     const role = roleFromReq(req);
+
+    // 公开：单篇分享读取（Caddy 对 /api/share/* 不做 forward_auth，只放行这一条）
+    const shareMatch = pathname.match(/^\/api\/share\/([A-Za-z0-9_-]{16,64})$/);
+    if (shareMatch && req.method === "GET") return await handleShareRead(req, res, shareMatch[1]);
 
     const entryResult = handleEntries(req, res, pathname, role);
     if (entryResult) return await entryResult;
@@ -790,6 +892,7 @@ const server = http.createServer(async (req, res) => {
     if (pathname === "/api/tts" && req.method === "POST") return await handleTts(req, res, role);
     if (pathname === "/api/upload" && req.method === "POST") return await handleUpload(req, res, role);
     if (pathname === "/api/upload-deck" && req.method === "POST") return await handleUploadDeck(req, res, role);
+    if (pathname === "/api/video/resolve" && req.method === "GET") return await handleVideoResolve(req, res, role, reqUrl);
 
     json(res, 404, { errno: 404, errmsg: "not found" });
   } catch (e) {

@@ -7,6 +7,9 @@ landing/dist
 # 秘密空间：日记只存本机，不进公开仓库
 docs/secret/
 
+# 秘密空间背景音乐：版权音频只存本机，随部署进镜像，不进公开仓库
+docs/public/secret/
+
 # 环境变量与密钥（真实值只存服务器 /opt/vesper/.env）
 .env
 .env.*

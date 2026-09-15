@@ -7,6 +7,11 @@ handle /api/gate/* {
 	reverse_proxy server:7000
 }
 
+# 公开：单篇分享读取（凭不可猜测的 token 取一篇，其他 /api 仍需门禁）
+handle /api/share/* {
+	reverse_proxy server:7000
+}
+
 # 门内：Waline 评论后端（剥离 /waline 前缀）
 handle_path /waline/* {
 	forward_auth server:7000 {

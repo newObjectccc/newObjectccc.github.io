@@ -1,19 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#08080c" />
-    <title>Vesper — Independent Developer</title>
-    <meta name="description" content="独立开发者，专注于构建有意义的数字产品。" />
+    <meta name="theme-color" content="#f3f2ec" />
+    <title>Vesper · 陈鑫铄 — Full-stack, AI Agent & FDE</title>
+    <meta
+      name="description"
+      content="陈鑫铄 Vesper 的个人作品集。全栈开发、AI Agent 工程与 FDE 现场交付，探索 Wander China、牛市通、爱伴学及更多独立产品与开源实践。"
+    />
+    <link rel="canonical" href="https://vesper.qyqmedu.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Vesper — Curiosity, made real." />
+    <meta
+      property="og:description"
+      content="把好奇心，做成真实可用的产品。陈鑫铄的独立作品、全栈工程与 AI Agent 实践。"
+    />
+    <meta property="og:url" content="https://vesper.qyqmedu.com/" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" href="/favicon.ico?v=2" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="秘密空间" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Vesper" />
     <script>
-      if ("serviceWorker" in navigator) {
+      if ("serviceWorker" in navigator && location.protocol === "https:") {
         window.addEventListener("load", function () {
           navigator.serviceWorker.register("/sw.js");
         });
@@ -21,13 +36,16 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div id="app"></div>
+    <noscript
+      ><p>Vesper · 陈鑫铄 — 全栈开发、AI Agent 与 FDE。</p>
+      <p>
+        请启用 JavaScript 查看交互作品集，或<a href="/main.html">阅读技术文章</a
+        >、<a href="mailto:newobjectccc@gmail.com">联系我</a>。
+      </p></noscript
+    >
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

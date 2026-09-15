@@ -65,6 +65,10 @@ export const listEntries = () => request<EntrySummary[]>("/api/entries");
 
 export const getEntry = (id: number) => request<Entry>(`/api/entries/${id}`);
 
+/** 创建（或取回）单篇分享 token，一篇一条 */
+export const createShare = (id: number) =>
+  request<{ token: string }>(`/api/entries/${id}/share`, { method: "POST" });
+
 export const createEntry = (title: string, content: string) =>
   request<{ id: number }>("/api/entries", {
     method: "POST",
@@ -102,6 +106,12 @@ export const polish = (content: string) =>
     headers: JSON_HEADERS,
     body: JSON.stringify({ content }),
   });
+
+/** 展开 b23.tv 短链，返回最终 URL；展开不了返回 null */
+export const resolveVideoUrl = async (url: string): Promise<string | null> => {
+  const d = await request<{ url: string | null }>(`/api/video/resolve?url=${encodeURIComponent(url)}`);
+  return d.url || null;
+};
 
 export const merge = (current: string, addition: string) =>
   request<{ markdown: string }>("/api/merge", {

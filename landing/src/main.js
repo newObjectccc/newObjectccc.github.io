@@ -1,9 +1,5 @@
-import { createApp } from 'vue'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import App from './App.vue'
-import './style.css'
+import { createApp } from "vue";
+import App from "./App.vue";
+import "./style.css";
 
-gsap.registerPlugin(ScrollTrigger)
-
-createApp(App).mount('#app')
+createApp(App).mount("#app");
