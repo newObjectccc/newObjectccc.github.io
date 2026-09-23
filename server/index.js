@@ -37,8 +37,8 @@ const FUNASR_URL = env("FUNASR_WS_URL", "ws://host.docker.internal:10095");
 // Waline 评论后端（compose 内网）
 const WALINE_BASE = env("WALINE_BASE_URL", "http://waline:8360");
 const AI_COMMENT_NICK = env("AI_COMMENT_NICK", "园丁");
-const SCRIBE_MODEL = env("SCRIBE_MODEL", "google/gemini-2.5-flash");
-const ILLUSTRATE_MODEL = env("ILLUSTRATE_MODEL", "qwen/qwen2.5-vl-72b-instruct");
+const SCRIBE_MODEL = env("SCRIBE_MODEL", "xiaomi/mimo-v2.6-pro");
+const ILLUSTRATE_MODEL = env("ILLUSTRATE_MODEL", "xiaomi/mimo-v2.6-pro");
 const COS_BUCKET = env("COS_BUCKET");
 const COS_REGION = env("COS_REGION");
 const COS_PUBLIC = env("COS_PUBLIC_BASE_URL").replace(/\/$/, "");
